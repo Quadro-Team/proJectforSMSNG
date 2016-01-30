@@ -34,16 +34,26 @@ public class TaskActivity extends AppCompatActivity {
         next = (Button)findViewById(R.id.next);
 
         switch(getIntent().getIntExtra("lvl", 1)){
-            case 1: level1Exercise(); break;
-            case 2: level2Exercise();break;
-            case 3: level3Exercise();break;
-            case 4: level4Exercise();break;
-            case 5: level5Exercise();break;
-            case 6: level6Exercise();break;
-            case 7: level7Exercise();break;
-            case 8: level8Exercise();break;
-            case 9: //Уровень9;
-            case 10: //Уровень10;
+            case 1: level1Exercise();
+                break;
+            case 2: level2Exercise();
+                break;
+            case 3: level3Exercise();
+                break;
+            case 4: level4Exercise();
+                break;
+            case 5: level5Exercise();
+                break;
+            case 6: level6Exercise();
+                break;
+            case 7: level7Exercise();
+                break;
+            case 8: level8Exercise();
+                break;
+            case 9: lvl228Exercise();
+                break;
+            case 10: lvl322Exercise();
+                break;
 
         }
     }
@@ -259,6 +269,131 @@ public class TaskActivity extends AppCompatActivity {
             answer.setBackgroundColor(Color.rgb(255,112,112));
         }
     }
+
+    //LVL 9
+    public void lvl228Exercise(){
+        int numb1 = rand.nextInt(99)+1;
+        int numb2 = rand.nextInt(49)+1;
+        int base = rand.nextInt(15)+1;
+        while (numb2>numb1){
+            numb1 = rand.nextInt(99)+1;
+            numb2 = rand.nextInt(49)+1;
+            break;
+        }
+
+        int a = numb1;
+        int b;
+        String temp2 = "";
+
+        while (a > 1) {
+            if (a > base) {
+                b = a % base;
+                temp2 = b + temp;
+                a = a / base;
+
+            } else {
+                b = a % base;
+                temp2 = b + temp;
+                break;
+            }
+        }
+        a = numb2;
+        String temp1 = "";
+
+        while (a > 1) {
+            if (a > base) {
+                b = a % base;
+                temp1 = b + temp;
+                a = a / base;
+
+            } else {
+                b = a % base;
+                temp1 = b + temp;
+                break;
+            }
+        }
+        int right = numb1*numb2;
+        a = numb1;
+        String temp3 = "";
+
+        while (a > 1) {
+            if (a > base) {
+                b = a % base;
+                temp3 = b + temp;
+                a = a / base;
+
+            } else {
+                b = a % base;
+                temp3 = b + temp;
+                break;
+            }
+        }
+        exercise.setText(temp1+"("+base+")*"+temp2+"("+base+")=");//вывод задания
+        searched = temp3;//ответ
+
+    }
+    //LVL 10
+    public void lvl322Exercise(){
+        int numb1 = rand.nextInt(99)+1;
+        int numb2 = rand.nextInt(49)+1;
+        int base = rand.nextInt(15)+1;
+        while (numb2>numb1){
+            numb1 = rand.nextInt(99)+1;
+            numb2 = rand.nextInt(49)+1;
+            break;
+        }
+
+        int a = numb1;
+        int b;
+        String temp2 = "";
+
+        while (a > 1) {
+            if (a > base) {
+                b = a % base;
+                temp2 = b + temp;
+                a = a / base;
+
+            } else {
+                b = a % base;
+                temp2 = b + temp;
+                break;
+            }
+        }
+        a = numb2;
+        String temp1 = "";
+
+        while (a > 1) {
+            if (a > base) {
+                b = a % base;
+                temp1 = b + temp;
+                a = a / base;
+
+            } else {
+                b = a % base;
+                temp1 = b + temp;
+                break;
+            }
+        }
+        int right = numb1/numb2;
+        a = numb1;
+        String temp3 = "";
+
+        while (a > 1) {
+            if (a > base) {
+                b = a % base;
+                temp3 = b + temp;
+                a = a / base;
+
+            } else {
+                b = a % base;
+                temp3 = b + temp;
+                break;
+            }
+        }
+        exercise.setText(temp1+"("+base+")/"+temp2+"("+base+")=");//вывод задания
+        searched = temp3;//ответ
+
+    }
     
     //Кнопка Next
     public void nextExercise(View v){
@@ -295,6 +430,12 @@ public class TaskActivity extends AppCompatActivity {
                     break;
                 case 8:
                     level8Exercise();
+                    break;
+                case 9:
+                    lvl228Exercise();
+                    break;
+                case 10:
+                    lvl322Exercise();
                     break;
 
             }
