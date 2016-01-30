@@ -252,14 +252,14 @@ public class TaskActivity extends AppCompatActivity {
     public void checkAnswer(View v) {
         String answerCheck = answer.getText().toString();
         if (answerCheck.equals(searched)) { //строки == не сравнивают
-            answer.setBackgroundColor(Color.GREEN);
+            answer.setBackgroundColor(Color.rgb(154,252,85));
             localScore++;
             next.setText(localScore + " из 10 \n   Next");
         } else {
-            answer.setBackgroundColor(Color.RED);
+            answer.setBackgroundColor(Color.rgb(255,112,112));
         }
     }
-
+    
     //Кнопка Next
     public void nextExercise(View v){
         answer.setBackgroundColor(Color.TRANSPARENT);
