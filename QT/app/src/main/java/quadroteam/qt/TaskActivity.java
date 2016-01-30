@@ -1,5 +1,6 @@
 package quadroteam.qt;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -427,8 +428,11 @@ public class TaskActivity extends AppCompatActivity {
         if (localScore <= 10) {
             i = getIntent().getIntExtra("lvl", 1);
         }else {
-             i = getIntent().getIntExtra("lvl", 1) + lev;
-            lev++;
+            //i = getIntent().getIntExtra("lvl", 1) + lev;
+            //lev++;
+            Intent intent = new Intent(this, LevelActivity.class);
+            intent.putExtra("save", true);
+            intent.putExtra("savenum", getIntent().getIntExtra("lvl", 1));
             next.setText("Next");
         }
             switch (i) {

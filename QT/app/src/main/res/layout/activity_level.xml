@@ -11,7 +11,6 @@
     tools:context="quadroteam.qt.LevelActivity">
 
 
-
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -29,6 +28,7 @@
         android:layout_height="wrap_content"
         android:text="Уровень 2 - Счет в СС"
         android:id="@+id/lvl2"
+        android:clickable="false"
         android:background="#9AE4F1"
         android:onClick="startLVL"
         android:textSize="14sp"
@@ -41,6 +41,7 @@
         android:layout_height="wrap_content"
         android:text="Level 3 - Как переводить из 10-ой СС"
         android:id="@+id/lvl3"
+        android:clickable="false"
         android:background="#9AE4F1"
         android:onClick="startLVL"
         android:textSize="14sp"
@@ -53,6 +54,7 @@
         android:layout_height="wrap_content"
         android:text="Уровень 4 - Перевод в СС больше 10"
         android:id="@+id/lvl4"
+        android:clickable="false"
         android:onClick="startLVL"
         android:background="#9AE4F1"
         android:textSize="14sp"
@@ -66,6 +68,7 @@
         android:layout_height="wrap_content"
         android:text="Уровень 5 - Перевод в 10-ю СС из других"
         android:id="@+id/lvl5"
+        android:clickable="false"
         android:onClick="startLVL"
         android:textSize="14sp"
         android:layout_gravity="center"
@@ -77,6 +80,7 @@
         android:layout_height="wrap_content"
         android:text="Уровень 6 - Перевод в кратные СС"
         android:id="@+id/lvl6"
+        android:clickable="false"
         android:onClick="startLVL"
         android:background="#9AE4F1"
         android:layout_weight="1"
@@ -89,6 +93,7 @@
         android:layout_height="wrap_content"
         android:text="Уровень 7 - Сложение"
         android:id="@+id/lvl7"
+        android:clickable="false"
         android:onClick="startLVL"
         android:layout_weight="1"
         android:textSize="14sp"
@@ -102,6 +107,7 @@
         android:layout_height="wrap_content"
         android:text="Уровень 8 - Вычитание"
         android:id="@+id/lvl8"
+        android:clickable="false"
         android:onClick="startLVL"
         android:background="#9AE4F1"
         android:textSize="14sp"
@@ -114,6 +120,7 @@
         android:layout_height="wrap_content"
         android:text="Уровень 9 - Умножение"
         android:id="@+id/lvl9"
+        android:clickable="false"
         android:onClick="startLVL"
         android:background="#9AE4F1"
         android:textSize="14sp"
@@ -126,15 +133,12 @@
         android:layout_height="wrap_content"
         android:text="Уровень 10 - Деление"
         android:id="@+id/lvl10"
+        android:clickable="false"
         android:background="#9AE4F1"
         android:onClick="startLVL"
         android:textSize="14sp"
         android:layout_weight="1"
         android:layout_gravity="center"
         />
-
-
-
-
 
 </LinearLayout>

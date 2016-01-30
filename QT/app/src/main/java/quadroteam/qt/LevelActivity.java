@@ -19,6 +19,8 @@ public class LevelActivity extends AppCompatActivity {
     Button lvl9;
     Button lvl10;
     Boolean [] b = new Boolean[10];
+    int savenum = getIntent().getIntExtra("lvl", 1);
+    int num = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,9 @@ public class LevelActivity extends AppCompatActivity {
         lvl8 = (Button)findViewById(R.id.lvl8);
         lvl9 = (Button)findViewById(R.id.lvl9);
         lvl10 = (Button)findViewById(R.id.lvl10);
+        b[savenum] = getIntent().getBooleanExtra("save",false);
 
+        switch (num){
 
     }
 
