@@ -1,9 +1,8 @@
 package quadroteam.qt;
 
-import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,7 +33,7 @@ public class TaskActivity extends AppCompatActivity {
         answerButton = (Button)findViewById(R.id.check);
         next = (Button)findViewById(R.id.next);
 
-        switch(getIntent().getIntExtra("lvl?", 1)){
+        switch(getIntent().getIntExtra("lvl", 1)){
             case 1: level1Exercise(); break;
             case 2: level2Exercise();break;
             case 3: level3Exercise();break;
