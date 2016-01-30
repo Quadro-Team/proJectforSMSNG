@@ -38,6 +38,8 @@ public class LevelActivity extends AppCompatActivity {
         b[savenum] = getIntent().getBooleanExtra("save",false);
 
         switch (num){
+           case 1: lvl2.setClickable(b[1]);
+        }
 
     }
 
