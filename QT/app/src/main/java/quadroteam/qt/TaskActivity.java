@@ -229,45 +229,58 @@ public class TaskActivity extends AppCompatActivity {
 
     }
 
-
     //Level 7
     public void level7Exercise(){
         int base = rand.nextInt(16);
-        int Num1 = rand.nextInt(1000);
-        int Num2 = rand.nextInt(1000);
+        int Num1 = 0;
+        int Num2 = 0;
+        if (localScore < 3){
+            Num1 = rand.nextInt(100);
+            Num2 = rand.nextInt(100);
+        }
+        if ((localScore > 3)&&(localScore <6))
+        {
+            Num1 = rand.nextInt(500);
+            Num2 = rand.nextInt(500);
+        }
+        if (localScore > 6){
+            Num1 = rand.nextInt(1000);
+            Num2 = rand.nextInt(1000);
+        }
         int Num1_1 = InOtherSystem(base, Num1);
-        int Num2_1 = InOtherSystem(base,Num2);
-        //задание
-        exercise.setText(Integer.toString(Num1_1)+"("+base+")+"+Integer.toString(Num2_1)+"("+base+")=");//вывод задания
-        searched = Integer.toString(InOtherSystem(base,Num1+Num2));//ответ
+        int Num2_1 = InOtherSystem(base,Num2);                  //задание
+
+        exercise.setText(Integer.toString(Num1_1)+"("+base+")+"+Integer.toString(Num2_1)+"("+base+")=");  //вывод задания
+
+        searched = Integer.toString(InOtherSystem(base,Num1+Num2));  //ответ
     }
 
     //Level 8
     public void level8Exercise(){
         int base = rand.nextInt(15)+1;
-        int Num1;
-        int Num2;
+        int Num1 = 0;
+        int Num2 = 0;
         do {
-            Num1 = rand.nextInt(1000);
-            Num2 = rand.nextInt(1000);
+            if (localScore < 3){
+                Num1 = rand.nextInt(100);
+                Num2 = rand.nextInt(100);
+            }
+            if ((localScore > 3)&&(localScore <6))
+            {
+                Num1 = rand.nextInt(500);
+                Num2 = rand.nextInt(500);
+            }
+            if (localScore > 6){
+                Num1 = rand.nextInt(1000);
+                Num2 = rand.nextInt(1000);
+            }
         } while (Num1>Num2);
         int Num1_1 = InOtherSystem(base,Num1);
-        int Num2_1 = InOtherSystem(base,Num2);
-        //задание
-        exercise.setText(Integer.toString(Num1_1)+"("+base+")-"+Integer.toString(Num2_1)+"("+base+")=");//вывод задания
-        searched = Integer.toString(InOtherSystem(base,Num1-Num2));//ответ
-    }
+        int Num2_1 = InOtherSystem(base,Num2);               //задание
 
-    //Проверка любого номера
-    public void checkAnswer(View v) {
-        String answerCheck = answer.getText().toString();
-        if (answerCheck.equals(searched)) { //строки == не сравнивают
-            answer.setBackgroundColor(Color.rgb(154,252,85));
-            localScore++;
-            next.setText(localScore + " из 10 \n   Next");
-        } else {
-            answer.setBackgroundColor(Color.rgb(255,112,112));
-        }
+        exercise.setText(Integer.toString(Num1_1)+"("+base+")-"+Integer.toString(Num2_1)+"("+base+")=");  //вывод задания
+
+        searched = Integer.toString(InOtherSystem(base,Num1-Num2));  //ответ
     }
 
     //Level 9
@@ -394,7 +407,19 @@ public class TaskActivity extends AppCompatActivity {
         searched = temp3;//ответ
 
     }
-    
+
+    //Проверка любого номера
+    public void checkAnswer(View v) {
+        String answerCheck = answer.getText().toString();
+        if (answerCheck.equals(searched)) { //строки == не сравнивают
+            answer.setBackgroundColor(Color.rgb(154,252,85));
+            localScore++;
+            next.setText(localScore + " из 10 \n   Next");
+        } else {
+            answer.setBackgroundColor(Color.rgb(255,112,112));
+        }
+    }
+
     //Кнопка Next
     public void nextExercise(View v){
         answer.setBackgroundColor(Color.TRANSPARENT);
