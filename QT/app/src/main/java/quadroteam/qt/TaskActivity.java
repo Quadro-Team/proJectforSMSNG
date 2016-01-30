@@ -50,9 +50,9 @@ public class TaskActivity extends AppCompatActivity {
                 break;
             case 8: level8Exercise();
                 break;
-            case 9: lvl228Exercise();
+            case 9: level9Exercise();
                 break;
-            case 10: lvl322Exercise();
+            case 10: level10Exercise();
                 break;
 
         }
@@ -270,8 +270,8 @@ public class TaskActivity extends AppCompatActivity {
         }
     }
 
-    //LVL 9
-    public void lvl228Exercise(){
+    //Level 9
+    public void level9Exercise(){
         int numb1 = rand.nextInt(99)+1;
         int numb2 = rand.nextInt(49)+1;
         int base = rand.nextInt(15)+1;
@@ -332,8 +332,8 @@ public class TaskActivity extends AppCompatActivity {
         searched = temp3;//ответ
 
     }
-    //LVL 10
-    public void lvl322Exercise(){
+    //Level 10
+    public void level10Exercise(){
         int numb1 = rand.nextInt(99)+1;
         int numb2 = rand.nextInt(49)+1;
         int base = rand.nextInt(15)+1;
@@ -432,10 +432,10 @@ public class TaskActivity extends AppCompatActivity {
                     level8Exercise();
                     break;
                 case 9:
-                    lvl228Exercise();
+                    level9Exercise();
                     break;
                 case 10:
-                    lvl322Exercise();
+                    level10Exercise();
                     break;
 
             }
