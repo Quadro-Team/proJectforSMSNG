@@ -1,6 +1,7 @@
 package quadroteam.qt;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,10 +14,14 @@ import java.util.Random;
 
 public class TaskActivity extends AppCompatActivity {
 
-    byte localScore = 0;
+    SharedPreferences sPref;
+    final String SAVED_VALUE = "saved_value";
+    final String SAVED_LOCAL_VALUE = "saved_local_value";
+
+    int localScore = 0;
     int  base, number,i;
-    byte lev = 1;
-    boolean flag;
+    int lev = 1;
+    boolean f,flag;
     String temp = "",searched;
     String numberString = null;
     TextView exercise;
@@ -28,11 +33,12 @@ public class TaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
 
-
         exercise = (TextView)findViewById(R.id.textExercise);
         answer = (EditText)findViewById(R.id.textAnswer);
         answerButton = (Button)findViewById(R.id.check);
         next = (Button)findViewById(R.id.next);
+
+        localScore = Integer.parseInt(sPref.getString(SAVED_LOCAL_VALUE,"0"));
 
         switch(getIntent().getIntExtra("lvl", 1)){
             case 1: level1Exercise();
@@ -87,6 +93,7 @@ public class TaskActivity extends AppCompatActivity {
 
     //Level 1
     public void level1Exercise(){
+        f = true;
         int number=rand.nextInt(99)+1;//задание
         exercise.setText("В какой минимальной с.с. можно записать число так\n"+Integer.toString(number));//вывод задания
         searched=Integer.toString(Math.max(number%10,number/10)+1);//ответ
@@ -94,6 +101,7 @@ public class TaskActivity extends AppCompatActivity {
 
     //Level 2
     public void level2Exercise(){
+        f = true;
         int base=rand.nextInt(8)+2;//основание системы счисления
         int des=rand.nextInt(base);//1 разряд
         int ed=rand.nextInt(base);//0 разряд
@@ -105,6 +113,8 @@ public class TaskActivity extends AppCompatActivity {
 
     //Level 3
     public void level3Exercise(){
+        f = true;
+
         int base=rand.nextInt(9)+2;
         int number;
         if(base<4) number=rand.nextInt(16)+1;
@@ -117,15 +127,17 @@ public class TaskActivity extends AppCompatActivity {
 
     //Номер 4
     public void level4Exercise(){
+        f = true;
+
         int base=rand.nextInt(5)+11;
         int number=rand.nextInt(100)+1;
         exercise.setText("Переведите из 10й с.с.\n"+Integer.toString(number)+" в("+Integer.toString(base)+")");
         searched=InOtherSystem11_16(base, number);
     }
 
-
     //Номер 5
     public void level5Exercise(){
+        f = true;
 
         base=(int)(Math.random()*10);
         number=(int)(Math.random()*100);
@@ -172,6 +184,7 @@ public class TaskActivity extends AppCompatActivity {
 
     //Номер 6
     public void level6Exercise(){
+        f = true;
 
         base  = (int) (Math.random() * 10);
         number = (int) (Math.random() * 100);
@@ -232,6 +245,8 @@ public class TaskActivity extends AppCompatActivity {
 
     //Level 7
     public void level7Exercise(){
+        f = true;
+
         int base = rand.nextInt(16);
         int Num1 = 0;
         int Num2 = 0;
@@ -258,6 +273,8 @@ public class TaskActivity extends AppCompatActivity {
 
     //Level 8
     public void level8Exercise(){
+        f = true;
+
         int base = rand.nextInt(15)+1;
         int Num1 = 0;
         int Num2 = 0;
@@ -286,6 +303,8 @@ public class TaskActivity extends AppCompatActivity {
 
     //Level 9
     public void level9Exercise(){
+        f = true;
+
         int numb1 = rand.nextInt(99)+1;
         int numb2 = rand.nextInt(49)+1;
         int base = rand.nextInt(15)+1;
@@ -346,8 +365,11 @@ public class TaskActivity extends AppCompatActivity {
         searched = temp3;//ответ
 
     }
+
     //Level 10
     public void level10Exercise(){
+        f = true;
+
         int numb1 = rand.nextInt(99)+1;
         int numb2 = rand.nextInt(49)+1;
         int base = rand.nextInt(15)+1;
@@ -412,28 +434,39 @@ public class TaskActivity extends AppCompatActivity {
     //Проверка любого номера
     public void checkAnswer(View v) {
         String answerCheck = answer.getText().toString();
-        if (answerCheck.equals(searched)) { //строки == не сравнивают
-            answer.setBackgroundColor(Color.rgb(154,252,85));
-            localScore++;
-            next.setText(localScore + " из 10 \n   Next");
-        } else {
-            answer.setBackgroundColor(Color.rgb(255,112,112));
-        }
+       if (f) {
+           if (answerCheck.equals(searched)) {
+               answer.setBackgroundColor(Color.rgb(154, 252, 85));
+               localScore++;
+               next.setText(localScore + " из 10 \n   Next");
+               f = !f;
+           } else {
+               answer.setBackgroundColor(Color.rgb(255, 112, 112));
+               f =!f;
+           }
+       }
     }
 
     //Кнопка Next
     public void nextExercise(View v){
         answer.setBackgroundColor(Color.TRANSPARENT);
         answer.setText("");
-        if (localScore <= 10) {
+        if (localScore < 10) {
             i = getIntent().getIntExtra("lvl", 1);
         }else {
-            //i = getIntent().getIntExtra("lvl", 1) + lev;
-            //lev++;
+            Intent level = new Intent(this,LevelActivity.class);
             Intent intent = new Intent(this, LevelActivity.class);
             intent.putExtra("save", true);
             intent.putExtra("savenum", getIntent().getIntExtra("lvl", 1));
             next.setText("Next");
+                int levelDoneVariable = getIntent().getIntExtra("lvl",1);
+            sPref = getPreferences(MODE_PRIVATE);
+            SharedPreferences.Editor ed = sPref.edit();
+            ed.putString(SAVED_LOCAL_VALUE,Integer.toString(localScore));
+            ed.commit();
+            ed.putString(SAVED_VALUE,Integer.toString(levelDoneVariable));
+            ed.commit();
+            startActivity(level);
         }
             switch (i) {
                 case 1:
