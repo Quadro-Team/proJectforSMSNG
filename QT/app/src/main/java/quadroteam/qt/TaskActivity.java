@@ -1,6 +1,7 @@
 package quadroteam.qt;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,10 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class TaskActivity extends AppCompatActivity {
+
+    SharedPreferences sPref;
+    final String SAVED_VALUE = "saved_value";
+
 
     byte localScore = 0;
     int  base, number,i;
@@ -27,7 +32,6 @@ public class TaskActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
-
 
         exercise = (TextView)findViewById(R.id.textExercise);
         answer = (EditText)findViewById(R.id.textAnswer);
@@ -346,6 +350,7 @@ public class TaskActivity extends AppCompatActivity {
         searched = temp3;//ответ
 
     }
+
     //Level 10
     public void level10Exercise(){
         int numb1 = rand.nextInt(99)+1;
@@ -428,12 +433,17 @@ public class TaskActivity extends AppCompatActivity {
         if (localScore <= 10) {
             i = getIntent().getIntExtra("lvl", 1);
         }else {
-            //i = getIntent().getIntExtra("lvl", 1) + lev;
-            //lev++;
+            Intent level = new Intent(this,LevelActivity.class);
             Intent intent = new Intent(this, LevelActivity.class);
             intent.putExtra("save", true);
             intent.putExtra("savenum", getIntent().getIntExtra("lvl", 1));
             next.setText("Next");
+                int levelDoneVariable = getIntent().getIntExtra("lvl",1);
+            sPref = getPreferences(MODE_PRIVATE);
+            SharedPreferences.Editor ed = sPref.edit();
+            ed.putString(SAVED_VALUE,Integer.toString(levelDoneVariable));
+            ed.commit();
+            startActivity(level);
         }
             switch (i) {
                 case 1:

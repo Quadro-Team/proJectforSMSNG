@@ -19,12 +19,13 @@ public class LevelActivity extends AppCompatActivity {
     Button lvl9;
     Button lvl10;
     Boolean [] b = new Boolean[10];
-    int savenum = getIntent().getIntExtra("lvl", 1);
+    int savenum;
     int num = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
+        savenum = getIntent().getIntExtra("lvl", 1);
         lvl1 = (Button)findViewById(R.id.lvl1);
         lvl2 = (Button)findViewById(R.id.lvl2);
         lvl3 = (Button)findViewById(R.id.lvl3);
