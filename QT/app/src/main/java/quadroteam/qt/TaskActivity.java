@@ -20,7 +20,6 @@ public class TaskActivity extends AppCompatActivity {
 
     int localScore = 0;
     int  base, number,i;
-    int lev = 1;
     boolean f,flag;
     String temp = "",searched;
     String numberString = null;
@@ -35,10 +34,10 @@ public class TaskActivity extends AppCompatActivity {
 
         exercise = (TextView)findViewById(R.id.textExercise);
         answer = (EditText)findViewById(R.id.textAnswer);
-        answerButton = (Button)findViewById(R.id.check);
-        next = (Button)findViewById(R.id.next);
+        answerButton = (Button)findViewById(R.id.check); answerButton.setBackgroundColor(Color.TRANSPARENT);
+        next = (Button)findViewById(R.id.next); next.setBackgroundColor(Color.TRANSPARENT);
 
-        localScore = Integer.parseInt(sPref.getString(SAVED_LOCAL_VALUE,"0"));
+//        localScore = Integer.parseInt(sPref.getString(SAVED_LOCAL_VALUE,"0"));
 
         switch(getIntent().getIntExtra("lvl", 1)){
             case 1: level1Exercise();
@@ -455,17 +454,22 @@ public class TaskActivity extends AppCompatActivity {
             i = getIntent().getIntExtra("lvl", 1);
         }else {
             Intent level = new Intent(this,LevelActivity.class);
-            Intent intent = new Intent(this, LevelActivity.class);
-            intent.putExtra("save", true);
-            intent.putExtra("savenum", getIntent().getIntExtra("lvl", 1));
-            next.setText("Next");
-                int levelDoneVariable = getIntent().getIntExtra("lvl",1);
-            sPref = getPreferences(MODE_PRIVATE);
-            SharedPreferences.Editor ed = sPref.edit();
-            ed.putString(SAVED_LOCAL_VALUE,Integer.toString(localScore));
-            ed.commit();
-            ed.putString(SAVED_VALUE,Integer.toString(levelDoneVariable));
-            ed.commit();
+             new Thread(new Runnable()  {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(getApplicationContext(), LevelActivity.class);
+                    intent.putExtra("save", true);
+                    intent.putExtra("savenum", getIntent().getIntExtra("lvl", 1));
+                    next.setText("Next");
+                    int levelDoneVariable = getIntent().getIntExtra("lvl",1);
+                    sPref = getPreferences(MODE_PRIVATE);
+                    SharedPreferences.Editor ed = sPref.edit();
+                    ed.putString(SAVED_LOCAL_VALUE,Integer.toString(localScore));
+                    ed.apply();
+                    ed.putString(SAVED_VALUE,Integer.toString(levelDoneVariable));
+                    ed.apply();
+                }
+            }).start();
             startActivity(level);
         }
             switch (i) {
@@ -505,4 +509,3 @@ public class TaskActivity extends AppCompatActivity {
 
         }
     }
-
