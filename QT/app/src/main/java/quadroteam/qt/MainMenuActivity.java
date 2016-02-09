@@ -16,9 +16,9 @@ Button level,theory,developers;
         level = (Button)findViewById(R.id.StG);
         theory = (Button)findViewById(R.id.lib);
         developers = (Button)findViewById(R.id.opt);
-        level.setBackgroundColor(Color.TRANSPARENT);
+       /* level.setBackgroundColor(Color.TRANSPARENT);
         theory.setBackgroundColor(Color.TRANSPARENT);
-        developers.setBackgroundColor(Color.TRANSPARENT);
+        developers.setBackgroundColor(Color.TRANSPARENT)*/
     }
 
 

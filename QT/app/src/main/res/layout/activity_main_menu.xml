@@ -23,8 +23,10 @@
     <Button
         android:layout_width="355sp"
         android:layout_height="50sp"
+        android:background="@drawable/button"
         android:text="Начать игру"
         android:id="@+id/StG"
+        android:layout_gravity="center"
         android:textColor="#000"
         android:textSize="30sp"
         android:onClick="startLVLlist"
@@ -36,6 +38,8 @@
         android:text="Теория"
         android:textColor="#000"
         android:id="@+id/lib"
+        android:layout_gravity="center"
+        android:background="@drawable/button"
         android:textSize="30sp"
         android:layout_weight="1"/>
 
@@ -44,7 +48,9 @@
         android:layout_height="wrap_content"
         android:text="Опции"
         android:textColor="#000"
+        android:layout_gravity="center"
         android:textSize="30sp"
+        android:background="@drawable/button"
         android:id="@+id/opt"
         android:layout_weight="1"/>
 

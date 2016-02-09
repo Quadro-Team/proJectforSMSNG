@@ -1,14 +1,20 @@
 package quadroteam.qt;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Map;
+import java.util.Set;
+
 public class LevelActivity extends AppCompatActivity {
-        int a;
+        int a,key;SharedPreferences sPref;
+        static String SAVED_VALUE = "saved_value";
    Button lvl1;
     Button lvl2;
     Button lvl3;
@@ -27,18 +33,19 @@ public class LevelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
         savenum = getIntent().getIntExtra("lvl", 1);
-        lvl1 = (Button)findViewById(R.id.lvl1); lvl1.setBackgroundColor(Color.TRANSPARENT);
-        lvl2 = (Button)findViewById(R.id.lvl2); lvl2.setBackgroundColor(Color.TRANSPARENT);
-        lvl3 = (Button)findViewById(R.id.lvl3); lvl3.setBackgroundColor(Color.TRANSPARENT);
-        lvl4 = (Button)findViewById(R.id.lvl4); lvl4.setBackgroundColor(Color.TRANSPARENT);
-        lvl5 = (Button)findViewById(R.id.lvl5); lvl5.setBackgroundColor(Color.TRANSPARENT);
-        lvl6 = (Button)findViewById(R.id.lvl6); lvl6.setBackgroundColor(Color.TRANSPARENT);
-        lvl7 = (Button)findViewById(R.id.lvl7); lvl7.setBackgroundColor(Color.TRANSPARENT);
-        lvl8 = (Button)findViewById(R.id.lvl8); lvl8.setBackgroundColor(Color.TRANSPARENT);
-        lvl9 = (Button)findViewById(R.id.lvl9); lvl9.setBackgroundColor(Color.TRANSPARENT);
-        lvl10 = (Button)findViewById(R.id.lvl10); lvl10.setBackgroundColor(Color.TRANSPARENT);
+        lvl1 = (Button)findViewById(R.id.lvl1);
+        lvl2 = (Button)findViewById(R.id.lvl2);
+        lvl3 = (Button)findViewById(R.id.lvl3);
+        lvl4 = (Button)findViewById(R.id.lvl4);
+        lvl5 = (Button)findViewById(R.id.lvl5);
+        lvl6 = (Button)findViewById(R.id.lvl6);
+        lvl7 = (Button)findViewById(R.id.lvl7);
+        lvl8 = (Button)findViewById(R.id.lvl8);
+        lvl9 = (Button)findViewById(R.id.lvl9);
+        lvl10 = (Button)findViewById(R.id.lvl10);
 
-
+        sPref = getPreferences(MODE_PRIVATE);
+         key = Integer.parseInt(sPref.getString(SAVED_VALUE,String.valueOf(0))); ///Законченные уровни <---
         b[savenum] = getIntent().getBooleanExtra("save",false);
 
         switch (num){

@@ -10,16 +10,28 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class TaskActivity extends AppCompatActivity {
 
     SharedPreferences sPref;
-    final String SAVED_VALUE = "saved_value";
-    final String SAVED_LOCAL_VALUE = "saved_local_value";
+    static String SAVED_VALUE = "saved_value";
+    static private String SAVED_LVL_1 = "saved_value";
+    static private String SAVED_LVL_2 = "saved_value";
+    static private String SAVED_LVL_3 = "saved_value";
+    static private String SAVED_LVL_4 = "saved_value";
+    static private String SAVED_LVL_5 = "saved_value";
+    static private String SAVED_LVL_6 = "saved_value";
+    static private String SAVED_LVL_7 = "saved_value";
+    static private String SAVED_LVL_8 = "saved_value";
+    static private String SAVED_LVL_9 = "saved_value";
+    static private String SAVED_LVL_10 = "saved_value";
 
-    int localScore = 0;
-    int  base, number,i;
+
+
+    int localScore;
+    int  base, number,levelVariable;
     boolean f,flag;
     String temp = "",searched;
     String numberString = null;
@@ -31,38 +43,121 @@ public class TaskActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
-
         exercise = (TextView)findViewById(R.id.textExercise);
-        answer = (EditText)findViewById(R.id.textAnswer);
-        answerButton = (Button)findViewById(R.id.check); answerButton.setBackgroundColor(Color.TRANSPARENT);
-        next = (Button)findViewById(R.id.next); next.setBackgroundColor(Color.TRANSPARENT);
+        answer = (EditText)findViewById(R.id.textAnswer);  answer.setBackgroundColor(Color.TRANSPARENT);
+        answerButton = (Button)findViewById(R.id.check);
+        next = (Button)findViewById(R.id.next);
 
-//        localScore = Integer.parseInt(sPref.getString(SAVED_LOCAL_VALUE,"0"));
 
-        switch(getIntent().getIntExtra("lvl", 1)){
-            case 1: level1Exercise();
+        levelVariable = getIntent().getIntExtra("lvl", 1);
+
+        sPref = getPreferences(MODE_PRIVATE);
+
+        getLocalScore(levelVariable);
+
+        if (localScore != 0){
+            next.setText(localScore + " из 10 \n  Next");
+        }
+        switch(levelVariable){
+            case 1: getLocalScore(levelVariable);
+                    level1Exercise();
                 break;
-            case 2: level2Exercise();
+            case 2: getLocalScore(levelVariable);
+                    level2Exercise();
                 break;
-            case 3: level3Exercise();
+            case 3: getLocalScore(levelVariable);
+                    level3Exercise();
                 break;
-            case 4: level4Exercise();
+            case 4: getLocalScore(levelVariable);
+                    level4Exercise();
                 break;
-            case 5: level5Exercise();
+            case 5: getLocalScore(levelVariable);
+                    level5Exercise();
                 break;
-            case 6: level6Exercise();
+            case 6: getLocalScore(levelVariable);
+                    level6Exercise();
                 break;
-            case 7: level7Exercise();
+            case 7: getLocalScore(levelVariable);
+                    level7Exercise();
                 break;
-            case 8: level8Exercise();
+            case 8: getLocalScore(levelVariable);
+                    level8Exercise();
                 break;
-            case 9: level9Exercise();
+            case 9: getLocalScore(levelVariable);
+                    level9Exercise();
                 break;
-            case 10: level10Exercise();
+            case 10:getLocalScore(levelVariable);
+                    level10Exercise();
                 break;
 
         }
     }
+
+
+    private void setLocalScore (int levelVariable){
+        sPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        switch (levelVariable){
+            case 1:
+                ed.putString(SAVED_LVL_1, Integer.toString(localScore));
+                break;
+            case 2: ed.putString(SAVED_LVL_2, Integer.toString(localScore));
+
+                break;
+            case 3: ed.putString(SAVED_LVL_3, Integer.toString(localScore));
+
+                break;
+            case 4: ed.putString(SAVED_LVL_4, Integer.toString(localScore));
+
+                break;
+            case 5: ed.putString(SAVED_LVL_5, Integer.toString(localScore));
+
+                break;
+            case 6: ed.putString(SAVED_LVL_6, Integer.toString(localScore));
+
+                break;
+            case 7: ed.putString(SAVED_LVL_7, Integer.toString(localScore));
+
+                break;
+            case 8: ed.putString(SAVED_LVL_8, Integer.toString(localScore));
+
+                break;
+            case 9: ed.putString(SAVED_LVL_9,Integer.toString(localScore));
+
+                break;
+            case 10:ed.putString(SAVED_LVL_10, Integer.toString(localScore));
+
+                break;
+        }
+            ed.apply();
+    }
+
+    private void getLocalScore (int levelVariable){
+        sPref = getPreferences(MODE_PRIVATE);
+        switch (levelVariable){
+            case 1: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_1,"0"));
+                break;
+            case 2: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_2,"0"));
+                break;
+            case 3: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_3,"0"));
+                break;
+            case 4: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_4,"0"));
+                break;
+            case 5: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_5,"0"));
+                break;
+            case 6: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_6,"0"));
+                break;
+            case 7: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_7,"0"));
+                break;
+            case 8: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_8,"0"));
+                break;
+            case 9: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_9,"0"));
+                break;
+            case 10: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_10,"0"));
+                break;
+        }
+    }
+
 
     int InOtherSystem(int base, int number){ //перевод из десятичной в другие с.с.
         int result=0,place=1,residual;
@@ -104,7 +199,7 @@ public class TaskActivity extends AppCompatActivity {
         int base=rand.nextInt(8)+2;//основание системы счисления
         int des=rand.nextInt(base);//1 разряд
         int ed=rand.nextInt(base);//0 разряд
-        exercise.setText("Какое число будет следующим?\n"+Integer.toString(des*10+ed)+" ("+Integer.toString(base)+")");//вывод задания
+        exercise.setText("Какое число будет следующим?\n"+String.valueOf(des * 10 + ed)+" ("+String.valueOf(Integer.toString(base))+")");//вывод задания
         if (ed<base-1) searched=Integer.toString(des*10+ed+1);//если записано число нулевой разряд которого меньше чем, самая большая цифра системы счисления
         else if (des<base-1) searched=Integer.toString((des+1)*10) ;//если записано число с нулевым разрядом равным самомй большой цифре с.с., но 1й разряд меньше
         else searched="100";
@@ -120,8 +215,8 @@ public class TaskActivity extends AppCompatActivity {
         else if (base<6) number=rand.nextInt(48)+3;
         else if(base<8) number=rand.nextInt(112)+5;
         else number=rand.nextInt(240)+7;
-        exercise.setText("Переведите из 10й с.с.\n"+Integer.toString(number)+" в("+Integer.toString(base)+")");
-        searched=Integer.toString(InOtherSystem(base, number));
+        exercise.setText("Переведите из 10й с.с.\n"+String.valueOf(number)+" в("+String.valueOf(base)+")");
+        searched = Integer.toString(InOtherSystem(base, number));
     }
 
     //Номер 4
@@ -137,10 +232,10 @@ public class TaskActivity extends AppCompatActivity {
     //Номер 5
     public void level5Exercise(){
         f = true;
-
-        base=(int)(Math.random()*10);
-        number=(int)(Math.random()*100);
-
+        while( base > number) {
+            base = (int) (Math.random() * 10);
+            number = (int) (Math.random() * 100);
+        }
         if(base==1||base==10){
             base=2;
         }
@@ -300,68 +395,27 @@ public class TaskActivity extends AppCompatActivity {
         searched = Integer.toString(InOtherSystem(base,Num1-Num2));  //ответ
     }
 
-    //Level 9
+ //Level 9
     public void level9Exercise(){
         f = true;
-
-        int numb1 = rand.nextInt(99)+1;
-        int numb2 = rand.nextInt(49)+1;
+        int n1 = rand.nextInt(49)+1;
+        int n2 = rand.nextInt(24)+1;
+        int key = n1*n2;
         int base = rand.nextInt(15)+1;
-        while (numb2>numb1){
-            numb1 = rand.nextInt(99)+1;
-            numb2 = rand.nextInt(49)+1;
-            break;
+        while (base == 10){
+            base = rand.nextInt(15)+1;
         }
+        if (base < 10){
+            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")/"+Integer.toString(InOtherSystem(base,n1))+"("+base+")=");  //вывод задания
 
-        int a = numb1;
-        int b;
-        String temp2 = "";
-
-        while (a > 1) {
-            if (a > base) {
-                b = a % base;
-                temp2 = b + temp;
-                a = a / base;
-
-            } else {
-                b = a % base;
-                temp2 = b + temp;
-                break;
-            }
+            searched = Integer.toString(InOtherSystem(base,key));
         }
-        a = numb2;
-        String temp1 = "";
+        else {
+            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n1)+"("+base+")=");  //вывод задания
 
-        while (a > 1) {
-            if (a > base) {
-                b = a % base;
-                temp1 = b + temp;
-                a = a / base;
+            searched = InOtherSystem11_16(base,key);
 
-            } else {
-                b = a % base;
-                temp1 = b + temp;
-                break;
-            }
         }
-        int right = numb1*numb2;
-        a = numb1;
-        String temp3 = "";
-
-        while (a > 1) {
-            if (a > base) {
-                b = a % base;
-                temp3 = b + temp;
-                a = a / base;
-
-            } else {
-                b = a % base;
-                temp3 = b + temp;
-                break;
-            }
-        }
-        exercise.setText(temp1+"("+base+")*"+temp2+"("+base+")=");//вывод задания
-        searched = temp3;//ответ
 
     }
 
@@ -370,66 +424,26 @@ public class TaskActivity extends AppCompatActivity {
         f = true;
 
         int numb1 = rand.nextInt(99)+1;
-        int numb2 = rand.nextInt(49)+1;
+        int n1 = rand.nextInt(49)+1;
+        int key = rand.nextInt(24)+1;
+        int n2 = n1*key;
         int base = rand.nextInt(15)+1;
-        while (numb2>numb1){
-            numb1 = rand.nextInt(99)+1;
-            numb2 = rand.nextInt(49)+1;
-            break;
+        while (base == 10){
+            base = rand.nextInt(15)+1;
         }
+        if (base < 10){
+            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")/"+Integer.toString(InOtherSystem(base,n1))+"("+base+")=");  //вывод задания
 
-        int a = numb1;
-        int b;
-        String temp2 = "";
-
-        while (a > 1) {
-            if (a > base) {
-                b = a % base;
-                temp2 = b + temp;
-                a = a / base;
-
-            } else {
-                b = a % base;
-                temp2 = b + temp;
-                break;
-            }
+            searched = Integer.toString(InOtherSystem(base,key));
         }
-        a = numb2;
-        String temp1 = "";
+        else {
+            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n1)+"("+base+")=");  //вывод задания
 
-        while (a > 1) {
-            if (a > base) {
-                b = a % base;
-                temp1 = b + temp;
-                a = a / base;
+            searched = InOtherSystem11_16(base,key);
 
-            } else {
-                b = a % base;
-                temp1 = b + temp;
-                break;
-            }
         }
-        int right = numb1/numb2;
-        a = numb1;
-        String temp3 = "";
-
-        while (a > 1) {
-            if (a > base) {
-                b = a % base;
-                temp3 = b + temp;
-                a = a / base;
-
-            } else {
-                b = a % base;
-                temp3 = b + temp;
-                break;
-            }
-        }
-        exercise.setText(temp1+"("+base+")/"+temp2+"("+base+")=");//вывод задания
-        searched = temp3;//ответ
 
     }
-
     //Проверка любого номера
     public void checkAnswer(View v) {
         String answerCheck = answer.getText().toString();
@@ -437,8 +451,9 @@ public class TaskActivity extends AppCompatActivity {
            if (answerCheck.equals(searched)) {
                answer.setBackgroundColor(Color.rgb(154, 252, 85));
                localScore++;
-               next.setText(localScore + " из 10 \n   Next");
+               next.setText(localScore + " из 10 \n  Next");
                f = !f;
+               setLocalScore(levelVariable);
            } else {
                answer.setBackgroundColor(Color.rgb(255, 112, 112));
                f =!f;
@@ -450,29 +465,19 @@ public class TaskActivity extends AppCompatActivity {
     public void nextExercise(View v){
         answer.setBackgroundColor(Color.TRANSPARENT);
         answer.setText("");
-        if (localScore < 10) {
-            i = getIntent().getIntExtra("lvl", 1);
-        }else {
+
+        if (localScore > 10) {
+            sPref = getPreferences(MODE_PRIVATE);
+            SharedPreferences.Editor ed = sPref.edit();
+            ed.putString(SAVED_VALUE,Integer.toString(levelVariable));
+            ed.apply();
+
+            localScore = 0;
+              setLocalScore(levelVariable);
             Intent level = new Intent(this,LevelActivity.class);
-             new Thread(new Runnable()  {
-                @Override
-                public void run() {
-                    Intent intent = new Intent(getApplicationContext(), LevelActivity.class);
-                    intent.putExtra("save", true);
-                    intent.putExtra("savenum", getIntent().getIntExtra("lvl", 1));
-                    next.setText("Next");
-                    int levelDoneVariable = getIntent().getIntExtra("lvl",1);
-                    sPref = getPreferences(MODE_PRIVATE);
-                    SharedPreferences.Editor ed = sPref.edit();
-                    ed.putString(SAVED_LOCAL_VALUE,Integer.toString(localScore));
-                    ed.apply();
-                    ed.putString(SAVED_VALUE,Integer.toString(levelDoneVariable));
-                    ed.apply();
-                }
-            }).start();
-            startActivity(level);
+              startActivity(level);
         }
-            switch (i) {
+            switch (levelVariable) {
                 case 1:
                     level1Exercise();
                     break;

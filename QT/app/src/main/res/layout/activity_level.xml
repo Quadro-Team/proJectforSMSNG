@@ -13,19 +13,20 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:text="Уровень 1 - Что такое СС?"
+        android:text="Уровень 1 -\n Что такое СС?"
         android:layout_weight="1"
         android:layout_gravity="center"
         android:id="@+id/lvl1"
         android:textSize="14sp"
         android:onClick="startLVL"
         android:textColor="#000000"
+        android:background="@drawable/button"
         />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:text="Уровень 2 - Счет в СС"
+        android:text="Уровень 2 -\n Счет в СС"
         android:id="@+id/lvl2"
         android:clickable="false"
         android:onClick="startLVL"
@@ -33,12 +34,13 @@
         android:layout_weight="1"
         android:layout_gravity="center"
         android:textColor="#000000"
+        android:background="@drawable/button"
         />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:text="Level 3 - Как переводить из 10-ой СС"
+        android:text="Уровень 3 - \nПереводить из 10-ой СС"
         android:id="@+id/lvl3"
         android:clickable="false"
         android:onClick="startLVL"
@@ -46,12 +48,13 @@
         android:layout_weight="1"
         android:layout_gravity="center"
         android:textColor="#000000"
+        android:background="@drawable/button"
         />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:text="Уровень 4 - Перевод в СС больше 10"
+        android:text="Уровень 4 -\n Перевод в СС больше 10"
         android:id="@+id/lvl4"
         android:clickable="false"
         android:onClick="startLVL"
@@ -59,12 +62,13 @@
         android:layout_weight="1"
         android:layout_gravity="center"
         android:textColor="#000000"
+        android:background="@drawable/button"
         />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:text="Уровень 5 - Перевод в 10-ю СС из других"
+        android:text="Уровень 5 -\n В 10-ю СС из других"
         android:id="@+id/lvl5"
         android:clickable="false"
         android:onClick="startLVL"
@@ -72,13 +76,13 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:textColor="#000000"
-
+        android:background="@drawable/button"
         />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:text="Уровень 6 - Перевод в кратные СС"
+        android:text="Уровень 6 -\n Кратные СС"
         android:id="@+id/lvl6"
         android:clickable="false"
         android:textColor="#000000"
@@ -86,12 +90,13 @@
         android:layout_weight="1"
         android:textSize="14sp"
         android:layout_gravity="center"
+        android:background="@drawable/button"
         />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:text="Уровень 7 - Сложение"
+        android:text="Уровень 7 -\n Сложение"
         android:id="@+id/lvl7"
         android:clickable="false"
         android:onClick="startLVL"
@@ -100,12 +105,13 @@
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
         android:textColor="#000000"
+        android:background="@drawable/button"
         />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:text="Уровень 8 - Вычитание"
+        android:text="Уровень 8 -\n Вычитание"
         android:id="@+id/lvl8"
         android:clickable="false"
         android:onClick="startLVL"
@@ -113,24 +119,27 @@
         android:layout_weight="1"
         android:layout_gravity="center"
         android:textColor="#000000"
+        android:background="@drawable/button"
         />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="Уровень 9 - Умножение"
+        android:text="Уровень 9 -\n Умножение"
         android:id="@+id/lvl9"
         android:clickable="false"
         android:onClick="startLVL"
         android:textSize="14sp"
         android:layout_weight="1"
         android:layout_gravity="left"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:background="@drawable/button"
+        />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:text="Уровень 10 - Деление"
+        android:text="Уровень 10 -\n Деление"
         android:id="@+id/lvl10"
         android:clickable="false"
         android:onClick="startLVL"
@@ -138,6 +147,7 @@
         android:layout_weight="1"
         android:layout_gravity="center"
         android:textColor="#000000"
+        android:background="@drawable/button"
         />
 
 </LinearLayout>

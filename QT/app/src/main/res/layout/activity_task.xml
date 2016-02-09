@@ -36,12 +36,14 @@
         android:textColor="#000"
         android:textSize="25sp"
         android:onClick="checkAnswer"
+        android:background="@drawable/button"
         android:id="@+id/check" />
 
     <Button
         android:layout_width="355sp"
         android:layout_height="74sp"
         android:text="Следующий"
+        android:background="@drawable/button"
         android:textSize="25sp"
         android:textColor="#000"
         android:onClick="nextExercise"
