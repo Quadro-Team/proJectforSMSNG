@@ -209,13 +209,13 @@ public class TaskActivity extends AppCompatActivity {
     public void level3Exercise(){
         f = true;
 
-        int base=rand.nextInt(9)+2;
+        int base=rand.nextInt(8)+2;
         int number;
         if(base<4) number=rand.nextInt(16)+1;
         else if (base<6) number=rand.nextInt(48)+3;
         else if(base<8) number=rand.nextInt(112)+5;
         else number=rand.nextInt(240)+7;
-        exercise.setText("Переведите из 10й с.с.\n"+String.valueOf(number)+" в("+String.valueOf(base)+")");
+        exercise.setText("Переведите из 10й с.с.\n"+String.valueOf(number)+" в ("+String.valueOf(base)+")");
         searched = Integer.toString(InOtherSystem(base, number));
     }
 
@@ -223,9 +223,9 @@ public class TaskActivity extends AppCompatActivity {
     public void level4Exercise(){
         f = true;
 
-        int base=rand.nextInt(5)+11;
+        int base=rand.nextInt(6)+11;
         int number=rand.nextInt(100)+1;
-        exercise.setText("Переведите из 10й с.с.\n"+Integer.toString(number)+" в("+Integer.toString(base)+")");
+        exercise.setText("Переведите из 10й с.с.\n"+Integer.toString(number)+" в ("+Integer.toString(base)+")");
         searched=InOtherSystem11_16(base, number);
     }
 
