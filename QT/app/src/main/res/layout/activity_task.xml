@@ -35,6 +35,7 @@
         android:text="Ответить"
         android:textColor="#000"
         android:textSize="25sp"
+        android:layout_gravity="center"
         android:onClick="checkAnswer"
         android:background="@drawable/button"
         android:id="@+id/check" />
@@ -46,6 +47,7 @@
         android:background="@drawable/button"
         android:textSize="25sp"
         android:textColor="#000"
+        android:layout_gravity="center"
         android:onClick="nextExercise"
         android:id="@+id/next" />
 

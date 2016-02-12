@@ -34,7 +34,6 @@ public class TaskActivity extends AppCompatActivity {
     int  base, number,levelVariable;
     boolean f,flag;
     String temp = "",searched;
-    String numberString = null;
     TextView exercise;
     EditText answer;
     Button answerButton,next;
@@ -93,7 +92,7 @@ public class TaskActivity extends AppCompatActivity {
         }
     }
 
-
+        //Method
     private void setLocalScore (int levelVariable){
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
@@ -158,7 +157,6 @@ public class TaskActivity extends AppCompatActivity {
         }
     }
 
-
     int InOtherSystem(int base, int number){ //перевод из десятичной в другие с.с.
         int result=0,place=1,residual;
         while(number>0){
@@ -184,6 +182,8 @@ public class TaskActivity extends AppCompatActivity {
     }
 
     Random rand=new Random();
+
+    //Levels
 
     //Level 1
     public void level1Exercise(){
@@ -232,49 +232,22 @@ public class TaskActivity extends AppCompatActivity {
     //Номер 5
     public void level5Exercise(){
         f = true;
+        temp = "";
+        number = -2;
+        base = -1;
         while( base > number) {
-            base = (int) (Math.random() * 10);
-            number = (int) (Math.random() * 100);
+            base = (int) (Math.random() * 10 + 1);
+            number = (int) (Math.random() * 100 + 1);
         }
-        if(base==1||base==10){
-            base=2;
+        if(base == 1 || base >= 10){
+            base = rand.nextInt(5) + 11;
+            temp = InOtherSystem11_16(base,number);
+        }else{
+            temp = String.valueOf(InOtherSystem(base,number));
         }
-        if(base==0){
-            base=16;
-        }
-
-        if(base==2){
-            numberString=Integer.toBinaryString(number);
-            exercise.setText("Переведите "+numberString+"("+base+")");
-        }
-        if(base==16){
-            numberString=Integer.toHexString(number);
-            exercise.setText("Переведите "+numberString+"("+base+")");
-        }
-        if(base==8){
-            numberString=Integer.toOctalString(number);
-            exercise.setText("Переведите "+numberString+"("+base+")");
-        }
-
-        if(base!=8&&base!=2&&base!=16){
-            int a=number;
-            int b;
-            while(a>1){
-                if(a>base){
-                    b=a%base;
-                    temp=b+temp;
-                    a=a/base;
-                }else{
-                    b=a%base;
-                    temp=b+temp;
-                    break;
-                }
-
-            }
-            exercise.setText("Переведите "+temp+"("+base+")");
+            exercise.setText("Переведите "+temp+"("+base+")\n в 10-ю");
             searched = Integer.toString(number);
         }
-    }
 
     //Номер 6
     public void level6Exercise(){
@@ -283,59 +256,42 @@ public class TaskActivity extends AppCompatActivity {
         base  = (int) (Math.random() * 10);
         number = (int) (Math.random() * 100);
 
-
-
-        if(base >= 0 && base <= 4){
+        if(base >= 0 && base <= 6){
             base = 2;
         }
-        if (base >=5 && base <= 7){
+        if (base >=7 && base <= 8){
             base = 8;
         }
-        if (base >= 8 && base <=10){
+        if (base >= 9 && base <=10){
             base = 16;
         }
 
-        if (number > 30){
-            number = number - number/2;
-        }
-        if (number % 2 == 0){
-            flag = true;
-        }
-        if (number % 2 !=0){
-            flag = false;
+        if (number > 80){
+            number-=10;
         }
 
         if(base == 2) {
+            flag = number % 2 == 0;
+
             if (flag) {
-                exercise.setText(Integer.toBinaryString(base) + "(2) " + " в (8)");
+                exercise.setText(Integer.toBinaryString(number) + "(2) " + " в (8)");
                 searched = Integer.toOctalString(number);
             } else {
-                exercise.setText(Integer.toBinaryString(base) + "(2) " + " в (16)");
+                exercise.setText(Integer.toBinaryString(number) + "(2) " + " в (16)");
                 searched = Integer.toHexString(number);
-
             }
         }
 
         if (base == 8) {
-            if (flag) {
-                exercise.setText(Integer.toBinaryString(base) + "(8) " + " в (2)");
+                exercise.setText(Integer.toOctalString(number) + "(8) " + " в (2)");
                 searched = Integer.toBinaryString(number);
-            } else {
-                exercise.setText(Integer.toBinaryString(base) + "(8) " + " в (16)");
-                searched = Integer.toHexString(number);
-            }
-        }
-        if (base == 16) {
-            if (flag) {
-                exercise.setText(Integer.toBinaryString(base) + "(2) " + " в (8)");
-                searched = Integer.toOctalString(number);
-            } else {
-                exercise.setText(Integer.toBinaryString(base) + "(16) " + " в (2)");
-                searched = Integer.toBinaryString(number);
-            }
         }
 
-    }
+        if (base == 16) {
+                exercise.setText(Integer.toHexString(number) + "(16) " + " в (2)");
+                searched = Integer.toBinaryString(number);
+            }
+        }
 
     //Level 7
     public void level7Exercise(){
@@ -395,7 +351,7 @@ public class TaskActivity extends AppCompatActivity {
         searched = Integer.toString(InOtherSystem(base,Num1-Num2));  //ответ
     }
 
- //Level 9
+    //Level 9
     public void level9Exercise(){
         f = true;
         int n1 = rand.nextInt(49)+1;
@@ -406,12 +362,12 @@ public class TaskActivity extends AppCompatActivity {
             base = rand.nextInt(15)+1;
         }
         if (base < 10){
-            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")/"+Integer.toString(InOtherSystem(base,n1))+"("+base+")=");  //вывод задания
+            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")*"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
 
             searched = Integer.toString(InOtherSystem(base,key));
         }
         else {
-            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n1)+"("+base+")=");  //вывод задания
+            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
 
             searched = InOtherSystem11_16(base,key);
 
@@ -432,18 +388,19 @@ public class TaskActivity extends AppCompatActivity {
             base = rand.nextInt(15)+1;
         }
         if (base < 10){
-            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")/"+Integer.toString(InOtherSystem(base,n1))+"("+base+")=");  //вывод задания
+            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")/"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
 
             searched = Integer.toString(InOtherSystem(base,key));
         }
         else {
-            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n1)+"("+base+")=");  //вывод задания
+            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
 
             searched = InOtherSystem11_16(base,key);
 
         }
 
     }
+
     //Проверка любого номера
     public void checkAnswer(View v) {
         String answerCheck = answer.getText().toString();
@@ -466,7 +423,7 @@ public class TaskActivity extends AppCompatActivity {
         answer.setBackgroundColor(Color.TRANSPARENT);
         answer.setText("");
 
-        if (localScore > 10) {
+        if (localScore >= 10) {
             sPref = getPreferences(MODE_PRIVATE);
             SharedPreferences.Editor ed = sPref.edit();
             ed.putString(SAVED_VALUE,Integer.toString(levelVariable));
@@ -477,6 +434,7 @@ public class TaskActivity extends AppCompatActivity {
             Intent level = new Intent(this,LevelActivity.class);
               startActivity(level);
         }
+        if (localScore < 10) {
             switch (levelVariable) {
                 case 1:
                     level1Exercise();
@@ -509,8 +467,7 @@ public class TaskActivity extends AppCompatActivity {
                     level10Exercise();
                     break;
 
+                }
             }
-
-
         }
     }

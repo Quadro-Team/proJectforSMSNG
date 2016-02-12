@@ -21,8 +21,8 @@
 
 
     <Button
-        android:layout_width="355sp"
-        android:layout_height="50sp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/button"
         android:text="Начать игру"
         android:id="@+id/StG"

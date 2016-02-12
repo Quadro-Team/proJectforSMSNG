@@ -25,9 +25,9 @@ public class LevelActivity extends AppCompatActivity {
     Button lvl8;
     Button lvl9;
     Button lvl10;
-    Boolean [] b = new Boolean[10];
+    Boolean f = true;
     int savenum;
-    int num = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,11 +45,20 @@ public class LevelActivity extends AppCompatActivity {
         lvl10 = (Button)findViewById(R.id.lvl10);
 
         sPref = getPreferences(MODE_PRIVATE);
-         key = Integer.parseInt(sPref.getString(SAVED_VALUE,String.valueOf(0))); ///Законченные уровни <---
-        b[savenum] = getIntent().getBooleanExtra("save",false);
+        // key = Integer.parseInt(sPref.getString(SAVED_VALUE,String.valueOf(0))); ///Законченные уровни <---
+        key = 10;
+        switch (key){
+            case 10: lvl10.setClickable(true);
+            case 9:  lvl9.setClickable(true);
+            case 8:  lvl8.setClickable(true);
+            case 7:  lvl7.setClickable(true);
+            case 6:  lvl6.setClickable(true);
+            case 5:  lvl5.setClickable(true);
+            case 4:  lvl4.setClickable(true);
+            case 3:  lvl3.setClickable(true);
+            case 2:  lvl2.setClickable(true);
+            case 1:  lvl1.setClickable(true);
 
-        switch (num){
-           case 1: lvl2.setClickable(b[1]);
         }
 
     }
