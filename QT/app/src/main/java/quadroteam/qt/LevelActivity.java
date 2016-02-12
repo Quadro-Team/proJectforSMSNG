@@ -2,12 +2,14 @@ package quadroteam.qt;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import java.util.Map;
 import java.util.Set;
@@ -27,6 +29,7 @@ public class LevelActivity extends AppCompatActivity {
     Button lvl10;
     Boolean f = true;
     int savenum;
+    LinearLayout l;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class LevelActivity extends AppCompatActivity {
         lvl8 = (Button)findViewById(R.id.lvl8);
         lvl9 = (Button)findViewById(R.id.lvl9);
         lvl10 = (Button)findViewById(R.id.lvl10);
+        l=(LinearLayout)findViewById(R.id.root);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) l.setBackgroundResource(R.drawable.backgroundland);
 
         sPref = getPreferences(MODE_PRIVATE);
         // key = Integer.parseInt(sPref.getString(SAVED_VALUE,String.valueOf(0))); ///Законченные уровни <---

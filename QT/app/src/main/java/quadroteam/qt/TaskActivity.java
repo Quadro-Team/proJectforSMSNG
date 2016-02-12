@@ -2,12 +2,14 @@ package quadroteam.qt;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -37,6 +39,7 @@ public class TaskActivity extends AppCompatActivity {
     TextView exercise;
     EditText answer;
     Button answerButton,next;
+    LinearLayout l;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,8 @@ public class TaskActivity extends AppCompatActivity {
         answer = (EditText)findViewById(R.id.textAnswer);  answer.setBackgroundColor(Color.TRANSPARENT);
         answerButton = (Button)findViewById(R.id.check);
         next = (Button)findViewById(R.id.next);
+        l=(LinearLayout)findViewById(R.id.root);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) l.setBackgroundResource(R.drawable.backgroundland);
 
 
         levelVariable = getIntent().getIntExtra("lvl", 1);
