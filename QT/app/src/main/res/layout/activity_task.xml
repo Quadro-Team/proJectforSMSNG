@@ -25,12 +25,12 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:inputType="numberDecimal"
         android:id="@+id/textAnswer"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:gravity="center"
         android:hint="Пиши ответ сюда"
         android:layout_weight="4"/>
     <Button
-        android:layout_width="355dp"
+        android:layout_width="match_parent"
         android:layout_height="74sp"
         android:text="Ответить"
         android:textColor="#000"
@@ -41,7 +41,7 @@
         android:id="@+id/check" />
 
     <Button
-        android:layout_width="355sp"
+        android:layout_width="match_parent"
         android:layout_height="74sp"
         android:text="Следующий"
         android:background="@drawable/button"
