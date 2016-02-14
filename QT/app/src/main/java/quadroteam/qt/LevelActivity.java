@@ -22,7 +22,6 @@ public class LevelActivity extends AppCompatActivity {
     Button lvl8;
     Boolean f = true;
     int savenum;
-    LinearLayout l;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +36,6 @@ public class LevelActivity extends AppCompatActivity {
         lvl6 = (Button)findViewById(R.id.lvl6);
         lvl7 = (Button)findViewById(R.id.lvl7);
         lvl8 = (Button)findViewById(R.id.lvl8);
-        l=(LinearLayout)findViewById(R.id.root);
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) l.setBackgroundResource(R.drawable.backgroundland);
 
         sPref = getPreferences(MODE_PRIVATE);
         // key = Integer.parseInt(sPref.getString(SAVED_VALUE,String.valueOf(0))); ///Законченные уровни <---

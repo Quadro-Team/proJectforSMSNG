@@ -38,7 +38,6 @@ public class TaskActivity extends AppCompatActivity {
     TextView exercise;
     EditText answer;
     Button answerButton,next;
-    LinearLayout l;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +47,6 @@ public class TaskActivity extends AppCompatActivity {
         answer = (EditText)findViewById(R.id.textAnswer);  answer.setBackgroundColor(Color.TRANSPARENT);
         answerButton = (Button)findViewById(R.id.check);
         next = (Button)findViewById(R.id.next);
-        l=(LinearLayout)findViewById(R.id.root);
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) l.setBackgroundResource(R.drawable.backgroundland);
 
 
         levelVariable = getIntent().getIntExtra("lvl", 1);

@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="quadroteam.qt.DevelopersActivity">
-
-</RelativeLayout>
+    tools:context="quadroteam.qt.DevelopersActivity"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    >
+    <TextView
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="Авторы"
+        android:textSize="40sp"
+        android:padding="5dp"
+        android:layout_gravity="top|center_horizontal" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="QuadroTeam"
+        android:textColor="#fff"
+        android:textSize="40sp"
+        android:padding="5dp"
+        android:layout_gravity="top|center_horizontal"
+        android:gravity="center_horizontal" />
+    <TextView
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Айнур Хуснутдинов\nЕгор Кашарин\nАделина Бакиева"
+        android:textSize="35sp"
+        android:textColor="#000"
+        />
+</LinearLayout>
