@@ -31,7 +31,7 @@
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Айнур Хуснутдинов\nЕгор Кашарин\nАделина Бакиева"
+        android:text="Айнур Хуснутдинов\nЕгор Каширин\nАделина Бакиева"
         android:textSize="35sp"
         android:textColor="#000"
         />
