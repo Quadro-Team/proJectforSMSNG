@@ -21,6 +21,14 @@
         </activity>
         <activity android:name=".TaskActivity" >
         </activity>
+        <activity android:name=".LibActivity" >
+        </activity>
+        <activity android:name=".MainActivity" >
+        </activity>
+        <activity android:name=".LibOfTheory" >
+        </activity>
+        <activity android:name=".DevelopersActivity" >
+        </activity>
     </application>
 
 </manifest>

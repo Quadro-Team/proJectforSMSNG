@@ -44,12 +44,13 @@
         android:layout_gravity="center"
         android:background="@drawable/button"
         android:textSize="30sp"
+        android:onClick="TheoryList"
         android:layout_weight="1"/>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Опции"
+        android:text="Авторы"
         android:textColor="#000"
         android:layout_gravity="center"
         android:textSize="30sp"

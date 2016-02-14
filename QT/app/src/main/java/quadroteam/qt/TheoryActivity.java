@@ -18,25 +18,21 @@ public class TheoryActivity extends AppCompatActivity {
 
 
     switch (s) {
-        case 1: t.setImageResource(R.drawable.theory1);
+        case 1: t.setImageResource(R.drawable.the1);
             break;
-        case 2:
+        case 2: t.setImageResource(R.drawable.the2);
             break;
-        case 3:
+        case 3: t.setImageResource(R.drawable.the3);
             break;
-        case 4:
+        case 4: t.setImageResource(R.drawable.the4);
             break;
-        case 5:
+        case 5: t.setImageResource(R.drawable.the5);
             break;
-        case 6:
+        case 6: t.setImageResource(R.drawable.the6);
             break;
-        case 7:
+        case 7: t.setImageResource(R.drawable.the7);
             break;
-        case 8:
-            break;
-        case 9:
-            break;
-        case 10:
+        case 8: t.setImageResource(R.drawable.the8);
             break;
     }
 }

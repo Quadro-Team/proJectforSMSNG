@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class TaskActivity extends AppCompatActivity {
@@ -87,12 +86,12 @@ public class TaskActivity extends AppCompatActivity {
             case 8: getLocalScore(levelVariable);
                     level8Exercise();
                 break;
-            case 9: getLocalScore(levelVariable);
-                    level9Exercise();
-                break;
-            case 10:getLocalScore(levelVariable);
-                    level10Exercise();
-                break;
+            //case 9: getLocalScore(levelVariable);
+            //        level9Exercise();
+            //    break;
+            //case 10:getLocalScore(levelVariable);
+            //level10Exercise();
+            //    break;
 
         }
     }
@@ -357,7 +356,7 @@ public class TaskActivity extends AppCompatActivity {
     }
 
     //Level 9
-    public void level9Exercise(){
+   /* public void level9Exercise(){
         f = true;
         int n1 = rand.nextInt(49)+1;
         int n2 = rand.nextInt(24)+1;
@@ -404,7 +403,7 @@ public class TaskActivity extends AppCompatActivity {
 
         }
 
-    }
+    } */
 
     //Проверка любого номера
     public void checkAnswer(View v) {
@@ -465,12 +464,12 @@ public class TaskActivity extends AppCompatActivity {
                 case 8:
                     level8Exercise();
                     break;
-                case 9:
-                    level9Exercise();
-                    break;
-                case 10:
-                    level10Exercise();
-                    break;
+                //case 9:
+                  //  level9Exercise();
+                   // break;
+                //case 10:
+                //    level10Exercise();
+                 //   break;
 
                 }
             }
