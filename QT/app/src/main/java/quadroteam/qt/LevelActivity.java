@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 
 public class LevelActivity extends AppCompatActivity {
         int a,key;SharedPreferences sPref;
-        static String SAVED_VALUE = "saved_value";
+        static String SAVED_VALUE = "1";
     Button lvl1;
     Button lvl2;
     Button lvl3;
@@ -38,21 +38,30 @@ public class LevelActivity extends AppCompatActivity {
         lvl8 = (Button)findViewById(R.id.lvl8);
 
         sPref = getPreferences(MODE_PRIVATE);
-        // key = Integer.parseInt(sPref.getString(SAVED_VALUE,String.valueOf(0))); ///Законченные уровни <---
-        key = 10;
+        int  monkey  = getIntent().getIntExtra("level",1);
+        int debug = Integer.parseInt(sPref.getString(SAVED_VALUE,"1"));
+        if (monkey > debug){
+            SharedPreferences.Editor ed = sPref.edit();
+            ed.putInt(SAVED_VALUE,monkey);
+            ed.commit();
+        }
+
+        key  = 3;
         switch (key){
-            case 8:  lvl8.setClickable(true);
-            case 7:  lvl7.setClickable(true);
-            case 6:  lvl6.setClickable(true);
-            case 5:  lvl5.setClickable(true);
-            case 4:  lvl4.setClickable(true);
-            case 3:  lvl3.setClickable(true);
-            case 2:  lvl2.setClickable(true);
-            case 1:  lvl1.setClickable(true);
+            case 8:  lvl8.setEnabled(true);
+            case 7:  lvl7.setEnabled(true);
+            case 6:  lvl6.setEnabled(true);
+            case 5:  lvl5.setEnabled(true);
+            case 4:  lvl4.setEnabled(true);
+            case 3:  lvl3.setEnabled(true);
+            case 2:  lvl2.setEnabled(true);
+            case 1:  lvl1.setEnabled(true);
 
         }
 
     }
+
+
 
     public void startLVL(View v) {
         Intent i = new Intent(this, TheoryActivity.class);

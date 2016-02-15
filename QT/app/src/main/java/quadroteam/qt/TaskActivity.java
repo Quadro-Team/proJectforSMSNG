@@ -26,8 +26,8 @@ public class TaskActivity extends AppCompatActivity {
     static private String SAVED_LVL_6 = "saved_value";
     static private String SAVED_LVL_7 = "saved_value";
     static private String SAVED_LVL_8 = "saved_value";
-    static private String SAVED_LVL_9 = "saved_value";
-    static private String SAVED_LVL_10 = "saved_value";
+    //static private String SAVED_LVL_9 = "saved_value";
+    //static private String SAVED_LVL_10 = "saved_value";
 
 
 
@@ -122,12 +122,11 @@ public class TaskActivity extends AppCompatActivity {
             case 8: ed.putString(SAVED_LVL_8, Integer.toString(localScore));
 
                 break;
-            case 9: ed.putString(SAVED_LVL_9,Integer.toString(localScore));
+          //  case 9: ed.putString(SAVED_LVL_9,Integer.toString(localScore));
 
-                break;
-            case 10:ed.putString(SAVED_LVL_10, Integer.toString(localScore));
-
-                break;
+          //      break;
+          // case 10:ed.putString(SAVED_LVL_10, Integer.toString(localScore));
+          // break;
         }
             ed.apply();
     }
@@ -151,10 +150,10 @@ public class TaskActivity extends AppCompatActivity {
                 break;
             case 8: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_8,"0"));
                 break;
-            case 9: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_9,"0"));
-                break;
-            case 10: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_10,"0"));
-                break;
+            //case 9: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_9,"0"));
+            //    break;
+            //case 10: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_10,"0"));
+             //   break;
         }
     }
 
