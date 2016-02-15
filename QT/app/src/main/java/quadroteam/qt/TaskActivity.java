@@ -208,25 +208,23 @@ public class TaskActivity extends AppCompatActivity {
     //Level 3
     public void level3Exercise(){
         f = true;
-
-        int base=rand.nextInt(8)+2;
+        int base=rand.nextInt(8)+2;//генерация основания системы счисления в диапазоне от 2 до 9 включительно
         int number;
-        if(base<4) number=rand.nextInt(16)+1;
+        if(base<4) number=rand.nextInt(16)+1; //правила генерации числа для сгенерированной системы счисления
         else if (base<6) number=rand.nextInt(48)+3;
         else if(base<8) number=rand.nextInt(112)+5;
         else number=rand.nextInt(240)+7;
-        exercise.setText("Переведите из 10й с.с.\n"+String.valueOf(number)+" в ("+String.valueOf(base)+")");
-        searched = Integer.toString(InOtherSystem(base, number));
+        exercise.setText("Переведите из 10й с.с.\n"+String.valueOf(number)+" в ("+String.valueOf(base)+")"); //вывод задания
+        searched = Integer.toString(InOtherSystem(base, number)); //запись правильного ответа в строку searched
     }
 
     //Номер 4
     public void level4Exercise(){
         f = true;
-
-        int base=rand.nextInt(6)+11;
-        int number=rand.nextInt(100)+1;
-        exercise.setText("Переведите из 10й с.с.\n"+Integer.toString(number)+" в ("+Integer.toString(base)+")");
-        searched=InOtherSystem11_16(base, number);
+        int base=rand.nextInt(6)+11; //генерация основания системы счисления
+        int number=rand.nextInt(100)+1; //генерация числа
+        exercise.setText("Переведите из 10й с.с.\n"+Integer.toString(number)+" в ("+Integer.toString(base)+")"); //вывод задания
+        searched=InOtherSystem11_16(base, number);//запись правильного ответа в строку searched
     }
 
     //Номер 5
@@ -405,14 +403,14 @@ public class TaskActivity extends AppCompatActivity {
     public void checkAnswer(View v) {
         String answerCheck = answer.getText().toString();
        if (f) {
-           if (answerCheck.equals(searched)) {
-               answer.setBackgroundColor(Color.rgb(154, 252, 85));
-               localScore++;
-               next.setText(localScore + " из 10 \n  Next");
+           if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answeerCheck (отвте пользователя)
+               answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
+               localScore++; //увеличение счета на балл
+               next.setText(localScore + " из 10 \n  Next"); //вывод текущего счета
                f = !f;
                setLocalScore(levelVariable);
            } else {
-               answer.setBackgroundColor(Color.rgb(255, 112, 112));
+               answer.setBackgroundColor(Color.rgb(255, 112, 112)); //поле ввода изменяет свой цвет в случае неправильнго ответа
                f =!f;
            }
        }
