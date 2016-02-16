@@ -173,12 +173,18 @@ public class TaskActivity extends AppCompatActivity {
         int residual;
         while (number>0){
             residual=number%base;
-            if(residual>9) residual+=(int)'A';
+            if(residual>9) residual+=(int)'A'-10;
             else residual+=(int)'0';
             answer+=(char)residual;
             number/=base;
         }
-        return answer;
+        String result = "";
+        for (int i = answer.length() - 1; i >= 0; i--)
+        {
+            result = result + answer.substring(i, i+1);
+        }
+
+        return result;
     }
 
     Random rand=new Random();
