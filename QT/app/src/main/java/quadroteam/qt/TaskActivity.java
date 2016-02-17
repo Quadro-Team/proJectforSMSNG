@@ -412,7 +412,7 @@ public class TaskActivity extends AppCompatActivity {
            if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answeerCheck (отвте пользователя)
                answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
                localScore++; //увеличение счета на балл
-               next.setText(localScore + " из 10 \n  Next"); //вывод текущего счета
+               next.setText(localScore + " из 10 \n  Следующий"); //вывод текущего счета
                f = !f;
                setLocalScore(levelVariable);
            } else {
