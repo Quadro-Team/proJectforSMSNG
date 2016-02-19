@@ -407,7 +407,7 @@ public class TaskActivity extends AppCompatActivity {
 
     //Проверка любого номера
     public void checkAnswer(View v) {
-        String answerCheck = answer.getText().toString();
+        String answerCheck = answer.getText().toString().toUpperCase();
        if (f) {
            if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answeerCheck (отвте пользователя)
                answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
