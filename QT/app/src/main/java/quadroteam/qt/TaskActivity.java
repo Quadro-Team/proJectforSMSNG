@@ -203,8 +203,8 @@ public class TaskActivity extends AppCompatActivity {
     public void level2Exercise(){
         f = true;
         int base=rand.nextInt(8)+2;//основание системы счисления
-        int des=rand.nextInt(base);//1 разряд
-        int ed=rand.nextInt(base);//0 разряд
+        int des=rand.nextInt(base-1)+1;//1 разряд
+        int ed=rand.nextInt(base-1)+1;//0 разряд
         exercise.setText("Какое число будет следующим?\n"+String.valueOf(des * 10 + ed)+" ("+String.valueOf(Integer.toString(base))+")");//вывод задания
         if (ed<base-1) searched=Integer.toString(des*10+ed+1);//если записано число нулевой разряд которого меньше чем, самая большая цифра системы счисления
         else if (des<base-1) searched=Integer.toString((des+1)*10) ;//если записано число с нулевым разрядом равным самомй большой цифре с.с., но 1й разряд меньше
