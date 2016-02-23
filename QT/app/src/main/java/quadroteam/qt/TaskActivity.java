@@ -408,22 +408,26 @@ public class TaskActivity extends AppCompatActivity {
     //Проверка любого номера
     public void checkAnswer(View v) {
         String answerCheck = answer.getText().toString().toUpperCase();
-       if (f) {
-           if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answeerCheck (отвте пользователя)
-               answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
-               localScore++; //увеличение счета на балл
-               next.setText(localScore + " из 10 \n  Следующий"); //вывод текущего счета
-               f = !f;
-               setLocalScore(levelVariable);
-           } else {
-               answer.setBackgroundColor(Color.rgb(255, 112, 112)); //поле ввода изменяет свой цвет в случае неправильнго ответа
-               f =!f;
-           }
-       }
+        if (!answerCheck.isEmpty()) {
+            if (f) {
+                if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answeerCheck (отвте пользователя)
+                    answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
+                    localScore++; //увеличение счета на балл
+                    next.setText(localScore + " из 10 \n  Следующий"); //вывод текущего счета
+                    f = !f;
+                    setLocalScore(levelVariable);
+                } else {
+                    answer.setBackgroundColor(Color.rgb(255, 112, 112)); //поле ввода изменяет свой цвет в случае неправильнго ответа
+                    f = !f;
+                }
+            }
+        }
     }
 
     //Кнопка Next
     public void nextExercise(View v){
+        base = 0;
+        number = 0;
         answer.setBackgroundColor(Color.TRANSPARENT);
         answer.setText("");
 
