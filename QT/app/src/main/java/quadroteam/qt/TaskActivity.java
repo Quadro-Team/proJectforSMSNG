@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -26,14 +27,11 @@ public class TaskActivity extends AppCompatActivity {
     static private String SAVED_LVL_6 = "saved_value";
     static private String SAVED_LVL_7 = "saved_value";
     static private String SAVED_LVL_8 = "saved_value";
-    //static private String SAVED_LVL_9 = "saved_value";
-    //static private String SAVED_LVL_10 = "saved_value";
-
 
 
     int localScore;
     int  base, number,levelVariable;
-    boolean f,flag;
+    boolean f,flag,flagOfSwitch = true;
     String temp = "",searched;
     TextView exercise;
     EditText answer;
@@ -355,72 +353,39 @@ public class TaskActivity extends AppCompatActivity {
         searched = Integer.toString(InOtherSystem(base,Num1-Num2));  //ответ
     }
 
-    //Level 9
-   /* public void level9Exercise(){
-        f = true;
-        int n1 = rand.nextInt(49)+1;
-        int n2 = rand.nextInt(24)+1;
-        int key = n1*n2;
-        int base = rand.nextInt(15)+1;
-        while (base == 10){
-            base = rand.nextInt(15)+1;
-        }
-        if (base < 10){
-            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")*"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
-
-            searched = Integer.toString(InOtherSystem(base,key));
-        }
-        else {
-            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
-
-            searched = InOtherSystem11_16(base,key);
-
-        }
-
-    }
-
-    //Level 10
-    public void level10Exercise(){
-        f = true;
-
-        int numb1 = rand.nextInt(99)+1;
-        int n1 = rand.nextInt(49)+1;
-        int key = rand.nextInt(24)+1;
-        int n2 = n1*key;
-        int base = rand.nextInt(15)+1;
-        while (base == 10){
-            base = rand.nextInt(15)+1;
-        }
-        if (base < 10){
-            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")/"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
-
-            searched = Integer.toString(InOtherSystem(base,key));
-        }
-        else {
-            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
-
-            searched = InOtherSystem11_16(base,key);
-
-        }
-
-    } */
 
     //Проверка любого номера
     public void checkAnswer(View v) {
         String answerCheck = answer.getText().toString().toUpperCase();
-        if (!answerCheck.isEmpty()) {
+        if (!answerCheck.isEmpty() && flagOfSwitch) {
             if (f) {
-                if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answeerCheck (отвте пользователя)
+                flagOfSwitch = false;
+                if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answerCheck (отвте пользователя)
                     answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
                     localScore++; //увеличение счета на балл
-                    next.setText(localScore + " из 10 \n  Следующий"); //вывод текущего счета
+                  //  next.setText(localScore + " из 10 \n  Следующий"); //вывод текущего счета
                     f = !f;
                     setLocalScore(levelVariable);
                 } else {
                     answer.setBackgroundColor(Color.rgb(255, 112, 112)); //поле ввода изменяет свой цвет в случае неправильнго ответа
                     f = !f;
                 }
+
+                new CountDownTimer(4000,1000){
+
+                    public void onTick(long millisUntilFinished) {
+                        answerButton.setText(localScore + " из 10 \n  Следующий");
+                    }
+
+                    public void onFinish() {
+                        answerButton.setText("====>");
+                    }
+                }.start();
             }
+        }
+        if (!flagOfSwitch){
+            nextExercise(next);
+
         }
     }
 
@@ -479,3 +444,55 @@ public class TaskActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
+//Level 9
+   /* public void level9Exercise(){
+        f = true;
+        int n1 = rand.nextInt(49)+1;
+        int n2 = rand.nextInt(24)+1;
+        int key = n1*n2;
+        int base = rand.nextInt(15)+1;
+        while (base == 10){
+            base = rand.nextInt(15)+1;
+        }
+        if (base < 10){
+            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")*"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
+
+            searched = Integer.toString(InOtherSystem(base,key));
+        }
+        else {
+            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
+
+            searched = InOtherSystem11_16(base,key);
+
+        }
+
+    }
+
+    //Level 10
+    public void level10Exercise(){
+        f = true;
+
+        int numb1 = rand.nextInt(99)+1;
+        int n1 = rand.nextInt(49)+1;
+        int key = rand.nextInt(24)+1;
+        int n2 = n1*key;
+        int base = rand.nextInt(15)+1;
+        while (base == 10){
+            base = rand.nextInt(15)+1;
+        }
+        if (base < 10){
+            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")/"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
+
+            searched = Integer.toString(InOtherSystem(base,key));
+        }
+        else {
+            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
+
+            searched = InOtherSystem11_16(base,key);
+
+        }
+
+    } */

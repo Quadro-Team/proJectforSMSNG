@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:textSize="50sp"
         android:text="Дзета"
-        android:textColor="#000000"
+        android:textColor="#ff0004"
         android:id="@+id/GN"
         android:layout_marginTop="45dp"
         android:gravity="center"
@@ -28,16 +28,17 @@
         android:text="Начать игру"
         android:id="@+id/StG"
         android:layout_gravity="center"
-        android:textColor="#000"
+        android:textColor="#7700ff"
         android:textSize="30sp"
         android:onClick="startLVLlist"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Теория"
-        android:textColor="#000"
+        android:textColor="#00ff48"
         android:id="@+id/lib"
         android:layout_gravity="center"
         android:background="@drawable/button"
@@ -50,7 +51,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Авторы"
-        android:textColor="#000"
+        android:textColor="#f57c00"
         android:layout_gravity="center"
         android:textSize="30sp"
         android:background="@drawable/button"

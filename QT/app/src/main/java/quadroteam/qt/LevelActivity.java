@@ -10,7 +10,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class LevelActivity extends AppCompatActivity {
-        int a,key;SharedPreferences sPref;
+        int a,key;
+        SharedPreferences sPref;
         static String SAVED_VALUE = "1";
     Button lvl1;
     Button lvl2;
@@ -47,7 +48,7 @@ public class LevelActivity extends AppCompatActivity {
         }
 
         key  = 3;
-        switch (key){
+        switch (monkey){
             case 8:  lvl8.setEnabled(true);
             case 7:  lvl7.setEnabled(true);
             case 6:  lvl6.setEnabled(true);
