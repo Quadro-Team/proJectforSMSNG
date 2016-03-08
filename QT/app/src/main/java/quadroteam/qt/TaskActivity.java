@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -299,58 +300,73 @@ public class TaskActivity extends AppCompatActivity {
     public void level7Exercise(){
         f = true;
 
-        int base = rand.nextInt(16);
+        int base = rand.nextInt(15)+2;
         int Num1 = 0;
         int Num2 = 0;
         if (localScore < 3){
-            Num1 = rand.nextInt(100);
-            Num2 = rand.nextInt(100);
+            Num1 = rand.nextInt(99)+1;
+            Num2 = rand.nextInt(99)+1;
         }
         if ((localScore > 3)&&(localScore <6))
         {
-            Num1 = rand.nextInt(500);
-            Num2 = rand.nextInt(500);
+            Num1 = rand.nextInt(499)+1;
+            Num2 = rand.nextInt(499)+1;
         }
         if (localScore > 6){
-            Num1 = rand.nextInt(1000);
-            Num2 = rand.nextInt(1000);
+            Num1 = rand.nextInt(999)+1;
+            Num2 = rand.nextInt(999)+1;
         }
-        int Num1_1 = InOtherSystem(base, Num1);
-        int Num2_1 = InOtherSystem(base,Num2);                  //задание
-
-        exercise.setText(Integer.toString(Num1_1)+"("+base+")+"+Integer.toString(Num2_1)+"("+base+")=");  //вывод задания
-
-        searched = Integer.toString(InOtherSystem(base,Num1+Num2));  //ответ
+        if (base<10){ //задание
+            int Num1_1 = InOtherSystem(base,Num1);
+            int Num2_1 = InOtherSystem(base,Num2);
+            exercise.setText(Integer.toString(Num1_1)+"("+base+")+"+Integer.toString(Num2_1)+"("+base+")=");  //вывод задания
+            searched = Integer.toString(InOtherSystem(base,Num1+Num2));  //ответ
+        }
+        else {
+            String Num1_1=InOtherSystem11_16(base,Num1);
+            String Num2_1=InOtherSystem11_16(base,Num2);
+            exercise.setText(Num1_1+"("+base+")+"+Num2_1+"("+base+")=");  //вывод задания
+            searched=InOtherSystem11_16(base,Num1+Num2);
+        }
     }
 
     //Level 8
     public void level8Exercise(){
         f = true;
 
-        int base = rand.nextInt(15)+1;
+        int base = rand.nextInt(15)+2;
         int Num1 = 0;
         int Num2 = 0;
         do {
             if (localScore < 3){
-                Num1 = rand.nextInt(100);
-                Num2 = rand.nextInt(100);
+                Num1 = rand.nextInt(99)+1;
+                Num2 = rand.nextInt(99)+1;
             }
             if ((localScore > 3)&&(localScore <6))
             {
-                Num1 = rand.nextInt(500);
-                Num2 = rand.nextInt(500);
+                Num1 = rand.nextInt(499)+1;
+                Num2 = rand.nextInt(499)+1;
             }
             if (localScore > 6){
-                Num1 = rand.nextInt(1000);
-                Num2 = rand.nextInt(1000);
+                Num1 = rand.nextInt(999)+1;
+                Num2 = rand.nextInt(999)+1;
             }
-        } while (Num1>Num2);
+        } while (Num1<Num2);
+        if (base<10){ //задание
         int Num1_1 = InOtherSystem(base,Num1);
-        int Num2_1 = InOtherSystem(base,Num2);               //задание
-
+        int Num2_1 = InOtherSystem(base,Num2);
         exercise.setText(Integer.toString(Num1_1)+"("+base+")-"+Integer.toString(Num2_1)+"("+base+")=");  //вывод задания
+            searched = Integer.toString(InOtherSystem(base,Num1-Num2));  //ответ
+         }
+        else {
+            String Num1_1=InOtherSystem11_16(base,Num1);
+            String Num2_1=InOtherSystem11_16(base,Num2);
+            exercise.setText(Num1_1+"("+base+")-"+Num2_1+"("+base+")=");  //вывод задания
+            searched=InOtherSystem11_16(base,Num1-Num2);
+        }
 
-        searched = Integer.toString(InOtherSystem(base,Num1-Num2));  //ответ
+
+
     }
 
 
@@ -368,6 +384,7 @@ public class TaskActivity extends AppCompatActivity {
                     setLocalScore(levelVariable);
                 } else {
                     answer.setBackgroundColor(Color.rgb(255, 112, 112)); //поле ввода изменяет свой цвет в случае неправильнго ответа
+                  Toast.makeText(TaskActivity.this, searched.toUpperCase(), Toast.LENGTH_LONG).show();
                     f = !f;
                 }
 
