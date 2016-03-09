@@ -373,38 +373,26 @@ public class TaskActivity extends AppCompatActivity {
     //Проверка любого номера
     public void checkAnswer(View v) {
         String answerCheck = answer.getText().toString().toUpperCase();
-        if (!answerCheck.isEmpty() && flagOfSwitch) {
+        if (!answerCheck.isEmpty()) {
             if (f) {
-                flagOfSwitch = false;
+               // flagOfSwitch = false;
                 if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answerCheck (отвте пользователя)
                     answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
                     localScore++; //увеличение счета на балл
-                  //  next.setText(localScore + " из 10 \n  Следующий"); //вывод текущего счета
+                     next.setText(localScore + " из 10 \n  Следующий"); //вывод текущего счета
                     f = !f;
                     setLocalScore(levelVariable);
                 } else {
                     answer.setBackgroundColor(Color.rgb(255, 112, 112)); //поле ввода изменяет свой цвет в случае неправильнго ответа
-                  Toast.makeText(TaskActivity.this, searched.toUpperCase(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(TaskActivity.this, searched.toUpperCase().toString(), Toast.LENGTH_LONG).show();
                     f = !f;
                 }
-
-                new CountDownTimer(4000,1000){
-
-                    public void onTick(long millisUntilFinished) {
-                        answerButton.setText(localScore + " из 10 \n  Следующий");
-                    }
-
-                    public void onFinish() {
-                        answerButton.setText("====>");
-                    }
-                }.start();
             }
         }
-        if (!flagOfSwitch){
-            nextExercise(next);
-
-        }
     }
+
+  //  = answer.getText().toString().toUpperCase();
+
 
     //Кнопка Next
     public void nextExercise(View v){

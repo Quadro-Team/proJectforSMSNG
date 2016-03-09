@@ -45,8 +45,5 @@ public class LibOfTheory extends AppCompatActivity {
                 break;
         }
     }
-    public void Back(View v){
-        Intent i = new Intent(this, TaskActivity.class);
-        startActivity(i);
-    }
+
 }

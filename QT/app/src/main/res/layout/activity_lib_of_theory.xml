@@ -16,17 +16,7 @@
         android:layout_weight="19"
         android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="В Меню"
-        android:layout_weight="1"
-        android:id="@+id/startmenu"
-        android:background="@drawable/button"
-        android:onClick="Back"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
 
 
 </LinearLayout>
