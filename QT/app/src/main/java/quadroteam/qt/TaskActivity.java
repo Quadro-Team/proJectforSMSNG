@@ -383,8 +383,9 @@ public class TaskActivity extends AppCompatActivity {
                     f = !f;
                     setLocalScore(levelVariable);
                 } else {
-                    answer.setBackgroundColor(Color.rgb(255, 112, 112)); //поле ввода изменяет свой цвет в случае неправильнго ответа
-                    Toast.makeText(TaskActivity.this, searched.toUpperCase().toString(), Toast.LENGTH_LONG).show();
+                    answer.setBackgroundColor(Color.rgb(211, 39, 63)); //поле ввода изменяет свой цвет в случае неправильнго ответа
+                    answer.setTextColor(Color.rgb(255, 255, 231));
+                    Toast.makeText(TaskActivity.this, searched.toUpperCase(), Toast.LENGTH_LONG).show();
                     f = !f;
                 }
             }
@@ -399,6 +400,7 @@ public class TaskActivity extends AppCompatActivity {
         base = 0;
         number = 0;
         answer.setBackgroundColor(Color.TRANSPARENT);
+        answer.setTextColor(Color.rgb(45, 30, 59));
         answer.setText("");
 
         if (localScore >= 10) {

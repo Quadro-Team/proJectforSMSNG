@@ -6,7 +6,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="#ffffe5"
     tools:context="quadroteam.qt.TaskActivity"
     android:id="@+id/root"
     >
@@ -17,7 +17,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Задание"
         android:textSize="40sp"
-        android:textColor="#000"
+        android:textColor="#7D2B41"
         android:gravity="center"
         android:id="@+id/textExercise"
         android:layout_weight="16" />
@@ -28,6 +28,7 @@
         android:id="@+id/textAnswer"
         android:textSize="30sp"
         android:gravity="center"
+        android:textColor="#2D1E3B"
         android:hint="Пиши ответ сюда"
         android:inputType="textCapCharacters"
         android:layout_weight="4"/>
@@ -35,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="74sp"
         android:text="Ответить"
-        android:textColor="#000"
+        android:textColor="#7D2B41"
         android:textSize="25sp"
         android:layout_gravity="center"
         android:onClick="checkAnswer"
@@ -48,7 +49,7 @@
         android:text="Следующий"
         android:background="@drawable/button"
         android:textSize="25sp"
-        android:textColor="#000"
+        android:textColor="#7D2B41"
         android:layout_gravity="center"
         android:onClick="nextExercise"
         android:id="@+id/next" />
