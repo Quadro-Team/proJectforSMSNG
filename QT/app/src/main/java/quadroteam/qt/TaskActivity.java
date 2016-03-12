@@ -34,7 +34,7 @@ public class TaskActivity extends AppCompatActivity {
     int  base, number,levelVariable;
     boolean f,flag,flagOfSwitch = true;
     String temp = "",searched;
-    TextView exercise;
+    TextView exercise, score;
     EditText answer;
     Button answerButton,next;
 
@@ -46,6 +46,7 @@ public class TaskActivity extends AppCompatActivity {
         answer = (EditText)findViewById(R.id.textAnswer);  answer.setBackgroundColor(Color.TRANSPARENT);
         answerButton = (Button)findViewById(R.id.check);
         next = (Button)findViewById(R.id.next);
+        score=(TextView)findViewById(R.id.point);
 
 
         levelVariable = getIntent().getIntExtra("lvl", 1);
@@ -379,7 +380,7 @@ public class TaskActivity extends AppCompatActivity {
                 if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answerCheck (отвте пользователя)
                     answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
                     localScore++; //увеличение счета на балл
-                     next.setText(localScore + " из 10 \n  Следующий"); //вывод текущего счета
+                     score.setText(localScore + "/10"); //вывод текущего счета
                     f = !f;
                     setLocalScore(levelVariable);
                 } else {

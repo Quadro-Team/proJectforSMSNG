@@ -10,6 +10,15 @@
     tools:context="quadroteam.qt.TaskActivity"
     android:id="@+id/root"
     >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0/10"
+            android:id="@+id/point"
+            android:textSize="25sp"
+            android:textColor="#7D2B41"
+            android:gravity="right" />
+
 
     <TextView
         android:layout_width="fill_parent"
