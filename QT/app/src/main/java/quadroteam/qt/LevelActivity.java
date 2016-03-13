@@ -2,12 +2,10 @@ package quadroteam.qt;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 public class LevelActivity extends AppCompatActivity {
         int a,key;
@@ -28,7 +26,7 @@ public class LevelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
-        savenum = getIntent().getIntExtra("lvl", 1);
+       /* savenum = getIntent().getIntExtra("lvl", 1);
         lvl1 = (Button)findViewById(R.id.lvl1);
         lvl2 = (Button)findViewById(R.id.lvl2);
         lvl3 = (Button)findViewById(R.id.lvl3);
@@ -58,7 +56,7 @@ public class LevelActivity extends AppCompatActivity {
             case 2:  lvl2.setEnabled(true);
             case 1:  lvl1.setEnabled(true);
 
-        }
+        } */
 
     }
 

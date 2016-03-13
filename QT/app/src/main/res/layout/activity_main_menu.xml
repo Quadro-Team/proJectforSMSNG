@@ -12,46 +12,38 @@
     >
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/name"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        />
+        android:src="@drawable/name" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/button"
-        android:text="Начать игру"
-        android:id="@+id/StG"
-        android:layout_gravity="center"
-        android:textColor="#2D1E3B"
-        android:textSize="30sp"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/game"
+        android:src="@drawable/ingamebt"
+        android:background="#ffffff"
         android:onClick="startLVLlist"
         android:layout_weight="1"
-        />
+        android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Теория"
-        android:textColor="#2D1E3B"
-        android:id="@+id/lib"
-        android:layout_gravity="center"
-        android:background="@drawable/button"
-        android:textSize="30sp"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="TheoryList"
-        android:layout_weight="1"/>
+        android:src="@drawable/theorybt"
+        android:id="@+id/theory"
+        android:background="#ffffff"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal" />
 
-    <Button
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="Developers"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Авторы"
-        android:textColor="#2D1E3B"
-        android:layout_gravity="center"
-        android:textSize="30sp"
-        android:background="@drawable/button"
-        android:id="@+id/opt"
-        android:layout_weight="1"/>
+        android:id="@+id/devel"
+        android:src="@drawable/devbt"
+        android:background="#ffffff"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
