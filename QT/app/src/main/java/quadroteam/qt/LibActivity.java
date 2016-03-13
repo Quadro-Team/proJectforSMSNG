@@ -22,14 +22,14 @@ public class LibActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lib);
-        lvl1 = (Button) findViewById(R.id.lvl1);
+     /*   lvl1 = (Button) findViewById(R.id.lvl1);
         lvl2 = (Button) findViewById(R.id.lvl2);
         lvl3 = (Button) findViewById(R.id.lvl3);
         lvl4 = (Button) findViewById(R.id.lvl4);
         lvl5 = (Button) findViewById(R.id.lvl5);
         lvl6 = (Button) findViewById(R.id.lvl6);
         lvl7 = (Button) findViewById(R.id.lvl7);
-        lvl8 = (Button) findViewById(R.id.lvl8);
+        lvl8 = (Button) findViewById(R.id.lvl8); */
     }
 
     public void startThe(View v) {

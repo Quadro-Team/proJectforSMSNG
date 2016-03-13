@@ -17,13 +17,13 @@
         android:layout_weight="19"
         android:layout_gravity="center_horizontal" />
 
-    <Button
+    <ImageButton
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="К заданиям"
         android:layout_weight="1"
         android:id="@+id/startlvl"
-        android:background="@drawable/button"
+        android:background="#ffffff"
+        android:src="@drawable/startlvl"
         android:onClick="startLVLTasks"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"

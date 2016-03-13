@@ -2,15 +2,12 @@ package quadroteam.qt;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,7 +33,7 @@ public class TaskActivity extends AppCompatActivity {
     String temp = "",searched;
     TextView exercise, score;
     EditText answer;
-    Button answerButton,next;
+    ImageButton answerButton,next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +41,8 @@ public class TaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_task);
         exercise = (TextView)findViewById(R.id.textExercise);
         answer = (EditText)findViewById(R.id.textAnswer);  answer.setBackgroundColor(Color.TRANSPARENT);
-        answerButton = (Button)findViewById(R.id.check);
-        next = (Button)findViewById(R.id.next);
+        answerButton = (ImageButton)findViewById(R.id.check);
+        next = (ImageButton)findViewById(R.id.next);
         score=(TextView)findViewById(R.id.point);
 
 
@@ -55,7 +52,7 @@ public class TaskActivity extends AppCompatActivity {
 
         getLocalScore(levelVariable);
 
-        if (localScore != 0){
+       /* if (localScore != 0){
             next.setText(localScore + " из 10 \n  Next");
         }
         switch(levelVariable){
@@ -90,7 +87,7 @@ public class TaskActivity extends AppCompatActivity {
             //level10Exercise();
             //    break;
 
-        }
+        } */
     }
 
         //Method

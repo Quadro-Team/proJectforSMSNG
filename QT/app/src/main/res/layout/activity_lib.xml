@@ -10,117 +10,85 @@
     android:background="#FFFFE5"
     android:orientation="vertical">
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:text="Уровень 1 -\n Что такое СС?"
-        android:layout_weight="1"
-        android:clickable="true"
-        android:layout_gravity="center"
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/lvl1"
-        android:textSize="14sp"
+        android:layout_weight="1"
+        android:background="#ffffff"
         android:onClick="startThe"
-        android:textColor="#000000"
-        android:background="@drawable/button"
-        />
+        android:src="@drawable/lvl1bt"
+        android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:text="Уровень 2 -\n Счет в СС"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/lvl2"
-        android:clickable="false"
-        android:onClick="startThe"
-        android:textSize="14sp"
         android:layout_weight="1"
-        android:layout_gravity="center"
-        android:textColor="#000000"
-        android:background="@drawable/button"
-        />
+        android:background="#ffffff"
+        android:onClick="startThe"
+        android:src="@drawable/lvl2bt"
+        android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:text="Уровень 3 - \nПереводить из 10-ой СС"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/lvl3"
-        android:clickable="false"
-        android:onClick="startThe"
-        android:textSize="14sp"
         android:layout_weight="1"
-        android:layout_gravity="center"
-        android:textColor="#000000"
-        android:background="@drawable/button"
-        />
+        android:background="#ffffff"
+        android:onClick="startThe"
+        android:src="@drawable/lvl3bt"
+        android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:text="Уровень 4 -\n Перевод в СС больше 10"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/lvl4"
-        android:clickable="false"
-        android:onClick="startThe"
-        android:textSize="14sp"
         android:layout_weight="1"
-        android:layout_gravity="center"
-        android:textColor="#000000"
-        android:background="@drawable/button"
-        />
+        android:background="#ffffff"
+        android:onClick="startThe"
+        android:src="@drawable/lvl4bt"
+        android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:text="Уровень 5 -\n В 10-ю СС из других"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/lvl5"
-        android:clickable="false"
-        android:onClick="startThe"
-        android:textSize="14sp"
-        android:layout_gravity="center"
         android:layout_weight="1"
-        android:textColor="#000000"
-        android:background="@drawable/button"
-        />
+        android:background="#ffffff"
+        android:onClick="startThe"
+        android:src="@drawable/lvl5bt"
+        android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:text="Уровень 6 -\n Кратные СС"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/lvl6"
-        android:clickable="false"
-        android:textColor="#000000"
-        android:onClick="startThe"
         android:layout_weight="1"
-        android:textSize="14sp"
-        android:layout_gravity="center"
-        android:background="@drawable/button"
-        />
+        android:background="#ffffff"
+        android:onClick="startThe"
+        android:src="@drawable/lvl6bt"
+        android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:text="Уровень 7 -\n Сложение"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/lvl7"
-        android:clickable="false"
-        android:onClick="startThe"
         android:layout_weight="1"
-        android:textSize="14sp"
-        android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
-        android:textColor="#000000"
-        android:background="@drawable/button"
-        />
+        android:background="#ffffff"
+        android:onClick="startThe"
+        android:src="@drawable/lvl7bt"
+        android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:text="Уровень 8 -\n Вычитание"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/lvl8"
-        android:clickable="false"
-        android:onClick="startThe"
-        android:textSize="14sp"
         android:layout_weight="1"
-        android:layout_gravity="center"
-        android:textColor="#000000"
-        android:background="@drawable/button"
-        />
+        android:background="#ffffff"
+        android:onClick="startThe"
+        android:src="@drawable/lvl8bt"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
