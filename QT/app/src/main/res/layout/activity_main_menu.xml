@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/game"
         android:src="@drawable/ingamebt"
-        android:background="#ffffff"
+        android:background="#ffffe5"
         android:onClick="startLVLlist"
         android:layout_weight="1"
         android:layout_gravity="center_horizontal" />
@@ -32,7 +32,7 @@
         android:onClick="TheoryList"
         android:src="@drawable/theorybt"
         android:id="@+id/theory"
-        android:background="#ffffff"
+        android:background="#ffffe5"
         android:layout_weight="1"
         android:layout_gravity="center_horizontal" />
 
@@ -42,7 +42,7 @@
         android:onClick="Developers"
         android:id="@+id/devel"
         android:src="@drawable/devbt"
-        android:background="#ffffff"
+        android:background="#ffffe5"
         android:layout_weight="1"
         android:layout_gravity="center_horizontal" />
 

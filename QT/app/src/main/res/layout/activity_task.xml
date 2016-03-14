@@ -47,14 +47,14 @@
         android:src="@drawable/check"
         android:layout_gravity="center"
         android:onClick="checkAnswer"
-        android:background="#ffffff"
+        android:background="#ffffe5"
         android:id="@+id/check" />
 
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="74sp"
         android:src="@drawable/next"
-        android:background="#ffffff"
+        android:background="#ffffe5"
         android:layout_gravity="center"
         android:onClick="nextExercise"
         android:id="@+id/next" />

@@ -384,7 +384,7 @@ public class TaskActivity extends AppCompatActivity {
                 } else {
                     answer.setBackgroundColor(Color.rgb(211, 39, 63)); //поле ввода изменяет свой цвет в случае неправильнго ответа
                     answer.setTextColor(Color.rgb(255, 255, 231));
-                    Toast.makeText(TaskActivity.this, searched.toUpperCase(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(TaskActivity.this, searched.toUpperCase(), Toast.LENGTH_LONG).show();
                     f = !f;
                 }
             }
