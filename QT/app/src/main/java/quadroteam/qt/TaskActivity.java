@@ -55,6 +55,7 @@ public class TaskActivity extends AppCompatActivity {
        /* if (localScore != 0){
             next.setText(localScore + " из 10 \n  Next");
         }
+        */
         switch(levelVariable){
             case 1: getLocalScore(levelVariable);
                     level1Exercise();
@@ -87,7 +88,7 @@ public class TaskActivity extends AppCompatActivity {
             //level10Exercise();
             //    break;
 
-        } */
+        }
     }
 
         //Method
