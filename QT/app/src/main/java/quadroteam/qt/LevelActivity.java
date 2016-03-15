@@ -2,6 +2,7 @@ package quadroteam.qt;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,6 +27,7 @@ public class LevelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
        /* savenum = getIntent().getIntExtra("lvl", 1);
         lvl1 = (Button)findViewById(R.id.lvl1);
         lvl2 = (Button)findViewById(R.id.lvl2);

@@ -38,7 +38,6 @@
         android:textSize="30sp"
         android:gravity="center"
         android:textColor="#2D1E3B"
-        android:hint="Пиши ответ сюда"
         android:inputType="textCapCharacters"
         android:layout_weight="4"/>
     <ImageButton
