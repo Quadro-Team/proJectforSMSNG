@@ -5,14 +5,16 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import java.util.Random;
+
 
 public class TaskActivity extends AppCompatActivity {
 
@@ -35,18 +37,20 @@ public class TaskActivity extends AppCompatActivity {
     TextView exercise, score;
     EditText answer;
     ImageButton answerButton,next;
+    Handler h;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+      setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         exercise = (TextView)findViewById(R.id.textExercise);
         answer = (EditText)findViewById(R.id.textAnswer);  answer.setBackgroundColor(Color.TRANSPARENT);
         answerButton = (ImageButton)findViewById(R.id.check);
-        next = (ImageButton)findViewById(R.id.next);
+     //   next = (ImageButton)findViewById(R.id.next);
         score=(TextView)findViewById(R.id.point);
 
+        h=new Handler();
 
         levelVariable = getIntent().getIntExtra("lvl", 1);
 
@@ -91,6 +95,7 @@ public class TaskActivity extends AppCompatActivity {
             //    break;
 
         }
+        score.setText(localScore+"/10");
     }
 
         //Method
@@ -327,7 +332,7 @@ public class TaskActivity extends AppCompatActivity {
             String Num1_1=InOtherSystem11_16(base,Num1);
             String Num2_1=InOtherSystem11_16(base,Num2);
             exercise.setText(Num1_1+"("+base+")+"+Num2_1+"("+base+")=");  //вывод задания
-            searched=InOtherSystem11_16(base,Num1+Num2);
+            searched=InOtherSystem11_16(base, Num1 + Num2);
         }
     }
 
@@ -369,18 +374,18 @@ public class TaskActivity extends AppCompatActivity {
 
 
     }
-
-
-    //Проверка любого номера
-    public void checkAnswer(View v) {
+Runnable check=new Runnable() {
+    @Override
+    public void run() {
         String answerCheck = answer.getText().toString().toUpperCase();
         if (!answerCheck.isEmpty()) {
             if (f) {
-               // flagOfSwitch = false;
+                // flagOfSwitch = false;
+                answerButton.setClickable(false);
                 if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answerCheck (отвте пользователя)
                     answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
                     localScore++; //увеличение счета на балл
-                     score.setText(localScore + "/10"); //вывод текущего счета
+                    score.setText(localScore + "/10"); //вывод текущего счета
                     f = !f;
                     setLocalScore(levelVariable);
                 } else {
@@ -389,20 +394,36 @@ public class TaskActivity extends AppCompatActivity {
                     //Toast.makeText(TaskActivity.this, searched.toUpperCase(), Toast.LENGTH_LONG).show();
                     f = !f;
                 }
+
             }
+
         }
+    }
+};
+Runnable task=new Runnable() {
+    @Override
+    public void run() {
+        nextExercise();
+    }
+};
+
+    //Проверка любого номера
+    public void checkAnswer(View v) {
+       h.post(check);
+        h.postDelayed(task,4000);
     }
 
   //  = answer.getText().toString().toUpperCase();
 
 
     //Кнопка Next
-    public void nextExercise(View v){
+    public void nextExercise(){
         base = 0;
         number = 0;
         answer.setBackgroundColor(Color.TRANSPARENT);
         answer.setTextColor(Color.rgb(45, 30, 59));
         answer.setText("");
+        answerButton.setClickable(true);
 
         if (localScore >= 10) {
             sPref = getPreferences(MODE_PRIVATE);

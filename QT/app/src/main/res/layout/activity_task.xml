@@ -13,7 +13,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="0/10"
             android:id="@+id/point"
             android:textSize="25sp"
             android:textColor="#7D2B41"
@@ -48,14 +47,5 @@
         android:onClick="checkAnswer"
         android:background="#ffffe5"
         android:id="@+id/check" />
-
-    <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="74sp"
-        android:src="@drawable/next"
-        android:background="#ffffe5"
-        android:layout_gravity="center"
-        android:onClick="nextExercise"
-        android:id="@+id/next" />
-
+   
 </LinearLayout>

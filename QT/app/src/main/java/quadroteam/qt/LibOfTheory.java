@@ -15,10 +15,9 @@ public class LibOfTheory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lib_of_theory);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         s = getIntent().getIntExtra("lib", 1);
         t = (ImageView) findViewById(R.id.imageView2);
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         switch (s) {
             case 1:
