@@ -459,6 +459,7 @@ public class TaskActivity extends AppCompatActivity {
                         {
                             image.setImageResource(R.drawable.tryagain);
                             layoutForToast.addView(image, 0);
+                            toastImage.show();
                         }
                         f = !f;
                     }
