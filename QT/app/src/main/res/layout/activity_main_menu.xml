@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/game"
-        android:src="@drawable/ingamebt"
+        android:src="@drawable/ingamebt1"
         android:background="#ffffe5"
         android:onClick="startLVLlist"
         android:layout_weight="1"
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:onClick="Developers"
         android:id="@+id/devel"
-        android:src="@drawable/devbt"
+        android:src="@drawable/devbt1"
         android:background="#ffffe5"
         android:layout_weight="1"
         android:layout_gravity="center_horizontal" />
