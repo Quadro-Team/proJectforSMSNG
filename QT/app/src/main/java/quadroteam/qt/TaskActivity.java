@@ -433,18 +433,9 @@ public class TaskActivity extends AppCompatActivity {
                 if (f) {
                     answerButton.setClickable(false);
 
-                    Toast toastImage = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT);
-                    toastImage.setGravity(Gravity.CENTER, 0, 0);
-                    LinearLayout layoutForToast = (LinearLayout)toastImage.getView();
-                    ImageView image = new ImageView(getApplicationContext());
-
                     if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answerCheck (отвте пользователя)
-                        {
-                            image.setImageResource(R.drawable.rightanswer);
-                            layoutForToast.addView(image, 0);
-                            toastImage.show();
-                        }
-                       // answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
+
+                        answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
                         localScore++; //увеличение счета на балл
                         amountOfTries++;
                         score.setText("Всего попыток:" + amountOfTries + "\n" + "Очков:" + localScore + "/10"); //вывод текущего счета
@@ -452,15 +443,10 @@ public class TaskActivity extends AppCompatActivity {
                         setLocalScore(levelVariable);
                         setTries(levelVariable);
                     } else {
-                       // answer.setBackgroundColor(Color.rgb(211, 39, 63)); //поле ввода изменяет свой цвет в случае неправильнго ответа
-                        //answer.setTextColor(Color.rgb(255, 255, 231));
+                        answer.setBackgroundColor(Color.rgb(211, 39, 63)); //поле ввода изменяет свой цвет в случае неправильнго ответа
+                        answer.setTextColor(Color.rgb(255, 255, 231));
                         amountOfTries++;
-                        setTries(levelVariable);
-                        {
-                            image.setImageResource(R.drawable.tryagain);
-                            layoutForToast.addView(image, 0);
-                            toastImage.show();
-                        }
+
                         f = !f;
                     }
 
@@ -488,8 +474,8 @@ public class TaskActivity extends AppCompatActivity {
     public void nextExercise(){
         base = 0;
         number = 0;
-        //answer.setBackgroundColor(Color.TRANSPARENT);
-        //answer.setTextColor(Color.rgb(45, 30, 59));
+        answer.setBackgroundColor(Color.TRANSPARENT);
+        answer.setTextColor(Color.rgb(45, 30, 59));
         answer.setText("");
         answerButton.setClickable(true);
 
