@@ -7,14 +7,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import java.util.Random;
@@ -32,7 +28,7 @@ public class TaskActivity extends AppCompatActivity {
     static private String SAVED_LVL_6 = "saved_value";
     static private String SAVED_LVL_7 = "saved_value";
     static private String SAVED_LVL_8 = "saved_value";
-
+    static private String SAVED_CORRECT = "0";
     static private String TRIES_LVL_1 = "0";
     static private String TRIES_LVL_2 = "0";
     static private String TRIES_LVL_3 = "0";
@@ -42,15 +38,15 @@ public class TaskActivity extends AppCompatActivity {
     static private String TRIES_LVL_7 = "0";
     static private String TRIES_LVL_8 = "0";
 
+    double correctAnswers;
     int localScore,amountOfTries = 0;
     int  base, number,levelVariable;
-    boolean f,flag = true,tryFlag = false;
+    boolean f,flag = true;
     String temp = "",searched;
     TextView exercise, score;
     EditText answer;
     ImageButton answerButton;
     Handler h;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,17 +55,14 @@ public class TaskActivity extends AppCompatActivity {
         exercise = (TextView)findViewById(R.id.textExercise);
         answer = (EditText)findViewById(R.id.textAnswer);  answer.setBackgroundColor(Color.TRANSPARENT);
         answerButton = (ImageButton)findViewById(R.id.check);
-     //   next = (ImageButton)findViewById(R.id.next);
-        //image = (ImageView)findViewById();
         score=(TextView)findViewById(R.id.point);
 
         h=new Handler();
 
         levelVariable = getIntent().getIntExtra("lvl", 1);
 
-        sPref = getPreferences(MODE_PRIVATE);
-
         getLocalScore(levelVariable);
+        sPref = getPreferences(MODE_PRIVATE);
 
         switch(levelVariable){
             case 1: getLocalScore(levelVariable);getTries(levelVariable);
@@ -98,7 +91,9 @@ public class TaskActivity extends AppCompatActivity {
                 break;
 
         }
-        score.setText(localScore+"/10");
+
+        score.setText("Очков:" + localScore + "/10" +"Попыток:" + amountOfTries+ "\nКоэффицент: " + correctAnswers + "%");
+
     }
 
         //Methods
@@ -155,6 +150,7 @@ public class TaskActivity extends AppCompatActivity {
             case 8: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_8,"0"));
                 break;
         }
+            correctAnswers = Double.parseDouble(sPref.getString(SAVED_CORRECT,"0"));
     }
 
     private void setTries (int levelVariable){
@@ -250,7 +246,7 @@ public class TaskActivity extends AppCompatActivity {
     public void level1Exercise(){
         f = true;
         int number=rand.nextInt(99)+1;//задание
-        exercise.setText("В какой минимальной с.с. можно записать число так\n"+Integer.toString(number));//вывод задания
+        exercise.setText("В какой минимальной с.с. можно записать число так:\n"+Integer.toString(number));//вывод задания
         searched=Integer.toString(Math.max(number%10,number/10)+1);//ответ
     }
 
@@ -431,7 +427,7 @@ public class TaskActivity extends AppCompatActivity {
             String answerCheck = answer.getText().toString().toUpperCase();
             if (!answerCheck.isEmpty()) {
                 if (f) {
-                    answerButton.setClickable(false);
+                    answerButton.setEnabled(false);
 
                     if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answerCheck (отвте пользователя)
 
@@ -443,49 +439,52 @@ public class TaskActivity extends AppCompatActivity {
                         setLocalScore(levelVariable);
                         setTries(levelVariable);
                     } else {
-                        answer.setBackgroundColor(Color.rgb(211, 39, 63)); //поле ввода изменяет свой цвет в случае неправильнго ответа
-                        answer.setTextColor(Color.rgb(255, 255, 231));
-                        amountOfTries++;
-
-                        f = !f;
+                            answer.setBackgroundColor(Color.rgb(211, 39, 63)); //поле ввода изменяет свой цвет в случае неправильного ответа
+                            answer.setTextColor(Color.rgb(255, 255, 231));
+                            answer.setText("Неправильно");
+                            amountOfTries++;
+                            f=!f;
+                        setTries(levelVariable);
+                        score.setText("Всего попыток:" + amountOfTries + "\n" + "Очков:" + localScore + "/10"); //вывод текущего счета
+                    }
                     }
 
                 }
 
             }
-        }
     };
     Runnable task=new Runnable() {
         @Override
         public void run() {
-            nextExercise();
+                nextExercise();
         }
     };
 
     //Проверка любого номера
     public void checkAnswer(View v) {
        h.post(check);
-        h.postDelayed(task,4000);
+
+       h.postDelayed(task, 2000);
+
     }
 
 
-
     //Кнопка Next
-    public void nextExercise(){
+    public void nextExercise() {
         base = 0;
         number = 0;
         answer.setBackgroundColor(Color.TRANSPARENT);
         answer.setTextColor(Color.rgb(45, 30, 59));
         answer.setText("");
-        answerButton.setClickable(true);
-
+        answerButton.setEnabled(true);
         if (localScore >= 10) {
             sPref = getPreferences(MODE_PRIVATE);
             SharedPreferences.Editor ed = sPref.edit();
             ed.putString(SAVED_VALUE,Integer.toString(levelVariable));
+            ed.putString(SAVED_CORRECT,Double.toString((double)(1000/amountOfTries)));
             ed.apply();
             localScore = 0;
-              setLocalScore(levelVariable);
+            setLocalScore(levelVariable);
             Intent level = new Intent(this,LevelActivity.class);
               startActivity(level);
         }
