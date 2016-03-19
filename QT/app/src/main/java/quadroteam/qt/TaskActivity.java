@@ -92,7 +92,7 @@ public class TaskActivity extends AppCompatActivity {
 
         }
 
-        score.setText("Очков:" + localScore + "/10" +"Попыток:" + amountOfTries+ "\nКоэффицент: " + correctAnswers + "%");
+        score.setText("Очков:" + localScore + "/10" +" Попыток:" + amountOfTries+ "\nКоэффицент: " + correctAnswers + "%");
 
     }
 
