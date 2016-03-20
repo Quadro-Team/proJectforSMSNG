@@ -19,7 +19,8 @@ import java.util.Random;
 public class TaskActivity extends AppCompatActivity {
 
     SharedPreferences sPref;
-    static String SAVED_VALUE = "saved_value";
+    static private String SAVED_VALUE = "saved_value";
+
     static private String SAVED_LVL_1 = "saved_value";
     static private String SAVED_LVL_2 = "saved_value";
     static private String SAVED_LVL_3 = "saved_value";
@@ -28,7 +29,7 @@ public class TaskActivity extends AppCompatActivity {
     static private String SAVED_LVL_6 = "saved_value";
     static private String SAVED_LVL_7 = "saved_value";
     static private String SAVED_LVL_8 = "saved_value";
-    static private String SAVED_CORRECT = "0";
+
     static private String TRIES_LVL_1 = "0";
     static private String TRIES_LVL_2 = "0";
     static private String TRIES_LVL_3 = "0";
@@ -38,7 +39,6 @@ public class TaskActivity extends AppCompatActivity {
     static private String TRIES_LVL_7 = "0";
     static private String TRIES_LVL_8 = "0";
 
-    double correctAnswers;
     int localScore,amountOfTries = 0;
     int  base, number,levelVariable;
     boolean f,flag = true;
@@ -63,7 +63,7 @@ public class TaskActivity extends AppCompatActivity {
 
         getLocalScore(levelVariable);
         sPref = getPreferences(MODE_PRIVATE);
-
+        //setAllZero();
         switch(levelVariable){
             case 1: getLocalScore(levelVariable);getTries(levelVariable);
                     level1Exercise();
@@ -92,17 +92,41 @@ public class TaskActivity extends AppCompatActivity {
 
         }
 
-        score.setText("Очков:" + localScore + "/10" +"Попыток:" + amountOfTries+ "\nКоэффицент: " + correctAnswers + "%");
+        score.setText("Очков:" + localScore + "/10\n" +"Попыток:" + amountOfTries);
 
     }
 
         //Methods
+
+    private void setAllZero (){
+        sPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        ed.putString(SAVED_LVL_1, "0");
+        ed.putString(SAVED_LVL_2, "0");
+        ed.putString(SAVED_LVL_3, "0");
+        ed.putString(SAVED_LVL_4, "0");
+        ed.putString(SAVED_LVL_5, "0");
+        ed.putString(SAVED_LVL_6, "0");
+        ed.putString(SAVED_LVL_8, "0");
+        ed.putString(SAVED_LVL_7, "0");
+
+        ed.putString(TRIES_LVL_1,"0");
+        ed.putString(TRIES_LVL_2,"0");
+        ed.putString(TRIES_LVL_3,"0");
+        ed.putString(TRIES_LVL_4,"0");
+        ed.putString(TRIES_LVL_5,"0");
+        ed.putString(TRIES_LVL_6,"0");
+        ed.putString(TRIES_LVL_7,"0");
+        ed.putString(TRIES_LVL_8,"0");
+
+        ed.commit();
+    }
+
     private void setLocalScore (int levelVariable){
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
         switch (levelVariable){
-            case 1:
-                ed.putString(SAVED_LVL_1, Integer.toString(localScore));
+            case 1: ed.putString(SAVED_LVL_1, Integer.toString(localScore));
                 break;
             case 2: ed.putString(SAVED_LVL_2, Integer.toString(localScore));
 
@@ -127,7 +151,7 @@ public class TaskActivity extends AppCompatActivity {
                 break;
 
         }
-            ed.apply();
+            ed.commit();
     }
 
     private void getLocalScore (int levelVariable){
@@ -150,15 +174,15 @@ public class TaskActivity extends AppCompatActivity {
             case 8: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_8,"0"));
                 break;
         }
-            correctAnswers = Double.parseDouble(sPref.getString(SAVED_CORRECT,"0"));
+
     }
 
     private void setTries (int levelVariable){
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
         switch (levelVariable){
-            case 1:
-                ed.putString(TRIES_LVL_1, Integer.toString(amountOfTries));
+            case 1: ed.putString(TRIES_LVL_1, Integer.toString(amountOfTries));
+
                 break;
             case 2: ed.putString(TRIES_LVL_2, Integer.toString(amountOfTries));
 
@@ -478,13 +502,14 @@ public class TaskActivity extends AppCompatActivity {
         answer.setText("");
         answerButton.setEnabled(true);
         if (localScore >= 10) {
-            sPref = getPreferences(MODE_PRIVATE);
-            SharedPreferences.Editor ed = sPref.edit();
-            ed.putString(SAVED_VALUE,Integer.toString(levelVariable));
-            ed.putString(SAVED_CORRECT,Double.toString((double)(1000/amountOfTries)));
-            ed.apply();
-            localScore = 0;
+            //sPref = getPreferences(MODE_PRIVATE);
+            //SharedPreferences.Editor ed = sPref.edit();
+            //ed.putString(SAVED_VALUE, Integer.toString(levelVariable));
+            //ed.apply();
+            levelVariable = 0;
+            amountOfTries = 0;
             setLocalScore(levelVariable);
+            setTries(levelVariable);
             Intent level = new Intent(this,LevelActivity.class);
               startActivity(level);
         }
