@@ -19,8 +19,7 @@ import java.util.Random;
 public class TaskActivity extends AppCompatActivity {
 
     SharedPreferences sPref;
-    static private String SAVED_VALUE = "saved_value";
-
+    static String SAVED_VALUE = "saved_value";
     static private String SAVED_LVL_1 = "saved_value";
     static private String SAVED_LVL_2 = "saved_value";
     static private String SAVED_LVL_3 = "saved_value";
@@ -30,103 +29,82 @@ public class TaskActivity extends AppCompatActivity {
     static private String SAVED_LVL_7 = "saved_value";
     static private String SAVED_LVL_8 = "saved_value";
 
-    static private String TRIES_LVL_1 = "0";
-    static private String TRIES_LVL_2 = "0";
-    static private String TRIES_LVL_3 = "0";
-    static private String TRIES_LVL_4 = "0";
-    static private String TRIES_LVL_5 = "0";
-    static private String TRIES_LVL_6 = "0";
-    static private String TRIES_LVL_7 = "0";
-    static private String TRIES_LVL_8 = "0";
 
-    int localScore,amountOfTries = 0;
+    int localScore;
     int  base, number,levelVariable;
-    boolean f,flag = true;
+    boolean f,flag,flagOfSwitch = true;
     String temp = "",searched;
     TextView exercise, score;
     EditText answer;
-    ImageButton answerButton;
+    ImageButton answerButton,next;
     Handler h;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
-      setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         exercise = (TextView)findViewById(R.id.textExercise);
         answer = (EditText)findViewById(R.id.textAnswer);  answer.setBackgroundColor(Color.TRANSPARENT);
         answerButton = (ImageButton)findViewById(R.id.check);
+        //   next = (ImageButton)findViewById(R.id.next);
         score=(TextView)findViewById(R.id.point);
 
         h=new Handler();
 
         levelVariable = getIntent().getIntExtra("lvl", 1);
 
-        getLocalScore(levelVariable);
         sPref = getPreferences(MODE_PRIVATE);
-        //setAllZero();
+
+        getLocalScore(levelVariable);
+
+       /* if (localScore != 0){
+            next.setText(localScore + " из 10 \n  Next");
+        }
+        */
         switch(levelVariable){
-            case 1: getLocalScore(levelVariable);getTries(levelVariable);
-                    level1Exercise();
+            case 1: getLocalScore(levelVariable);
+                level1Exercise();
                 break;
-            case 2: getLocalScore(levelVariable);getTries(levelVariable);
-                    level2Exercise();
+            case 2: getLocalScore(levelVariable);
+                level2Exercise();
                 break;
-            case 3: getLocalScore(levelVariable);getTries(levelVariable);
-                    level3Exercise();
+            case 3: getLocalScore(levelVariable);
+                level3Exercise();
                 break;
-            case 4: getLocalScore(levelVariable);getTries(levelVariable);
-                    level4Exercise();
+            case 4: getLocalScore(levelVariable);
+                level4Exercise();
                 break;
-            case 5: getLocalScore(levelVariable);getTries(levelVariable);
-                    level5Exercise();
+            case 5: getLocalScore(levelVariable);
+                level5Exercise();
                 break;
-            case 6: getLocalScore(levelVariable);getTries(levelVariable);
-                    level6Exercise();
+            case 6: getLocalScore(levelVariable);
+                level6Exercise();
                 break;
-            case 7: getLocalScore(levelVariable);getTries(levelVariable);
-                    level7Exercise();
+            case 7: getLocalScore(levelVariable);
+                level7Exercise();
                 break;
-            case 8: getLocalScore(levelVariable);getTries(levelVariable);
-                    level8Exercise();
+            case 8: getLocalScore(levelVariable);
+                level8Exercise();
                 break;
+            //case 9: getLocalScore(levelVariable);
+            //        level9Exercise();
+            //    break;
+            //case 10:getLocalScore(levelVariable);
+            //level10Exercise();
+            //    break;
 
         }
-
-        score.setText("Очков:" + localScore + "/10\n" +"Попыток:" + amountOfTries);
-
+        score.setText(localScore+"/10");
     }
 
-        //Methods
-
-    private void setAllZero (){
-        sPref = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor ed = sPref.edit();
-        ed.putString(SAVED_LVL_1, "0");
-        ed.putString(SAVED_LVL_2, "0");
-        ed.putString(SAVED_LVL_3, "0");
-        ed.putString(SAVED_LVL_4, "0");
-        ed.putString(SAVED_LVL_5, "0");
-        ed.putString(SAVED_LVL_6, "0");
-        ed.putString(SAVED_LVL_8, "0");
-        ed.putString(SAVED_LVL_7, "0");
-
-        ed.putString(TRIES_LVL_1,"0");
-        ed.putString(TRIES_LVL_2,"0");
-        ed.putString(TRIES_LVL_3,"0");
-        ed.putString(TRIES_LVL_4,"0");
-        ed.putString(TRIES_LVL_5,"0");
-        ed.putString(TRIES_LVL_6,"0");
-        ed.putString(TRIES_LVL_7,"0");
-        ed.putString(TRIES_LVL_8,"0");
-
-        ed.commit();
-    }
-
+    //Method
     private void setLocalScore (int levelVariable){
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
         switch (levelVariable){
-            case 1: ed.putString(SAVED_LVL_1, Integer.toString(localScore));
+            case 1:
+                ed.putString(SAVED_LVL_1, Integer.toString(localScore));
                 break;
             case 2: ed.putString(SAVED_LVL_2, Integer.toString(localScore));
 
@@ -149,9 +127,13 @@ public class TaskActivity extends AppCompatActivity {
             case 8: ed.putString(SAVED_LVL_8, Integer.toString(localScore));
 
                 break;
+            //  case 9: ed.putString(SAVED_LVL_9,Integer.toString(localScore));
 
+            //      break;
+            // case 10:ed.putString(SAVED_LVL_10, Integer.toString(localScore));
+            // break;
         }
-            ed.commit();
+        ed.apply();
     }
 
     private void getLocalScore (int levelVariable){
@@ -173,62 +155,10 @@ public class TaskActivity extends AppCompatActivity {
                 break;
             case 8: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_8,"0"));
                 break;
-        }
-
-    }
-
-    private void setTries (int levelVariable){
-        sPref = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor ed = sPref.edit();
-        switch (levelVariable){
-            case 1: ed.putString(TRIES_LVL_1, Integer.toString(amountOfTries));
-
-                break;
-            case 2: ed.putString(TRIES_LVL_2, Integer.toString(amountOfTries));
-
-                break;
-            case 3: ed.putString(TRIES_LVL_3, Integer.toString(amountOfTries));
-
-                break;
-            case 4: ed.putString(TRIES_LVL_4, Integer.toString(amountOfTries));
-
-                break;
-            case 5: ed.putString(TRIES_LVL_5, Integer.toString(amountOfTries));
-
-                break;
-            case 6: ed.putString(TRIES_LVL_6, Integer.toString(amountOfTries));
-
-                break;
-            case 7: ed.putString(TRIES_LVL_7, Integer.toString(amountOfTries));
-
-                break;
-            case 8: ed.putString(TRIES_LVL_8, Integer.toString(amountOfTries));
-
-                break;
-
-        }
-        ed.apply();
-    }
-
-    private void getTries (int levelVariable){
-        sPref = getPreferences(MODE_PRIVATE);
-        switch (levelVariable){
-            case 1: amountOfTries = Integer.parseInt(sPref.getString(TRIES_LVL_1,"0"));
-                break;
-            case 2: amountOfTries = Integer.parseInt(sPref.getString(TRIES_LVL_2,"0"));
-                break;
-            case 3: amountOfTries = Integer.parseInt(sPref.getString(TRIES_LVL_3,"0"));
-                break;
-            case 4: amountOfTries = Integer.parseInt(sPref.getString(TRIES_LVL_4,"0"));
-                break;
-            case 5: amountOfTries = Integer.parseInt(sPref.getString(TRIES_LVL_5,"0"));
-                break;
-            case 6: amountOfTries = Integer.parseInt(sPref.getString(TRIES_LVL_6,"0"));
-                break;
-            case 7: amountOfTries = Integer.parseInt(sPref.getString(TRIES_LVL_7,"0"));
-                break;
-            case 8: amountOfTries = Integer.parseInt(sPref.getString(TRIES_LVL_8,"0"));
-                break;
+            //case 9: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_9,"0"));
+            //    break;
+            //case 10: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_10,"0"));
+            //   break;
         }
     }
 
@@ -262,7 +192,7 @@ public class TaskActivity extends AppCompatActivity {
         return result;
     }
 
-    Random rand = new Random();
+    Random rand=new Random();
 
     //Levels
 
@@ -324,9 +254,9 @@ public class TaskActivity extends AppCompatActivity {
         }else{
             temp = String.valueOf(InOtherSystem(base,number));
         }
-            exercise.setText("Переведите "+temp+"("+base+")\n в 10-ю");
-            searched = Integer.toString(number);
-        }
+        exercise.setText("Переведите "+temp+"("+base+")\n в 10-ю");
+        searched = Integer.toString(number);
+    }
 
     //Номер 6
     public void level6Exercise(){
@@ -362,15 +292,15 @@ public class TaskActivity extends AppCompatActivity {
         }
 
         if (base == 8) {
-                exercise.setText(Integer.toOctalString(number) + "(8) " + " в (2)");
-                searched = Integer.toBinaryString(number);
+            exercise.setText(Integer.toOctalString(number) + "(8) " + " в (2)");
+            searched = Integer.toBinaryString(number);
         }
 
         if (base == 16) {
-                exercise.setText(Integer.toHexString(number) + "(16) " + " в (2)");
-                searched = Integer.toBinaryString(number);
-            }
+            exercise.setText(Integer.toHexString(number) + "(16) " + " в (2)");
+            searched = Integer.toBinaryString(number);
         }
+    }
 
     //Level 7
     public void level7Exercise(){
@@ -429,89 +359,82 @@ public class TaskActivity extends AppCompatActivity {
             }
         } while (Num1<Num2);
         if (base<10){ //задание
-        int Num1_1 = InOtherSystem(base,Num1);
-        int Num2_1 = InOtherSystem(base,Num2);
-        exercise.setText(Integer.toString(Num1_1)+"("+base+")-"+Integer.toString(Num2_1)+"("+base+")=");  //вывод задания
+            int Num1_1 = InOtherSystem(base,Num1);
+            int Num2_1 = InOtherSystem(base,Num2);
+            exercise.setText(Integer.toString(Num1_1)+"("+base+")-"+Integer.toString(Num2_1)+"("+base+")=");  //вывод задания
             searched = Integer.toString(InOtherSystem(base,Num1-Num2));  //ответ
-         }
+        }
         else {
             String Num1_1=InOtherSystem11_16(base,Num1);
             String Num2_1=InOtherSystem11_16(base,Num2);
-            exercise.setText(Num1_1 +"("+base+")-"+Num2_1+"("+base+")=");  //вывод задания
+            exercise.setText(Num1_1+"("+base+")-"+Num2_1+"("+base+")=");  //вывод задания
             searched=InOtherSystem11_16(base,Num1-Num2);
         }
 
 
 
     }
-
-        Runnable check=new Runnable() {
+    Runnable check=new Runnable() {
         @Override
         public void run() {
             String answerCheck = answer.getText().toString().toUpperCase();
             if (!answerCheck.isEmpty()) {
                 if (f) {
-                    answerButton.setEnabled(false);
-
+                    // flagOfSwitch = false;
+                    answerButton.setClickable(false);
                     if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answerCheck (отвте пользователя)
-
                         answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
                         localScore++; //увеличение счета на балл
-                        amountOfTries++;
-                        score.setText("Всего попыток:" + amountOfTries + "\n" + "Очков:" + localScore + "/10"); //вывод текущего счета
+                        score.setText(localScore + "/10"); //вывод текущего счета
                         f = !f;
                         setLocalScore(levelVariable);
-                        setTries(levelVariable);
                     } else {
-                            answer.setBackgroundColor(Color.rgb(211, 39, 63)); //поле ввода изменяет свой цвет в случае неправильного ответа
-                            answer.setTextColor(Color.rgb(255, 255, 231));
-                            answer.setText("Неправильно");
-                            amountOfTries++;
-                            f=!f;
-                        setTries(levelVariable);
-                        score.setText("Всего попыток:" + amountOfTries + "\n" + "Очков:" + localScore + "/10"); //вывод текущего счета
-                    }
+                        answer.setBackgroundColor(Color.rgb(211, 39, 63)); //поле ввода изменяет свой цвет в случае неправильнго ответа
+                        answer.setTextColor(Color.rgb(255, 255, 231));
+                        //Toast.makeText(TaskActivity.this, searched.toUpperCase(), Toast.LENGTH_LONG).show();
+                        f = !f;
                     }
 
                 }
 
             }
+        }
     };
     Runnable task=new Runnable() {
         @Override
         public void run() {
-                nextExercise();
+            nextExercise();
         }
     };
 
     //Проверка любого номера
     public void checkAnswer(View v) {
-       h.post(check);
-
-       h.postDelayed(task, 2000);
-
+        h.post(check);
+        h.postDelayed(task,2000);
     }
 
+    //  = answer.getText().toString().toUpperCase();
 
-    //Кнопка Next
-    public void nextExercise() {
+
+
+    public void nextExercise(){
         base = 0;
         number = 0;
         answer.setBackgroundColor(Color.TRANSPARENT);
         answer.setTextColor(Color.rgb(45, 30, 59));
         answer.setText("");
-        answerButton.setEnabled(true);
+        answerButton.setClickable(true);
+
         if (localScore >= 10) {
-            //sPref = getPreferences(MODE_PRIVATE);
-            //SharedPreferences.Editor ed = sPref.edit();
-            //ed.putString(SAVED_VALUE, Integer.toString(levelVariable));
-            //ed.apply();
-            levelVariable = 0;
-            amountOfTries = 0;
+            sPref = getPreferences(MODE_PRIVATE);
+            SharedPreferences.Editor ed = sPref.edit();
+            ed.putString(SAVED_VALUE,Integer.toString(levelVariable));
+            ed.apply();
+
+            localScore = 0;
             setLocalScore(levelVariable);
-            setTries(levelVariable);
             Intent level = new Intent(this,LevelActivity.class);
-              startActivity(level);
+            startActivity(level);
         }
         if (localScore < 10) {
             switch (levelVariable) {
@@ -539,11 +462,17 @@ public class TaskActivity extends AppCompatActivity {
                 case 8:
                     level8Exercise();
                     break;
+                //case 9:
+                //  level9Exercise();
+                // break;
+                //case 10:
+                //    level10Exercise();
+                //   break;
 
-                }
             }
         }
     }
+}
 
 
 
@@ -559,22 +488,16 @@ public class TaskActivity extends AppCompatActivity {
         }
         if (base < 10){
             exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")*"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
-
             searched = Integer.toString(InOtherSystem(base,key));
         }
         else {
             exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
-
             searched = InOtherSystem11_16(base,key);
-
         }
-
     }
-
     //Level 10
     public void level10Exercise(){
         f = true;
-
         int numb1 = rand.nextInt(99)+1;
         int n1 = rand.nextInt(49)+1;
         int key = rand.nextInt(24)+1;
@@ -585,14 +508,10 @@ public class TaskActivity extends AppCompatActivity {
         }
         if (base < 10){
             exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")/"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
-
             searched = Integer.toString(InOtherSystem(base,key));
         }
         else {
             exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
-
             searched = InOtherSystem11_16(base,key);
-
         }
-
     } */
