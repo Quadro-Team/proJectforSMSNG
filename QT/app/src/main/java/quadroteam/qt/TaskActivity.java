@@ -511,7 +511,6 @@ public class TaskActivity extends AppCompatActivity {
             SharedPreferences.Editor ed = sPref.edit();
             ed.putString(SAVED_VALUE,Integer.toString(levelVariable));
             ed.apply();
-
             localScore = 0;
             setLocalScore(levelVariable);
             //amountOfTries = 0;
