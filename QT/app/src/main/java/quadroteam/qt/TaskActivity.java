@@ -506,7 +506,6 @@ public class TaskActivity extends AppCompatActivity {
         answer.setText("");
         answerButton.setClickable(true);
         if (localScore >= 10) {
-
             sPref = getPreferences(MODE_PRIVATE);
             SharedPreferences.Editor ed = sPref.edit();
             ed.putString(SAVED_VALUE,Integer.toString(levelVariable));
