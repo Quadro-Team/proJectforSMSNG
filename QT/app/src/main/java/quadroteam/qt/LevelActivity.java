@@ -10,8 +10,8 @@ import android.widget.Button;
 
 public class LevelActivity extends AppCompatActivity {
         int a,key;
-        SharedPreferences sPref;
-        static String SAVED_VALUE = "1";
+//        SharedPreferences sPref;
+//        static String SAVED_VALUE = "1";
     Button lvl1;
     Button lvl2;
     Button lvl3;
