@@ -463,16 +463,16 @@ public class TaskActivity extends AppCompatActivity {
                         score.setText(/*"Всего попыток:" + amountOfTries + "\n" + */"Очков:" + localScore + "/10"); //вывод текущего счета
                         f = !f;
                         setLocalScore(levelVariable);
-                        //amountOfTries++;
-                        //setTries(levelVariable);
+                        amountOfTries++;
+                        setTries(levelVariable);
                     } else {
                         answer.setBackgroundColor(Color.rgb(211, 39, 63)); //поле ввода изменяет свой цвет в случае неправильного ответа
                         answer.setTextColor(Color.rgb(255, 255, 231));
                         answer.setText("Неправильно");
                         f=!f;
                         score.setText(/*"Всего попыток:" + amountOfTries + "\n" + */"Очков:" + localScore + "/10"); //вывод текущего счета
-                        //amountOfTries++;
-                        //setTries(levelVariable);
+                        amountOfTries++;
+                        setTries(levelVariable);
                     }
 
                 }
@@ -513,8 +513,8 @@ public class TaskActivity extends AppCompatActivity {
             ed.apply();
             localScore = 0;
             setLocalScore(levelVariable);
-            //amountOfTries = 0;
-            //setTries(levelVariable);
+            amountOfTries = 0;
+            setTries(levelVariable);
             Intent level = new Intent(this,LevelActivity.class);
             startActivity(level);
         }
