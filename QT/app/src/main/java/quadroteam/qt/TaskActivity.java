@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -19,23 +20,23 @@ public class TaskActivity extends AppCompatActivity {
     SharedPreferences sPref;
     static private String SAVED_VALUE = "saved_value";
 
-    static private String SAVED_LVL_1 = "saved_value";
-    static private String SAVED_LVL_2 = "saved_value";
-    static private String SAVED_LVL_3 = "saved_value";
-    static private String SAVED_LVL_4 = "saved_value";
-    static private String SAVED_LVL_5 = "saved_value";
-    static private String SAVED_LVL_6 = "saved_value";
-    static private String SAVED_LVL_7 = "saved_value";
-    static private String SAVED_LVL_8 = "saved_value";
+    static private String SAVED_LVL_1 = "saved_value1";
+    static private String SAVED_LVL_2 = "saved_value2";
+    static private String SAVED_LVL_3 = "saved_value3";
+    static private String SAVED_LVL_4 = "saved_value4";
+    static private String SAVED_LVL_5 = "saved_value5";
+    static private String SAVED_LVL_6 = "saved_value6";
+    static private String SAVED_LVL_7 = "saved_value7";
+    static private String SAVED_LVL_8 = "saved_value8";
 
-    static private String TRIES_LVL_1 = "0";
-    static private String TRIES_LVL_2 = "0";
-    static private String TRIES_LVL_3 = "0";
-    static private String TRIES_LVL_4 = "0";
-    static private String TRIES_LVL_5 = "0";
-    static private String TRIES_LVL_6 = "0";
-    static private String TRIES_LVL_7 = "0";
-    static private String TRIES_LVL_8 = "0";
+    static private String TRIES_LVL_1 = "saved_value9";
+    static private String TRIES_LVL_2 = "saved_value10";
+    static private String TRIES_LVL_3 = "saved_value11";
+    static private String TRIES_LVL_4 = "saved_value12";
+    static private String TRIES_LVL_5 = "saved_value14";
+    static private String TRIES_LVL_6 = "saved_value15";
+    static private String TRIES_LVL_7 = "saved_value16";
+    static private String TRIES_LVL_8 = "saved_value17";
 
     int localScore,amountOfTries;
     int  base, number,levelVariable;
@@ -62,10 +63,11 @@ public class TaskActivity extends AppCompatActivity {
         sPref = getPreferences(MODE_PRIVATE);
 
         getLocalScore(levelVariable);getTries(levelVariable);
+        score.setGravity(Gravity.CENTER);
+        score.setText("Попыток:" + amountOfTries + "" +
+                "\nОчков:" + localScore + "/10" );
 
-        score.setText("Очков:" + localScore + "/10\n"/* +"Попыток:" + amountOfTries*/);
-
-        //setAllZero();
+        setAllZero();
         switch(levelVariable){
             case 1:
                 level1Exercise();
@@ -120,7 +122,7 @@ public class TaskActivity extends AppCompatActivity {
         ed.putString(TRIES_LVL_7,"0");
         ed.putString(TRIES_LVL_8,"0");
 
-        ed.commit();
+        ed.apply();
     }
 
     private void setLocalScore (int levelVariable){
@@ -457,24 +459,23 @@ public class TaskActivity extends AppCompatActivity {
                     answerButton.setClickable(false);
 
                     if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answerCheck (ответ пользователя)
-
                         answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
-                        localScore++; //увеличение счета на балл
-                        score.setText(/*"Всего попыток:" + amountOfTries + "\n" + */"Очков:" + localScore + "/10"); //вывод текущего счета
                         f = !f;
-                        setLocalScore(levelVariable);
+                        localScore++; //увеличение счета на балл
                         amountOfTries++;
+                        setLocalScore(levelVariable);
                         setTries(levelVariable);
                     } else {
                         answer.setBackgroundColor(Color.rgb(211, 39, 63)); //поле ввода изменяет свой цвет в случае неправильного ответа
                         answer.setTextColor(Color.rgb(255, 255, 231));
                         answer.setText("Неправильно");
                         f=!f;
-                        score.setText(/*"Всего попыток:" + amountOfTries + "\n" + */"Очков:" + localScore + "/10"); //вывод текущего счета
                         amountOfTries++;
                         setTries(levelVariable);
-                    }
 
+                    }
+                    score.setText("Попыток:" + amountOfTries +
+                            "\nОчков:" + localScore + "/10"); //вывод текущего счета
                 }
 
             }
@@ -484,7 +485,6 @@ public class TaskActivity extends AppCompatActivity {
     Runnable task=new Runnable() {
         @Override
         public void run() {
-
             nextExercise();
         }
     };
@@ -597,4 +597,6 @@ public class TaskActivity extends AppCompatActivity {
 
             searched = InOtherSystem11_16(base,key);
 
-        }*/
+        }
+
+    } */
