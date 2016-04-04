@@ -5,33 +5,19 @@ import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
 
 public class LibActivity extends AppCompatActivity {
 
     int a;
-    Button lvl1;
-    Button lvl2;
-    Button lvl3;
-    Button lvl4;
-    Button lvl5;
-    Button lvl6;
-    Button lvl7;
-    Button lvl8;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lib);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-     /*   lvl1 = (Button) findViewById(R.id.lvl1);
-        lvl2 = (Button) findViewById(R.id.lvl2);
-        lvl3 = (Button) findViewById(R.id.lvl3);
-        lvl4 = (Button) findViewById(R.id.lvl4);
-        lvl5 = (Button) findViewById(R.id.lvl5);
-        lvl6 = (Button) findViewById(R.id.lvl6);
-        lvl7 = (Button) findViewById(R.id.lvl7);
-        lvl8 = (Button) findViewById(R.id.lvl8); */
+
     }
 
     public void startThe(View v) {
