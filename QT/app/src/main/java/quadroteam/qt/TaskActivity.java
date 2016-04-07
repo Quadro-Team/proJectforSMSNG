@@ -362,7 +362,7 @@ public class TaskActivity extends AppCompatActivity {
                 searched = Integer.toOctalString(number);
             } else {
                 exercise.setText(Integer.toBinaryString(number) + "(2) " + " в (16)");
-                searched = Integer.toHexString(number);
+                searched = Integer.toHexString(number).toUpperCase();
             }
         }
 
@@ -372,7 +372,7 @@ public class TaskActivity extends AppCompatActivity {
         }
 
         if (base == 16) {
-            exercise.setText(Integer.toHexString(number) + "(16) " + " в (2)");
+            exercise.setText(Integer.toHexString(number).toUpperCase() + "(16) " + " в (2)");
             searched = Integer.toBinaryString(number);
         }
     }

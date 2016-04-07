@@ -27,7 +27,7 @@ public class Congratulations extends AppCompatActivity {
         stars = (ImageView)findViewById(R.id.stars);
 
         int amount = getIntent().getIntExtra("Tries",1);
-        double result  = 10/ amount;
+        double result  = 10.0/ amount;
 
         if (result < 0.4){
             stars.setImageResource(R.drawable.one);
@@ -42,7 +42,7 @@ public class Congratulations extends AppCompatActivity {
             starsAmount = 3;
         }
         int result1 = (int)(result * 100);
-        scores.setText("Очков:10   Попыток: " + amount + "\nКоэффицент правильности:" + result1 );
+        scores.setText("Очков:10   Попыток: " + amount + "\nПравильности:" + result1 + "%");
 
     }
 
