@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QT</string>
+    <string name="title_activity_congratulatoins">Congratulatoins</string>
+    <string name="title_activity_congratulations">Congratulations</string>
 </resources>

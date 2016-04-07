@@ -506,15 +506,21 @@ public class TaskActivity extends AppCompatActivity {
         answer.setText("");
         answerButton.setClickable(true);
         if (localScore >= 10) {
+
+            Intent level = new Intent(this,Congratulations.class);
+            level.putExtra("levelSTAR",levelVariable);
+            level.putExtra("Tries",amountOfTries);
+
             sPref = getPreferences(MODE_PRIVATE);
             SharedPreferences.Editor ed = sPref.edit();
-            ed.putString(SAVED_VALUE,Integer.toString(levelVariable));
+            ed.putString(SAVED_VALUE, Integer.toString(levelVariable));
             ed.apply();
+
             localScore = 0;
             setLocalScore(levelVariable);
             amountOfTries = 0;
             setTries(levelVariable);
-            Intent level = new Intent(this,LevelActivity.class);
+
             startActivity(level);
         }
         if (localScore < 10) {
