@@ -445,15 +445,86 @@ public class TaskActivity extends AppCompatActivity {
             exercise.setText(Num1_1 +"("+base+")-"+Num2_1+"("+base+")=");  //вывод задания
             searched=InOtherSystem11_16(base,Num1-Num2);
         }
+    }
 
 
+//Level 9
+   public void level9Exercise(){
+        f = true;
+        int n1 = rand.nextInt(29)+1;
+        int n2 = rand.nextInt(24)+1;
+        int key = n1*n2;
+        int base = rand.nextInt(14)+2;
+        while (base == 10){
+            base = rand.nextInt(14)+2;
+        }
+        if (base < 10){
+            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")*"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
 
+            searched = Integer.toString(InOtherSystem(base,key));
+        }
+        else {
+            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")*"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
+
+            searched = InOtherSystem11_16(base,key);
+
+        }
+
+    }
+
+    //Level 10
+    public void level10Exercise(){
+        f = true;
+        int numb1 = rand.nextInt(99)+2;
+        int n1 = rand.nextInt(29)+2;
+        int key = rand.nextInt(24)+2;
+        int n2 = n1*key;
+        int base = rand.nextInt(14)+2;
+        while (base == 10){
+            base = rand.nextInt(14)+2;
+        }
+        if (base < 10){
+            exercise.setText(Integer.toString(InOtherSystem(base,n2))+"("+base+")/"+Integer.toString(InOtherSystem(base,n1))+"("+base+")=");  //вывод задания
+
+            searched = Integer.toString(InOtherSystem(base,key));
+        }
+        else {
+            exercise.setText(InOtherSystem11_16(base,n2)+"("+base+")/"+InOtherSystem11_16(base,n1)+"("+base+")=");  //вывод задания
+
+            searched = InOtherSystem11_16(base,key);
+
+        }
+
+    }
+
+    public void tower() //Ханойские башни
+    {
+        f = true;
+        if (localScore<3){
+            int n=rand.nextInt(8)+3;
+            exercise.setText("Сколько нужно действий для перекладывания "+n+" колец");
+            n=(int)Math.pow(2,n)-1;
+            searched=""+n;
+        }
+        else {
+            int n=rand.nextInt(126)+3;
+            exercise.setText("Какое кольцо будет переложенно на "+n+" ходе");
+            n=InOtherSystem(2,n);
+            int countn=1;
+            while(n%10!=1)
+            {
+                n/=10;
+                countn++;
+            }
+            searched=""+countn;
+        }
     }
 
     Runnable check=new Runnable() {
         @Override
         public void run() {
             String answerCheck = answer.getText().toString().toUpperCase();
+            amountOfTries++;
             if (!answerCheck.isEmpty()) {
                 if (f) {
                     answerButton.setClickable(false);
@@ -462,7 +533,7 @@ public class TaskActivity extends AppCompatActivity {
                         answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
                         f = !f;
                         localScore++; //увеличение счета на балл
-                        amountOfTries++;
+                        //amountOfTries++;
                         setLocalScore(levelVariable);
                         setTries(levelVariable);
                     } else {
@@ -470,16 +541,15 @@ public class TaskActivity extends AppCompatActivity {
                         answer.setTextColor(Color.rgb(255, 255, 231));
                         answer.setText("Неправильно");
                         f=!f;
-                        amountOfTries++;
+                        //amountOfTries++;
                         setTries(levelVariable);
 
                     }
-                    score.setText("Попыток:" + amountOfTries +
-                            "\nОчков:" + localScore + "/10"); //вывод текущего счета
+
                 }
-
             }
-
+            score.setText("Попыток:" + amountOfTries +
+                    "\nОчков:" + localScore + "/10"); //вывод текущего счета
         }
     };
     Runnable task=new Runnable() {
@@ -556,53 +626,3 @@ public class TaskActivity extends AppCompatActivity {
 }
 
 
-
-//Level 9
-   /* public void level9Exercise(){
-        f = true;
-        int n1 = rand.nextInt(49)+1;
-        int n2 = rand.nextInt(24)+1;
-        int key = n1*n2;
-        int base = rand.nextInt(15)+1;
-        while (base == 10){
-            base = rand.nextInt(15)+1;
-        }
-        if (base < 10){
-            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")*"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
-
-            searched = Integer.toString(InOtherSystem(base,key));
-        }
-        else {
-            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
-
-            searched = InOtherSystem11_16(base,key);
-
-        }
-
-    }
-
-    //Level 10
-    public void level10Exercise(){
-        f = true;
-
-        int numb1 = rand.nextInt(99)+1;
-        int n1 = rand.nextInt(49)+1;
-        int key = rand.nextInt(24)+1;
-        int n2 = n1*key;
-        int base = rand.nextInt(15)+1;
-        while (base == 10){
-            base = rand.nextInt(15)+1;
-        }
-        if (base < 10){
-            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")/"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
-
-            searched = Integer.toString(InOtherSystem(base,key));
-        }
-        else {
-            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
-
-            searched = InOtherSystem11_16(base,key);
-
-        }
-
-    } */

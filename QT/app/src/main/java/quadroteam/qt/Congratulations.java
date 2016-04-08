@@ -42,7 +42,7 @@ public class Congratulations extends AppCompatActivity {
             starsAmount = 3;
         }
         int result1 = (int)(result * 100);
-        scores.setText("Очков:10   Попыток: " + amount + "\nПравильности:" + result1 + "%");
+        scores.setText("Очков:10   Попыток: " + amount + "\nПравильность:" + result1 + "%");
 
     }
 
