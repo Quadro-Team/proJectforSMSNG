@@ -11,6 +11,7 @@ import android.widget.ImageView;
  * Created by Guitar on 04.04.2016.
  */
 public class CustomAdapter extends ArrayAdapter<Integer> {
+    private boolean f;
 
     private Integer [] imageID;
     private Integer [] starsAmount;
@@ -19,12 +20,13 @@ public class CustomAdapter extends ArrayAdapter<Integer> {
         super(context, R.layout.custom_row,imageID);
         this.imageID = imageID;
         this.starsAmount = starsAmount;
-
+        f = true;
     }
 
     public CustomAdapter(Context context, Integer [] imageID) {
         super(context, R.layout.custom_row,imageID);
         this.imageID = imageID;
+        f = false;
 
     }
     @Override
@@ -34,11 +36,13 @@ public class CustomAdapter extends ArrayAdapter<Integer> {
         View customView = inflater.inflate(R.layout.custom_row, parent, false);
 
         ImageView imageView = (ImageView) customView.findViewById(R.id.image);
-        ImageView imageViewStars = (ImageView) customView.findViewById(R.id.stars);
-
         imageView.setImageResource(imageID[position]);
 
+        if (f) {
+
+            ImageView imageViewStars = (ImageView) customView.findViewById(R.id.stars);
             Integer x = starsAmount[position];
+
             switch (x) {
                 case 1:
                     imageViewStars.setImageResource(R.drawable.lilstar1);
@@ -49,9 +53,11 @@ public class CustomAdapter extends ArrayAdapter<Integer> {
                 case 3:
                     imageViewStars.setImageResource(R.drawable.lilstars3);
                     break;
-                default: break;
+                default:
+                    break;
 
-     }
+            }
+        }
         return customView;
     }
 
