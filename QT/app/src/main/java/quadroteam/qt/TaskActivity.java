@@ -20,6 +20,15 @@ public class TaskActivity extends AppCompatActivity {
     SharedPreferences sPref;
     static private String SAVED_VALUE = "saved_value";
 
+    static private String SAVED_UNLIM_1 = "saved_unlim_1";
+    static private String SAVED_UNLIM_2 = "saved_unlim_2";
+    static private String SAVED_UNLIM_3 = "saved_unlim_3";
+    static private String SAVED_UNLIM_4 = "saved_unlim_4";
+    static private String SAVED_UNLIM_5 = "saved_unlim_5";
+    static private String SAVED_UNLIM_6 = "saved_unlim_6";
+    static private String SAVED_UNLIM_7 = "saved_unlim_7";
+    static private String SAVED_UNLIM_8 = "saved_unlim_8";
+
     static private String SAVED_LVL_1 = "saved_value1";
     static private String SAVED_LVL_2 = "saved_value2";
     static private String SAVED_LVL_3 = "saved_value3";
@@ -39,8 +48,9 @@ public class TaskActivity extends AppCompatActivity {
     static private String TRIES_LVL_8 = "saved_value17";
 
     int localScore,amountOfTries;
+    int maxUnlimValue = 0,unlimValue = 0;
     int  base, number,levelVariable;
-    boolean f,flag = true;
+    boolean f,flag = true,hardcore = false, nextUnlim = true;
     String temp = "",searched;
     TextView exercise, score;
     EditText answer;
@@ -58,16 +68,21 @@ public class TaskActivity extends AppCompatActivity {
 
         h=new Handler();
 
+        hardcore = getIntent().getBooleanExtra("Hardcore",false);
         levelVariable = getIntent().getIntExtra("lvl", 1);
 
         sPref = getPreferences(MODE_PRIVATE);
 
         getLocalScore(levelVariable);getTries(levelVariable);
         score.setGravity(Gravity.CENTER);
-        score.setText("Попыток:" + amountOfTries + "" +
-                "\nОчков:" + localScore + "/10" );
-
-        setAllZero();
+        if (!hardcore) {
+            score.setText("Попыток:" + amountOfTries + "" +
+                    "\nОчков:" + localScore + "/10");
+        }
+        if (hardcore){
+            score.setText("Рекорд: "  + maxUnlimValue + " Очки: 0");
+        }
+        // setAllZero();
         switch(levelVariable){
             case 1:
                 level1Exercise();
@@ -237,6 +252,62 @@ public class TaskActivity extends AppCompatActivity {
         }
     }
 
+    private void setMaxUnlimPoints (int levelVariable){
+        sPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        switch (levelVariable){
+            case 1: ed.putString(SAVED_UNLIM_1, Integer.toString(maxUnlimValue));
+
+                break;
+            case 2: ed.putString(SAVED_UNLIM_2, Integer.toString(maxUnlimValue));
+
+                break;
+            case 3: ed.putString(SAVED_UNLIM_3, Integer.toString(maxUnlimValue));
+
+                break;
+            case 4: ed.putString(SAVED_UNLIM_4, Integer.toString(maxUnlimValue));
+
+                break;
+            case 5: ed.putString(SAVED_UNLIM_5, Integer.toString(maxUnlimValue));
+
+                break;
+            case 6: ed.putString(SAVED_UNLIM_6, Integer.toString(maxUnlimValue));
+
+                break;
+            case 7: ed.putString(SAVED_UNLIM_7, Integer.toString(maxUnlimValue));
+
+                break;
+            case 8: ed.putString(SAVED_UNLIM_8, Integer.toString(maxUnlimValue));
+
+                break;
+
+        }
+        ed.apply();
+    }
+
+    private void getMaxUnlimPoints (int levelVariable){
+        sPref = getPreferences(MODE_PRIVATE);
+        switch (levelVariable){
+            case 1: maxUnlimValue = Integer.parseInt(sPref.getString(SAVED_UNLIM_1,"0"));
+                break;
+            case 2: maxUnlimValue = Integer.parseInt(sPref.getString(SAVED_UNLIM_2,"0"));
+                break;
+            case 3: maxUnlimValue = Integer.parseInt(sPref.getString(SAVED_UNLIM_3,"0"));
+                break;
+            case 4: maxUnlimValue = Integer.parseInt(sPref.getString(SAVED_UNLIM_4,"0"));
+                break;
+            case 5: maxUnlimValue = Integer.parseInt(sPref.getString(SAVED_UNLIM_5,"0"));
+                break;
+            case 6: maxUnlimValue = Integer.parseInt(sPref.getString(SAVED_UNLIM_6,"0"));
+                break;
+            case 7: maxUnlimValue = Integer.parseInt(sPref.getString(SAVED_UNLIM_7,"0"));
+                break;
+            case 8: maxUnlimValue = Integer.parseInt(sPref.getString(SAVED_UNLIM_8,"0"));
+                break;
+        }
+
+    }
+
     int InOtherSystem(int base, int number){ //перевод из десятичной в другие с.с.
         int result=0,place=1,residual;
         while(number>0){
@@ -362,7 +433,7 @@ public class TaskActivity extends AppCompatActivity {
                 searched = Integer.toOctalString(number);
             } else {
                 exercise.setText(Integer.toBinaryString(number) + "(2) " + " в (16)");
-                searched = Integer.toHexString(number);
+                searched = Integer.toHexString(number).toUpperCase();
             }
         }
 
@@ -372,7 +443,7 @@ public class TaskActivity extends AppCompatActivity {
         }
 
         if (base == 16) {
-            exercise.setText(Integer.toHexString(number) + "(16) " + " в (2)");
+            exercise.setText(Integer.toHexString(number).toUpperCase() + "(16) " + " в (2)");
             searched = Integer.toBinaryString(number);
         }
     }
@@ -445,15 +516,92 @@ public class TaskActivity extends AppCompatActivity {
             exercise.setText(Num1_1 +"("+base+")-"+Num2_1+"("+base+")=");  //вывод задания
             searched=InOtherSystem11_16(base,Num1-Num2);
         }
+    }
 
 
+//Level 9
+   public void level9Exercise(){
+        f = true;
+        int n1 = rand.nextInt(29)+1;
+        int n2 = rand.nextInt(24)+1;
+        int key = n1*n2;
+        int base = rand.nextInt(14)+2;
+        while (base == 10){
+            base = rand.nextInt(14)+2;
+        }
+        if (base < 10){
+            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")*"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
 
+            searched = Integer.toString(InOtherSystem(base,key));
+        }
+        else {
+            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")*"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
+
+            searched = InOtherSystem11_16(base,key);
+
+        }
+
+    }
+
+    //Level 10
+    public void level10Exercise(){
+        f = true;
+        int numb1 = rand.nextInt(99)+2;
+        int n1 = rand.nextInt(29)+2;
+        int key = rand.nextInt(24)+2;
+        int n2 = n1*key;
+        int base = rand.nextInt(14)+2;
+        while (base == 10){
+            base = rand.nextInt(14)+2;
+        }
+        if (base < 10){
+            exercise.setText(Integer.toString(InOtherSystem(base,n2))+"("+base+")/"+Integer.toString(InOtherSystem(base,n1))+"("+base+")=");  //вывод задания
+
+            searched = Integer.toString(InOtherSystem(base,key));
+        }
+        else {
+            exercise.setText(InOtherSystem11_16(base,n2)+"("+base+")/"+InOtherSystem11_16(base,n1)+"("+base+")=");  //вывод задания
+
+            searched = InOtherSystem11_16(base,key);
+
+        }
+
+    }
+
+    public void tower() //Ханойские башни
+    {
+        f = true;
+        if (localScore<3){
+            int n=rand.nextInt(8)+3;
+            exercise.setText("Сколько нужно действий для перекладывания "+n+" колец");
+            n=(int)Math.pow(2,n)-1;
+            searched=""+n;
+        }
+        else {
+            int n=rand.nextInt(126)+3;
+            exercise.setText("Какое кольцо будет переложенно на "+n+" ходе");
+            n=InOtherSystem(2,n);
+            int countn=1;
+            while(n%10!=1)
+            {
+                n/=10;
+                countn++;
+            }
+            searched=""+countn;
+        }
     }
 
     Runnable check=new Runnable() {
         @Override
         public void run() {
             String answerCheck = answer.getText().toString().toUpperCase();
+            amountOfTries++;
+            if (hardcore) {
+                if (answerCheck.isEmpty()) {
+                    nextUnlim = false;
+                }
+            }
+            //Проверка на пустоту
             if (!answerCheck.isEmpty()) {
                 if (f) {
                     answerButton.setClickable(false);
@@ -461,25 +609,40 @@ public class TaskActivity extends AppCompatActivity {
                     if (answerCheck.equals(searched)) { //сравнение строки searched, в которой содержится правильный ответ со строкой answerCheck (ответ пользователя)
                         answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
                         f = !f;
-                        localScore++; //увеличение счета на балл
-                        amountOfTries++;
-                        setLocalScore(levelVariable);
-                        setTries(levelVariable);
+                        if (!hardcore) {
+                            //Нормальная работа при выключенном хардеор-режиме
+                            localScore++; //увеличение счета на балл
+                            amountOfTries++;
+                            setLocalScore(levelVariable);
+                            setTries(levelVariable);
+                        } else {
+                            //Увеличение только при включенном хардкор-режиме
+                            unlimValue++;
+                        }
                     } else {
                         answer.setBackgroundColor(Color.rgb(211, 39, 63)); //поле ввода изменяет свой цвет в случае неправильного ответа
                         answer.setTextColor(Color.rgb(255, 255, 231));
                         answer.setText("Неправильно");
                         f=!f;
-                        amountOfTries++;
-                        setTries(levelVariable);
+                        if (!hardcore) {
+                            amountOfTries++;
+                            setTries(levelVariable);
+                            if (hardcore) {
+                                nextUnlim = false;
+                            }
+                        }
+
 
                     }
-                    score.setText("Попыток:" + amountOfTries +
-                            "\nОчков:" + localScore + "/10"); //вывод текущего счета
+
                 }
-
             }
-
+            if (!hardcore) {
+                score.setText("Попыток:" + amountOfTries +
+                        "\nОчков:" + localScore + "/10"); //вывод текущего счета
+            } else {
+                score.setText("Рекорд: " + maxUnlimValue + "  Очки: " + amountOfTries);
+            }
         }
     };
     Runnable task=new Runnable() {
@@ -497,7 +660,7 @@ public class TaskActivity extends AppCompatActivity {
     }
 
 
-    //Кнопка Next
+    //Counter
     public void nextExercise() {
         base = 0;
         number = 0;
@@ -505,19 +668,37 @@ public class TaskActivity extends AppCompatActivity {
         answer.setTextColor(Color.rgb(45, 30, 59));
         answer.setText("");
         answerButton.setClickable(true);
-        if (localScore >= 10) {
-            sPref = getPreferences(MODE_PRIVATE);
-            SharedPreferences.Editor ed = sPref.edit();
-            ed.putString(SAVED_VALUE,Integer.toString(levelVariable));
-            ed.apply();
-            localScore = 0;
-            setLocalScore(levelVariable);
-            amountOfTries = 0;
-            setTries(levelVariable);
-            Intent level = new Intent(this,LevelActivity.class);
-            startActivity(level);
+
+        if (!hardcore) {
+            if (localScore >= 10) {
+                sPref = getPreferences(MODE_PRIVATE);
+                SharedPreferences.Editor ed = sPref.edit();
+                ed.putString(SAVED_VALUE, Integer.toString(levelVariable));
+                ed.apply();
+                localScore = 0;
+                setLocalScore(levelVariable);
+                amountOfTries = 0;
+                setTries(levelVariable);
+                Intent level = new Intent(getApplicationContext(), LevelActivity.class);
+                startActivity(level);
+            }
+            if (localScore < 10) {
+                nextTask(levelVariable);
+            }
+        } else {
+            if (nextUnlim) {
+                setMaxUnlimPoints(levelVariable);
+                nextTask(levelVariable);
+            } else {
+                setMaxUnlimPoints(levelVariable);
+                Intent i = new Intent(this, UnlimitedActivity.class);
+                getMaxUnlimPoints(levelVariable);
+                i.putExtra("Scores", maxUnlimValue);
+                startActivity(i);
+            }
         }
-        if (localScore < 10) {
+    }
+        public void nextTask (int levelVariable){
             switch (levelVariable) {
                 case 1:
                     level1Exercise();
@@ -546,57 +727,6 @@ public class TaskActivity extends AppCompatActivity {
 
             }
         }
-    }
 }
 
 
-
-//Level 9
-   /* public void level9Exercise(){
-        f = true;
-        int n1 = rand.nextInt(49)+1;
-        int n2 = rand.nextInt(24)+1;
-        int key = n1*n2;
-        int base = rand.nextInt(15)+1;
-        while (base == 10){
-            base = rand.nextInt(15)+1;
-        }
-        if (base < 10){
-            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")*"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
-
-            searched = Integer.toString(InOtherSystem(base,key));
-        }
-        else {
-            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
-
-            searched = InOtherSystem11_16(base,key);
-
-        }
-
-    }
-
-    //Level 10
-    public void level10Exercise(){
-        f = true;
-
-        int numb1 = rand.nextInt(99)+1;
-        int n1 = rand.nextInt(49)+1;
-        int key = rand.nextInt(24)+1;
-        int n2 = n1*key;
-        int base = rand.nextInt(15)+1;
-        while (base == 10){
-            base = rand.nextInt(15)+1;
-        }
-        if (base < 10){
-            exercise.setText(Integer.toString(InOtherSystem(base,n1))+"("+base+")/"+Integer.toString(InOtherSystem(base,n2))+"("+base+")=");  //вывод задания
-
-            searched = Integer.toString(InOtherSystem(base,key));
-        }
-        else {
-            exercise.setText(InOtherSystem11_16(base,n1)+"("+base+")/"+InOtherSystem11_16(base,n2)+"("+base+")=");  //вывод задания
-
-            searched = InOtherSystem11_16(base,key);
-
-        }
-
-    } */

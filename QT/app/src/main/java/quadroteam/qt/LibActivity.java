@@ -5,76 +5,91 @@ import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
 
 public class LibActivity extends AppCompatActivity {
 
     int a;
-    Button lvl1;
-    Button lvl2;
-    Button lvl3;
-    Button lvl4;
-    Button lvl5;
-    Button lvl6;
-    Button lvl7;
-    Button lvl8;
+
+    Integer [] imageID = {
+
+            R.drawable.lvl1bt,
+            R.drawable.lvl2bt,
+            R.drawable.lvl3bt,
+            R.drawable.lvl4bt,
+            R.drawable.lvl5bt,
+            R.drawable.lvl6bt,
+            R.drawable.lvl7bt,
+            R.drawable.lvl8bt
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lib);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-     /*   lvl1 = (Button) findViewById(R.id.lvl1);
-        lvl2 = (Button) findViewById(R.id.lvl2);
-        lvl3 = (Button) findViewById(R.id.lvl3);
-        lvl4 = (Button) findViewById(R.id.lvl4);
-        lvl5 = (Button) findViewById(R.id.lvl5);
-        lvl6 = (Button) findViewById(R.id.lvl6);
-        lvl7 = (Button) findViewById(R.id.lvl7);
-        lvl8 = (Button) findViewById(R.id.lvl8); */
+
+        CustomAdapter customAdapter = new CustomAdapter(this,imageID);
+        ListView list = (ListView)findViewById(R.id.list);
+        list.setAdapter(customAdapter);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                startThe(position + 1);
+            }
+        });
+
+
     }
 
-    public void startThe(View v) {
-        Intent i = new Intent(this, LibOfTheory.class);
-        switch (v.getId()) {
-            case R.id.lvl1:
+
+    public void startThe(int key) {
+        Intent i = new Intent(this, TheoryActivity.class);
+        switch (key) {
+            case 1:
                 a = 1;
-                i.putExtra("lib", a);
+                i.putExtra("lvl?", a);
                 startActivity(i);
                 break;
-            case R.id.lvl2:
+            case 2:
                 a = 2;
-                i.putExtra("lib", a);
+                i.putExtra("lvl?", a);
                 startActivity(i);
                 break;
-            case R.id.lvl3:
+            case 3:
                 a = 3;
-                i.putExtra("lib", a);
+                i.putExtra("lvl?", a);
                 startActivity(i);
                 break;
-            case R.id.lvl4:
+            case 4:
                 a = 4;
-                i.putExtra("lib", a);
+                i.putExtra("lvl?", a);
                 startActivity(i);
                 break;
-            case R.id.lvl5:
+            case 5:
                 a = 5;
-                i.putExtra("lib", a);
+                i.putExtra("lvl?", a);
                 startActivity(i);
                 break;
-            case R.id.lvl6:
+            case 6:
                 a = 6;
-                i.putExtra("lib", a);
+                i.putExtra("lvl?", a);
                 startActivity(i);
                 break;
-            case R.id.lvl7:
+            case 7:
                 a = 7;
-                i.putExtra("lib", a);
+                i.putExtra("lvl?", a);
                 startActivity(i);
                 break;
-            case R.id.lvl8:
+            case 8:
                 a = 8;
-                i.putExtra("lib", a);
+                i.putExtra("lvl?", a);
                 startActivity(i);
                 break;
         }

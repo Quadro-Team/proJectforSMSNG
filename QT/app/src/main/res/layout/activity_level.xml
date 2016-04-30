@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -10,85 +10,23 @@
     android:id="@+id/root"
     android:orientation="vertical">
 
-
-    <ImageButton
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lvl1"
-        android:layout_weight="1"
-        android:background="#ffffe5"
-        android:onClick="startLVL"
-        android:src="@drawable/lvl1bt"
-        android:layout_gravity="center_horizontal" />
+        android:text="Выберите Уровень:"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="#7d2c41"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvl2"
-        android:layout_weight="1"
-        android:background="#ffffe5"
-        android:onClick="startLVL"
-        android:src="@drawable/lvl2bt"
-        android:layout_gravity="center_horizontal" />
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/list"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvl3"
-        android:layout_weight="1"
-        android:background="#ffffe5"
-        android:onClick="startLVL"
-        android:src="@drawable/lvl3bt"
-        android:layout_gravity="center_horizontal" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvl4"
-        android:layout_weight="1"
-        android:background="#ffffe5"
-        android:onClick="startLVL"
-        android:src="@drawable/lvl4bt"
-        android:layout_gravity="center_horizontal" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvl5"
-        android:layout_weight="1"
-        android:background="#ffffe5"
-        android:onClick="startLVL"
-        android:src="@drawable/lvl5bt"
-        android:layout_gravity="center_horizontal" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvl6"
-        android:layout_weight="1"
-        android:background="#ffffe5"
-        android:onClick="startLVL"
-        android:src="@drawable/lvl6bt"
-        android:layout_gravity="center_horizontal" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvl7"
-        android:layout_weight="1"
-        android:background="#ffffe5"
-        android:onClick="startLVL"
-        android:src="@drawable/lvl7bt"
-        android:layout_gravity="center_horizontal" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvl8"
-        android:layout_weight="1"
-        android:background="#ffffe5"
-        android:onClick="startLVL"
-        android:src="@drawable/lvl8bt"
-        android:layout_gravity="center_horizontal" />
-
-</LinearLayout>
+</RelativeLayout>
