@@ -209,7 +209,7 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
         return IDs;
     }
 
-
+    // result of choice in dialog
     @Override
     public void onDialogMessage(Boolean hardocre) {
         resultCommunicator = hardocre;
