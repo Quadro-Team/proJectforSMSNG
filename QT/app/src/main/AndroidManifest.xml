@@ -23,10 +23,7 @@
         <activity android:name=".LibActivity" />
         <activity android:name=".LibOfTheory" />
         <activity android:name=".DevelopersActivity" />
-        <activity
-            android:name=".Congratulations"
-            android:label="@string/title_activity_congratulations"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".Congratulations"  />
         <activity android:name=".UnlimitedActivity"></activity>
     </application>
 
