@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class LevelActivity extends AppCompatActivity implements  Dialog.Communicator {
+   //variables
     int a;
     int starsAmount,levelVariable;
     Boolean resultCommunicator  = false;
@@ -51,7 +52,7 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
+        //variables
         starsAmount = getIntent().getIntExtra("Stars", 0);
         levelVariable = getIntent().getIntExtra("levelSTARS",0);
         int copy_amount = starsAmount;
@@ -68,22 +69,24 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
 
         createArray();
         dialog = new Dialog();
+        //List,Adapter,OnItemListener
         i = new Intent(getApplicationContext(),TaskActivity.class);
         CustomAdapter customAdapter = new CustomAdapter(this,imageID,IDs);
         list = (ListView)findViewById(R.id.list);
         list.setAdapter(customAdapter);
-
+        //Problem...
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+            //Method,which contains resultCommunicator : onDialogMessage
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
+                //If stars != 0 then choice
                 if (IDs[position] != 0) {
                     dialog.show(getFragmentManager(), "dialog");
                       if (resultCommunicator){
                           i.putExtra("Hardcore",true);
                       }else i.putExtra("Hardcore",false);
-
+                        // normal mod only
                 } else {
                     startLVL(position + 1);
                 }
@@ -139,7 +142,7 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
                 break;
         }
     }
-
+    //Saves
     private void setStars (int levelVariable){
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
@@ -173,7 +176,7 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
         }
         ed.commit();
     }
-
+    //Getter
     private void getStars (int levelVariable){
         sPref = getPreferences(MODE_PRIVATE);
         switch (levelVariable){
