@@ -15,9 +15,11 @@ import android.widget.Toast;
 public class LevelActivity extends AppCompatActivity implements  Dialog.Communicator {
     int a;
     int starsAmount,levelVariable;
-    String resultCommunicator  = "s";
+    Boolean resultCommunicator  = false;
     SharedPreferences sPref;
     Dialog dialog;
+    Intent i;
+    ListView list;
 
     private static String SAVED_STARS_1 = "1";
     private static String SAVED_STARS_2 = "2";
@@ -66,9 +68,9 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
 
         createArray();
         dialog = new Dialog();
-        Intent i = new Intent(getApplicationContext(),TaskActivity.class);
+        i = new Intent(getApplicationContext(),TaskActivity.class);
         CustomAdapter customAdapter = new CustomAdapter(this,imageID,IDs);
-        ListView list = (ListView)findViewById(R.id.list);
+        list = (ListView)findViewById(R.id.list);
         list.setAdapter(customAdapter);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -76,8 +78,15 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                        dialog.show(getFragmentManager(),"dialog");
-                        startLVL(position + 1);
+                if (IDs[position] != 0) {
+                    dialog.show(getFragmentManager(), "dialog");
+                      if (resultCommunicator){
+                          i.putExtra("Hardcore",true);
+                      }else i.putExtra("Hardcore",false);
+
+                } else {
+                    startLVL(position + 1);
+                }
             }
         });
 
@@ -197,8 +206,9 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
         return IDs;
     }
 
+
     @Override
-    public void onDialogMessage(String message) {
-        resultCommunicator = message;
+    public void onDialogMessage(Boolean hardocre) {
+        resultCommunicator = hardocre;
     }
 }

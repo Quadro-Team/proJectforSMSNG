@@ -43,10 +43,10 @@ public class Dialog  extends android.app.DialogFragment implements View.OnClickL
     @Override
     public void onClick(View v) {
         if (v.getId()== R.id.unlimit) {
-            communicator.onDialogMessage("Yes");
+            communicator.onDialogMessage(true);
             dismiss();
         }else {
-            communicator.onDialogMessage("No");
+            communicator.onDialogMessage(false);
             dismiss();
         }
     }
@@ -54,7 +54,7 @@ public class Dialog  extends android.app.DialogFragment implements View.OnClickL
     interface  Communicator
     {
 
-        void onDialogMessage(String message);
+        void onDialogMessage(Boolean hardcore);
 
     }
 
