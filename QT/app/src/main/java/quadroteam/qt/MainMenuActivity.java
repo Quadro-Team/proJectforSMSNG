@@ -10,10 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class MainMenuActivity extends AppCompatActivity  {
-    static private String DIALOG_APPEARANCE = "dialog_appearance";
-    String flag_First = "true";
     SharedPreferences sPref;
 
+    private static String DIALOG_STATUS = "saved_status";
+
+    String getDialogStatus = "appeare";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,19 +22,21 @@ public class MainMenuActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main_menu);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        try {
-            flag_First = sPref.getString(DIALOG_APPEARANCE,"true");
-        }catch (Exception e){
-            flag_First = "true";
+        sPref = getPreferences(MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sPref.edit();
+
+        getDialogStatus = sPref.getString(DIALOG_STATUS,"appeare");
+
+        if (getDialogStatus.equals("appeare")){
+
+            editor.putString(DIALOG_STATUS,"disappeare");
+            editor.apply();
+
+            onShow();
+
         }
 
-        if(flag_First.equals("true")) {
-            sPref = getPreferences(MODE_PRIVATE);
-            SharedPreferences.Editor ed = sPref.edit();
-            ed.putString(DIALOG_APPEARANCE,"false");
-            ed.apply();
-            onShow();
-        }
       }
 
 
