@@ -119,6 +119,7 @@ public class TaskActivity extends AppCompatActivity {
     private void setAllZero (){
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
+
         ed.putString(SAVED_LVL_1, "0");
         ed.putString(SAVED_LVL_2, "0");
         ed.putString(SAVED_LVL_3, "0");
