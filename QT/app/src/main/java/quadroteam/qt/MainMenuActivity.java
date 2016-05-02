@@ -28,11 +28,11 @@ public class MainMenuActivity extends AppCompatActivity  {
         }
 
         if(flag_First.equals("true")) {
-            onShow();
             sPref = getPreferences(MODE_PRIVATE);
             SharedPreferences.Editor ed = sPref.edit();
             ed.putString(DIALOG_APPEARANCE,"false");
-            ed.commit();
+            ed.apply();
+            onShow();
         }
       }
 
