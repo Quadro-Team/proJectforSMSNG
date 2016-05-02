@@ -74,6 +74,7 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
         CustomAdapter customAdapter = new CustomAdapter(this,imageID,IDs);
         list = (ListView)findViewById(R.id.list);
         list.setAdapter(customAdapter);
+
         //Problem...
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             //Method,which contains resultCommunicator : onDialogMessage
@@ -85,9 +86,14 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
                     dialog.show(getFragmentManager(), "dialog");
                       if (resultCommunicator){
                           i.putExtra("Hardcore",true);
-                      }else i.putExtra("Hardcore",false);
-                        // normal mod only
+                          startActivity(i);
+                      }else {
+                          i.putExtra("Hardcore",false);
+                          startActivity(i);
+                      }
+
                 } else {
+                    // normal mod only
                     startLVL(position + 1);
                 }
             }
@@ -211,7 +217,7 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
 
     // result of choice in dialog
     @Override
-    public void onDialogMessage(Boolean hardocre) {
-        resultCommunicator = hardocre;
+    public void onDialogMessage(Boolean hardcore) {
+        resultCommunicator = hardcore;
     }
 }

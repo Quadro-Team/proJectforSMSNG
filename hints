@@ -1,0 +1,593 @@
+[33mcommit 4bee52f0990aedf4855fb28b24d9b9f5594dfdbe[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Apr 30 23:51:34 2016 +0500
+
+    hints
+
+[33mcommit 7b8c25635c5c144ae293f22f5574490fd0c83c8d[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Apr 30 23:49:45 2016 +0500
+
+    hints
+    eit
+    exit
+
+[33mcommit 228eacfc7df05a3cd19443f4e32feaeb56e2585a[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Apr 30 23:40:09 2016 +0500
+
+    corrections
+
+[33mcommit 1c0b20258719c4b56518acf2e393b8fd517ad539[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Apr 30 23:27:38 2016 +0500
+
+    working project
+
+[33mcommit 5d422b7e6a2c7af8dcdbee5974a910e21b0073db[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Apr 30 23:19:20 2016 +0500
+
+    drawble
+
+[33mcommit 296adcc37305e448466a79a0fd452327a38cbde8[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Apr 30 16:41:40 2016 +0500
+
+    Version 2.1
+
+[33mcommit 9e19765054d1b4f796a2befd65d7e35746515e34[m
+Merge: e45255a 07c2a48
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Apr 30 16:37:25 2016 +0500
+
+    new commit
+
+[33mcommit e45255a3fb2d6d07d225deb4029292b1941ca4b9[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Apr 30 16:30:02 2016 +0500
+
+    com
+
+[33mcommit 35e7858e1a81a13b538f17249381a98266b8610b[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Apr 30 16:26:24 2016 +0500
+
+    Commit
+
+[33mcommit b15e7bcdbe32a60b6daf638021a406d9688aa45b[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Apr 30 16:23:39 2016 +0500
+
+    Commit
+
+[33mcommit f2ddd1c89795d230eb5d9304444db20f942bf75a[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Apr 30 16:20:55 2016 +0500
+
+    commit
+
+[33mcommit 07c2a4834e872ff5b9cbcf62723cbe01e1e7042c[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Fri Mar 25 20:16:58 2016 +0300
+
+    Finally Working Project!
+    
+    Yeah!
+
+[33mcommit 73a9a003cc300ad7e2ac7a1f094609e977456c02[m
+Merge: 9581f45 9e61c28
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Wed Mar 23 15:58:24 2016 +0300
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #	QT/app/src/main/java/quadroteam/qt/TaskActivity.java
+
+[33mcommit 9581f45168d48366d203833a511341cc0a78b4f2[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Wed Mar 23 15:57:17 2016 +0300
+
+    FileProblems
+
+[33mcommit dc74f55cfcecf47f6904abe2b3875fab605babb3[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Wed Mar 23 15:55:17 2016 +0300
+
+    FileProblem
+    
+    Tries
+
+[33mcommit a056331203c8fa4f5a7b24643f3fa3812749fcbc[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Wed Mar 23 14:26:48 2016 +0300
+
+    File*
+
+[33mcommit c7dc1951fb584c2ebb9d46a52aa001194e1eeeff[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Wed Mar 23 14:26:09 2016 +0300
+
+    File*
+
+[33mcommit 9e61c28f943ce7f3e44b0afabb148da79078fb1b[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Tue Mar 22 18:41:39 2016 +0500
+
+    Исправления
+
+[33mcommit b716beac4fad744c7eb53793f4936117485c6a83[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sun Mar 20 15:51:31 2016 +0300
+
+    доработки
+
+[33mcommit b586425fdb0365eda9ae7d0f1e5ba1efd8a47fc0[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Mar 19 22:01:49 2016 +0300
+
+    доработки
+
+[33mcommit 3db106b17b09e91adcb56498ed6827b7c98e7bd9[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Mar 19 22:01:40 2016 +0300
+
+    доработки
+
+[33mcommit 87d5801ab3d55c2fbd80ebf5e56bd0a00964dcf9[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Mar 19 22:01:25 2016 +0300
+
+    доработки
+
+[33mcommit 46123f73e8b13f08872e7564cbe291e73ebf82db[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Mar 19 18:43:25 2016 +0300
+
+    убрал toast
+
+[33mcommit 501915d405da8b197541cb8d3c8dbf72b5ec8ab4[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Fri Mar 18 21:18:05 2016 +0300
+
+    2 toast
+
+[33mcommit deee0a068e0429fe163a5682cde8af4c57347566[m
+Author: DisNoire <darkdovakin@gmail.com>
+Date:   Fri Mar 18 23:01:46 2016 +0500
+
+    Надеюсь финальная версия кнопок ༼ つ ◕_◕ ༽つ
+    
+    Заменил все кнопки так чтобы не касались друг друга, вроде получилось
+
+[33mcommit 964d42355bd37d85f142687d00ed7e7f96bfadf5[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Fri Mar 18 13:37:45 2016 +0300
+
+    Toasts insted of colors
+
+[33mcommit e29d9b3fe685e8a318083221699f2e5639d77c12[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Thu Mar 17 13:30:29 2016 +0500
+
+    Пауза
+    
+    Пауза и правильное отображение очков
+
+[33mcommit 0b6712a6212c432b195f6f688c222f570b9af308[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Tue Mar 15 21:53:40 2016 +0500
+
+    Поворот
+    
+    Теперь доступна только вертикальная ориентация
+
+[33mcommit bf5ff9023b3c3bd76dc522e5cc0f96f8c651e0e5[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Mon Mar 14 21:39:45 2016 +0500
+
+    Доработки
+    
+    Фон на кнопках и тосты
+
+[33mcommit 6ab8f2273bed9744f3c9b0e7f85599068040bf62[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Mon Mar 14 17:31:57 2016 +0500
+
+    1е задание
+    
+    Теперь отображается само задание, а не слово "Задание"
+
+[33mcommit 7cea8c83e86e37391f998e2bcf26334424ef420c[m
+Author: DisNoire <darkdovakin@gmail.com>
+Date:   Sun Mar 13 23:50:11 2016 +0500
+
+    БОЛЬШЕ КНОПОК БОГУ КНОПОК
+    
+    Кнопки в теории и в таск активити
+
+[33mcommit 29dcaaf06a465cd5432d884381f5c2451efd8d61[m
+Author: DisNoire <darkdovakin@gmail.com>
+Date:   Sun Mar 13 23:23:45 2016 +0500
+
+    Очень много кнопок
+    
+    Кнопки в главном меню и в меню выбора уровня
+
+[33mcommit 0eaefb76b92d7805fa448e752f1088c82bd12fff[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Sat Mar 12 17:46:17 2016 +0500
+
+    Прогресс
+    
+    Теперь можно безпрепятственно заменить кнопку "Следующий"
+
+[33mcommit 8010a2aa95a089b5c7650ba7e42aa09a3963da3a[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Fri Mar 11 21:36:56 2016 +0500
+
+    Дизайн
+    
+    Надеюсь, больше мы его менять не будем, ибо надоело ఠ_ఠ
+    Осталось добавить кнопки
+
+[33mcommit 5a99883092a76e96fa72d383ea29e8ee1d29d046[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Wed Mar 9 20:04:50 2016 +0500
+
+    Все снова работает
+
+[33mcommit 427ce07d7f1c1fce93a7b2ec7828df1aa4d21495[m
+Merge: 9d40308 34a87a9
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Tue Mar 8 17:46:20 2016 +0300
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #	QT/app/app.iml
+
+[33mcommit 9d40308721d7b16dde4e7567addb69cfd1b8462a[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Tue Mar 8 17:44:31 2016 +0300
+
+    sm changes
+
+[33mcommit 34a87a9353fa55987b80c08f863756de7d316f06[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Sat Feb 27 21:10:51 2016 +0500
+
+    Delete Работа на НПК.docx
+
+[33mcommit de54ae9b3b391cd65ca7a32e6759398abc778bfa[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Wed Feb 24 20:33:49 2016 +0500
+
+    НПК
+    
+    Нужно, чтобы доступ к работе для НПК был у нас у всех
+
+[33mcommit 0d0aa7d74f093de5e8810e04d1330d03a48c7d9e[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Wed Feb 24 19:20:29 2016 +0500
+
+    Правки
+    
+    Теперь уровни 7 и 8 работают (и даже после 40 нажатий на Next не
+    падают), также теперь ситуации 0+0 и 0-0 не встречаются.
+    Дополнительно: для удобства проверки работоспособности и для повышения
+    эффективности в обучении добавлен высплывающий правильный ответ в
+    случае, если введен неправильный
+
+[33mcommit b46cb5db7169540dbdecf286d2c105dfdbae00f2[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Tue Feb 23 17:33:17 2016 +0400
+
+    Developers, random
+
+[33mcommit 95f2a1c8664b4544c7f9da0f8930968845a7c65f[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Fri Feb 19 19:06:35 2016 +0500
+
+    Радость ленивых пользователей
+    
+    Теперь ответ засчитывается независимо от того, в каком регистре написаны
+    буквы. Установлена клавиатура с буквами в верхнем регистре (не знаю
+    работает ли она, в эмуляторе нет возможности проверить)
+
+[33mcommit e538e124c8e81afbf5368642e109e81be6c823ac[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Fri Feb 19 17:54:09 2016 +0500
+
+    Тест уровней
+    
+    Теперб число 0 на 2 уровне появляться не будет
+
+[33mcommit 902a61d010e89d445ffbf18ed941e03e8a321f14[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Wed Feb 17 17:48:22 2016 +0500
+
+    Прощай, противная синяя полосочка наверху
+    
+    Я наконец запустила эмулятор (не Android Studio, правда) и попробовала
+    кучу методов, после которых приложение падало. Это работает (по крайней
+    мере в эмуляторе)
+    Важно! Из-за изменения стиля background по умолчанию теперь неприятно
+    серый, поэтому во всех activity, где это еще не было сделано нужно
+    уазывать, что фон белый или картинка
+
+[33mcommit 8ed653dd84a7a3d681a32b0bb6cfd5e2b25c7d71[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Tue Feb 16 15:55:45 2016 +0500
+
+    Презентация отдельно-проект отдельно
+    
+    Презентация удалена
+
+[33mcommit f47f99330ced17bf45f4f55171acb3a7f811c252[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Tue Feb 16 15:32:00 2016 +0500
+
+    Перевод в системы счисления больше 10й
+    
+    Теперь работает правильно
+
+[33mcommit bc768fb81b5d786f65bed22f9a3991f3acfdb16e[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Mon Feb 15 22:31:04 2016 +0500
+
+    Комментарии
+    
+    Добавлены комментарии к коду генераторов 1-4
+
+[33mcommit 585ad70c569f70843cf795801056df2bf2eb0681[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Mon Feb 15 21:59:47 2016 +0500
+
+    Новое оформление
+
+[33mcommit ce2deba306da5c2bdb7a58e533f3b2388ee36973[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Mon Feb 15 21:32:53 2016 +0500
+
+    Работа на уроке
+    
+    Кажется, это все внесенные нами на уроке изменения. Напишите, если я
+    что-то не перенесла
+
+[33mcommit 100b14fc092898f389d4e765d7ec85cfd0ace51d[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Mon Feb 15 15:45:29 2016 +0500
+
+    Пара изменений в презентации
+    
+    Изменила цвет информации о презентации (вроде "Нажмите сюда для
+    перехода" и так далее) на серый, чтобы не путалась с основной по проекту
+
+[33mcommit 1bb2803cc2b10e26adcfd23ba2a4444a4af29ff6[m
+Author: DisNoire <darkdovakin@gmail.com>
+Date:   Sun Feb 14 23:56:30 2016 +0500
+
+    Кхм
+
+[33mcommit 36cce5713fcd80c7b4ce345acadfaf18b234bf6a[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Sun Feb 14 21:32:27 2016 +0500
+
+    Скоро закончим
+    
+    Добавлена презентация проекта. В качестве фона поставлена оговоренная
+    картинка. Также, написан раздел "Авторы"
+
+[33mcommit f567450950b9431d7752058495652e62e8f69c65[m
+Author: DisNoire <darkdovakin@gmail.com>
+Date:   Sun Feb 14 17:41:27 2016 +0500
+
+    Много чего
+    
+    Вся теория, 3 новые активити(Выбор теории в библиотеке, библиотека,
+    авторы) + мелкие фиксы
+
+[33mcommit e43574555c6c787088a5b90f08a255d6bed4716f[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Fri Feb 12 20:43:08 2016 +0500
+
+    Попытка побыть дизайнером
+    
+    Надеюсь, оно не будет крашится на onCreate из-за меня
+
+[33mcommit 16de9447cb0319e38019b2a39ea431b074ba3077[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Fri Feb 12 19:25:20 2016 +0500
+
+    Всякое
+    
+    Пока поставила вариант с загогулиной и убрала неиспользуемые background
+    и кнопки (все предварительно сохранила на комп) Студия не нашла их
+    упоминаний ни в коде, ни в разметке и позволила их удалить
+
+[33mcommit 91c0cb0f43fe884185c049a6f7a7ffda98c4ef75[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Fri Feb 12 12:33:52 2016 +0300
+
+    Corrections 5_6, clickability
+
+[33mcommit fdae286e08b5a60c7adbdf0540a48c228aa09b19[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Thu Feb 11 22:22:39 2016 +0500
+
+    Значок приложения изменен
+    
+    Ну я ведь уже писала, что я криворук, да?
+    Поэтому у приложения новая иконка взамен старой (зато она будет больше,
+    ну по крайней мере должна)
+
+[33mcommit a687d9f079449b47847177de93ffd38f4dcff194[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Wed Feb 10 12:34:53 2016 +0500
+
+    NothingNew
+    
+    Теперь должно выдавать основания сс от 2 до 9 на 3 уровне и от 11 до 16
+    на 4
+    А так совершенно ничего нового
+
+[33mcommit 131aec15d6b0d9ac730f77b74de9799b5d180e25[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Tue Feb 9 22:40:35 2016 +0400
+
+    More! We need MORE!
+    
+    Saves of progress, bugs fixed, design completed.
+
+[33mcommit 7304e3081b0b9e0e4a5f693374bf34fa9ccadfcb[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Tue Feb 9 00:09:41 2016 +0400
+
+    A lot of innovations
+    
+    1)Final design;
+    2)Transparent Buttons;
+    3)Fixed TaskActivity;
+
+[33mcommit 7d4223919c607cf8924552199121a9ae399ac016[m
+Merge: 9d2ccc3 ceeb40d
+Author: DisNoire <darkdovakin@gmail.com>
+Date:   Wed Feb 3 23:23:50 2016 +0500
+
+    123
+    
+    123
+
+[33mcommit 9d2ccc3ffefb526e3d1f62239e7ad4169e55c49e[m
+Author: DisNoire <darkdovakin@gmail.com>
+Date:   Wed Feb 3 23:18:29 2016 +0500
+
+    Теория через картинки
+    
+    Проверьте работает ли
+
+[33mcommit ceeb40dfe6256afccb6457f894b72a0f33afac4c[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Wed Feb 3 14:02:43 2016 +0400
+
+    исправление
+
+[33mcommit 8bde7dc742c6aa186334d0c8cc4a5930d7b13783[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Wed Feb 3 13:56:55 2016 +0400
+
+    SharedPreferences - done !
+
+[33mcommit ecec27b7762e75d5401c8fce7802bdb59545a6f7[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Wed Feb 3 13:48:07 2016 +0400
+
+    Adds
+
+[33mcommit bb0f974f6d16a4b776f598972cdf5186fdf98921[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Wed Feb 3 12:54:18 2016 +0400
+
+    It is working!!!!
+
+[33mcommit d8e04b83c1e0f83d6a860a2196741ef6660704e0[m
+Author: DisNoire <darkdovakin@gmail.com>
+Date:   Sun Jan 31 00:31:13 2016 +0500
+
+    Гит не сохранил одну строку :\
+
+[33mcommit 74116d491a54aff57baed77a1255a20a9cc3af4c[m
+Author: DisNoire <darkdovakin@gmail.com>
+Date:   Sun Jan 31 00:25:52 2016 +0500
+
+    ещё малясь
+    
+    Кнопки залочены, елси будете тестить закоментьте
+
+[33mcommit 52fb4b802bc1d7aa6fceaced10343d3c802308cc[m
+Author: DisNoire <darkdovakin@gmail.com>
+Date:   Sat Jan 30 23:49:01 2016 +0500
+
+    Доработки
+    
+    Уровень сложности в 7 и 8 задании
+
+[33mcommit d72b2c682c67298ff1c62804f63bc77a320f704e[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Jan 30 16:45:16 2016 +0300
+
+    Corrections
+
+[33mcommit 01699d77279da7cfdc7bf61eb2f918886e4cec66[m
+Author: Zizza Pizza <azzamatt@lenta.ru>
+Date:   Sat Jan 30 21:18:56 2016 +0500
+
+    addquest
+
+[33mcommit b354f459d3400824b3ea41d16b0adf5572d0a884[m
+Author: Adelina <adeli999@yandex.ru>
+Date:   Sat Jan 30 20:22:47 2016 +0500
+
+    PleaseWork
+
+[33mcommit d0616e98c6efed4c106676a21e2a991f4fdf687e[m
+Author: DisNoire <darkdovakin@gmail.com>
+Date:   Sat Jan 30 19:41:08 2016 +0500
+
+    123
+    
+    123
+
+[33mcommit d576ef2cc79b6f61035105b9ab6d505234024347[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Jan 30 17:40:03 2016 +0300
+
+    Revert "Revert "Project""
+    
+    This reverts commit aebd03f1a30cdf8c93d34d29ec914bae08af7e0e.
+
+[33mcommit aebd03f1a30cdf8c93d34d29ec914bae08af7e0e[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Sat Jan 30 17:39:54 2016 +0300
+
+    Revert "Project"
+    
+    This reverts commit 85e91fe62283722985093926613885cb1b79f55c.
+
+[33mcommit 85e91fe62283722985093926613885cb1b79f55c[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Fri Jan 29 17:27:33 2016 +0300
+
+    Project
+    
+    40%
+
+[33mcommit 23fbb9a58353a181ceea881f71f6bcdc7c90abe2[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Fri Jan 29 11:19:55 2016 +0300
+
+    Revert "TestUpdate"
+    
+    This reverts commit 67ae1045efe2c0a935ac6cb6983b2415e0c8997c.
+
+[33mcommit 3c81194fd5b43fb20fb0e14512abdc05d9fb3abd[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Fri Jan 29 11:03:41 2016 +0300
+
+    README.md
+
+[33mcommit 67ae1045efe2c0a935ac6cb6983b2415e0c8997c[m
+Author: Jamiker <mailgorinich@gmail.com>
+Date:   Fri Jan 29 11:01:11 2016 +0300
+
+    TestUpdate
+    
+    test
+
+[33mcommit 6d8c6b9a4f783c882b716a01dd617c7c0f92bae2[m
+Author: Jamiker-QuadroTeam <mailgorinich@gmail.com>
+Date:   Fri Jan 29 10:09:26 2016 +0300
+
+    Initial commit
