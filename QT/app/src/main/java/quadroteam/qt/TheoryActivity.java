@@ -16,7 +16,7 @@ public class TheoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_theory);
          s = getIntent().getIntExtra("lvl?", 1);
         t = (ImageView)findViewById(R.id.imageView);
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
     switch (s) {
         case 1: t.setImageResource(R.drawable.the1);
@@ -35,8 +35,9 @@ public class TheoryActivity extends AppCompatActivity {
             break;
         case 8: t.setImageResource(R.drawable.the8);
             break;
+        case 9: t.setImageResource(R.drawable.labelveronepone);
     }
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 }
 
 

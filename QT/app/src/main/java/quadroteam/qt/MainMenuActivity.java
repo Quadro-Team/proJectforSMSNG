@@ -55,6 +55,13 @@ public class MainMenuActivity extends AppCompatActivity  {
         Intent i = new Intent(this, DevelopersActivity.class);
         startActivity(i);
     }
+    //Button in the Menu
+    public void Unlimited (View v) {
+
+        Intent i = new Intent(getApplicationContext(),LevelActivity.class);
+        i.putExtra("Hardcore",true);
+        startActivity(i);
+    }
 
     public void onShow() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainMenuActivity.this);

@@ -28,6 +28,7 @@ public class TaskActivity extends AppCompatActivity {
     static private String SAVED_UNLIM_6 = "saved_unlim_6";
     static private String SAVED_UNLIM_7 = "saved_unlim_7";
     static private String SAVED_UNLIM_8 = "saved_unlim_8";
+    static private String SAVED_UNLIM_9 = "saved_unlim_9";
 
     static private String SAVED_LVL_1 = "saved_value1";
     static private String SAVED_LVL_2 = "saved_value2";
@@ -37,15 +38,17 @@ public class TaskActivity extends AppCompatActivity {
     static private String SAVED_LVL_6 = "saved_value6";
     static private String SAVED_LVL_7 = "saved_value7";
     static private String SAVED_LVL_8 = "saved_value8";
+    static private String SAVED_LVL_9 = "saved_value9";
 
-    static private String TRIES_LVL_1 = "saved_value9";
-    static private String TRIES_LVL_2 = "saved_value10";
-    static private String TRIES_LVL_3 = "saved_value11";
-    static private String TRIES_LVL_4 = "saved_value12";
-    static private String TRIES_LVL_5 = "saved_value14";
-    static private String TRIES_LVL_6 = "saved_value15";
-    static private String TRIES_LVL_7 = "saved_value16";
-    static private String TRIES_LVL_8 = "saved_value17";
+    static private String TRIES_LVL_1 = "saved_tries_value10";
+    static private String TRIES_LVL_2 = "saved_tries_value11";
+    static private String TRIES_LVL_3 = "saved_tries_value12";
+    static private String TRIES_LVL_4 = "saved_tries_value13";
+    static private String TRIES_LVL_5 = "saved_tries_value14";
+    static private String TRIES_LVL_6 = "saved_tries_value15";
+    static private String TRIES_LVL_7 = "saved_tries_value16";
+    static private String TRIES_LVL_8 = "saved_tries_value17";
+    static private String TRIES_LVL_9 = "saved_tries_value18";
 
     int localScore,amountOfTries;
     int maxUnlimValue = 0,unlimValue = 0;
@@ -108,6 +111,9 @@ public class TaskActivity extends AppCompatActivity {
             case 8:
                 level8Exercise();
                 break;
+            case 9:
+                tower();
+                break;
 
         }
 
@@ -128,6 +134,7 @@ public class TaskActivity extends AppCompatActivity {
         ed.putString(SAVED_LVL_6, "0");
         ed.putString(SAVED_LVL_8, "0");
         ed.putString(SAVED_LVL_7, "0");
+        ed.putString(SAVED_LVL_9, "0");
 
         ed.putString(TRIES_LVL_1,"0");
         ed.putString(TRIES_LVL_2,"0");
@@ -137,6 +144,7 @@ public class TaskActivity extends AppCompatActivity {
         ed.putString(TRIES_LVL_6,"0");
         ed.putString(TRIES_LVL_7,"0");
         ed.putString(TRIES_LVL_8,"0");
+        ed.putString(TRIES_LVL_9,"0");
 
         ed.apply();
     }
@@ -169,6 +177,10 @@ public class TaskActivity extends AppCompatActivity {
             case 8: ed.putString(SAVED_LVL_8, Integer.toString(localScore));
 
                 break;
+            case 9: ed.putString(SAVED_LVL_9, Integer.toString(localScore));
+
+                break;
+
 
         }
         ed.apply();
@@ -192,6 +204,8 @@ public class TaskActivity extends AppCompatActivity {
             case 7: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_7,"0"));
                 break;
             case 8: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_8,"0"));
+                break;
+            case 9: localScore = Integer.parseInt(sPref.getString(SAVED_LVL_9,"0"));
                 break;
         }
 
@@ -226,6 +240,9 @@ public class TaskActivity extends AppCompatActivity {
             case 8: ed.putString(TRIES_LVL_8, Integer.toString(amountOfTries));
 
                 break;
+            case 9: ed.putString(TRIES_LVL_9, Integer.toString(amountOfTries));
+
+                break;
 
         }
         ed.commit();
@@ -249,6 +266,8 @@ public class TaskActivity extends AppCompatActivity {
             case 7: amountOfTries = Integer.parseInt(sPref.getString(TRIES_LVL_7,"0"));
                 break;
             case 8: amountOfTries = Integer.parseInt(sPref.getString(TRIES_LVL_8,"0"));
+                break;
+            case 9: amountOfTries = Integer.parseInt(sPref.getString(TRIES_LVL_9,"0"));
                 break;
         }
     }
@@ -281,6 +300,9 @@ public class TaskActivity extends AppCompatActivity {
             case 8: ed.putString(SAVED_UNLIM_8, Integer.toString(maxUnlimValue));
 
                 break;
+            case 9: ed.putString(SAVED_UNLIM_9, Integer.toString(maxUnlimValue));
+
+                break;
 
         }
         ed.apply();
@@ -304,6 +326,8 @@ public class TaskActivity extends AppCompatActivity {
             case 7: maxUnlimValue = Integer.parseInt(sPref.getString(SAVED_UNLIM_7,"0"));
                 break;
             case 8: maxUnlimValue = Integer.parseInt(sPref.getString(SAVED_UNLIM_8,"0"));
+                break;
+            case 9: maxUnlimValue = Integer.parseInt(sPref.getString(SAVED_UNLIM_9,"0"));
                 break;
         }
 
@@ -569,8 +593,8 @@ public class TaskActivity extends AppCompatActivity {
 
     }
 
-    public void tower() //Ханойские башни
-    {
+    //Ханойские башни
+    public void tower(){
         f = true;
         if (localScore<3){
             int n=rand.nextInt(8)+3;
@@ -725,7 +749,8 @@ public class TaskActivity extends AppCompatActivity {
                 case 8:
                     level8Exercise();
                     break;
-
+                case 9:tower();
+                    break;
             }
         }
 }

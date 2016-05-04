@@ -13,10 +13,11 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class LevelActivity extends AppCompatActivity implements  Dialog.Communicator {
+
    //variables
     int a;
     int starsAmount,levelVariable;
-    Boolean resultCommunicator  = false;
+    Boolean resultCommunicator  = false,hardcore = false;
     SharedPreferences sPref;
     Dialog dialog;
     Intent i;
@@ -30,6 +31,7 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
     private static String SAVED_STARS_6 = "6";
     private static String SAVED_STARS_7 = "7";
     private static String SAVED_STARS_8 = "8";
+    private static String SAVED_STARS_9 = "9";
 
     Integer [] imageID = {
 
@@ -40,7 +42,8 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
             R.drawable.lvl5bt,
             R.drawable.lvl6bt,
             R.drawable.lvl7bt,
-            R.drawable.lvl8bt
+            R.drawable.lvl8bt,
+            R.drawable.hanoy
 
     };
 
@@ -56,6 +59,12 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
         starsAmount = getIntent().getIntExtra("Stars", 0);
         levelVariable = getIntent().getIntExtra("levelSTARS",0);
         int copy_amount = starsAmount;
+
+        /** Boolean hardcore-mod MainMenu --> LevelActivity --> TaskActivity
+          * hardcore = getIntent().getBooleanExtra("Hardcore",false);
+          * if (hardcore){}else{}
+        **/
+
 
         getStars(levelVariable);
 
@@ -75,6 +84,34 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
         list = (ListView)findViewById(R.id.list);
         list.setAdapter(customAdapter);
 
+     /** //Problem...
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            //Method,which contains resultCommunicator : onDialogMessage
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                //If stars != 0 then choice
+                if (IDs[position] != 0) {
+                    dialog.show(getFragmentManager(), "dialog");
+                    if (resultCommunicator){
+                        i.putExtra("Hardcore",true);
+                        startActivity(i);
+                    }else {
+                        i.putExtra("Hardcore",false);
+                        startActivity(i);
+                    }
+
+                } else {
+                    // normal mod only
+                    startLVL(position + 1);
+                }
+            }
+        });
+    **/
+    }
+
+    private void setOnItemListener(){
+
         //Problem...
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             //Method,which contains resultCommunicator : onDialogMessage
@@ -84,13 +121,13 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
                 //If stars != 0 then choice
                 if (IDs[position] != 0) {
                     dialog.show(getFragmentManager(), "dialog");
-                      if (resultCommunicator){
-                          i.putExtra("Hardcore",true);
-                          startActivity(i);
-                      }else {
-                          i.putExtra("Hardcore",false);
-                          startActivity(i);
-                      }
+                    if (resultCommunicator){
+                        i.putExtra("Hardcore",true);
+                        startActivity(i);
+                    }else {
+                        i.putExtra("Hardcore",false);
+                        startActivity(i);
+                    }
 
                 } else {
                     // normal mod only
@@ -100,8 +137,6 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
         });
 
     }
-
-
 
     public void startLVL(int key) {
         Intent i = new Intent(this, TheoryActivity.class);
@@ -146,8 +181,14 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
                 i.putExtra("lvl?", a);
                 startActivity(i);
                 break;
+            case 9:
+                a = 9;
+                i.putExtra("lvl?", a);
+                startActivity(i);
+                break;
         }
     }
+
     //Saves
     private void setStars (int levelVariable){
         sPref = getPreferences(MODE_PRIVATE);
@@ -178,10 +219,15 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
             case 8: ed.putString(SAVED_STARS_8, Integer.toString(starsAmount));
 
                 break;
+            case 9: ed.putString(SAVED_STARS_9, Integer.toString(starsAmount));
+
+                break;
+
 
         }
         ed.commit();
     }
+
     //Getter
     private void getStars (int levelVariable){
         sPref = getPreferences(MODE_PRIVATE);
@@ -202,6 +248,8 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
                 break;
             case 8: starsAmount = Integer.parseInt(sPref.getString(SAVED_STARS_8,"0"));
                 break;
+            case 9: starsAmount = Integer.parseInt(sPref.getString(SAVED_STARS_9,"0"));
+                break;
         }
     }
 
@@ -219,5 +267,6 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
     @Override
     public void onDialogMessage(Boolean hardcore) {
         resultCommunicator = hardcore;
+        setOnItemListener();
     }
 }
