@@ -32,6 +32,8 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
     private static String SAVED_STARS_7 = "7";
     private static String SAVED_STARS_8 = "8";
     private static String SAVED_STARS_9 = "9";
+    private static String SAVED_STARS_10 = "10";
+    private static String SAVED_STARS_11 = "11";
 
     Integer [] imageID = {
 
@@ -43,6 +45,8 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
             R.drawable.lvl6bt,
             R.drawable.lvl7bt,
             R.drawable.lvl8bt,
+            R.drawable.lvl9bt,
+            R.drawable.lvl10bt,
             R.drawable.hanoy
 
     };
@@ -182,7 +186,17 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
                 startActivity(i);
                 break;
             case 9:
-                a = 9;
+                a = key;
+                i.putExtra("lvl?", a);
+                startActivity(i);
+                break;
+            case 10:
+                a = key;
+                i.putExtra("lvl?", a);
+                startActivity(i);
+                break;
+            case 11:
+                a = key;
                 i.putExtra("lvl?", a);
                 startActivity(i);
                 break;
@@ -222,6 +236,12 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
             case 9: ed.putString(SAVED_STARS_9, Integer.toString(starsAmount));
 
                 break;
+            case 10: ed.putString(SAVED_STARS_10, Integer.toString(starsAmount));
+
+                break;
+            case 11: ed.putString(SAVED_STARS_11, Integer.toString(starsAmount));
+
+                break;
 
 
         }
@@ -249,6 +269,10 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
             case 8: starsAmount = Integer.parseInt(sPref.getString(SAVED_STARS_8,"0"));
                 break;
             case 9: starsAmount = Integer.parseInt(sPref.getString(SAVED_STARS_9,"0"));
+                break;
+            case 10: starsAmount = Integer.parseInt(sPref.getString(SAVED_STARS_10,"0"));
+                break;
+            case 11: starsAmount = Integer.parseInt(sPref.getString(SAVED_STARS_11,"0"));
                 break;
         }
     }
