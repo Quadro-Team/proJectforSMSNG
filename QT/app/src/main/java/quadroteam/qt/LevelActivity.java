@@ -12,12 +12,12 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class LevelActivity extends AppCompatActivity implements  Dialog.Communicator {
+public class LevelActivity extends AppCompatActivity {
 
    //variables
     int a;
     int starsAmount,levelVariable;
-    Boolean resultCommunicator  = false,hardcore = false;
+    Boolean hardcore = false;
     SharedPreferences sPref;
     Dialog dialog;
     Intent i;
@@ -58,149 +58,63 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
-       setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        //variables
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        //Stars
         starsAmount = getIntent().getIntExtra("Stars", 0);
         levelVariable = getIntent().getIntExtra("levelSTARS",0);
         int copy_amount = starsAmount;
 
-        /** Boolean hardcore-mod MainMenu --> LevelActivity --> TaskActivity
-          * hardcore = getIntent().getBooleanExtra("Hardcore",false);
-          * if (hardcore){}else{}
-        **/
+          hardcore = getIntent().getBooleanExtra("Hardcore",false);
 
-
-        getStars(levelVariable);
+          getStars(levelVariable);
 
           if (copy_amount!=0 && copy_amount > starsAmount ){
               starsAmount = copy_amount;
               setStars(levelVariable);
           }
-        sPref = getPreferences(MODE_PRIVATE);
+
+       /** sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
         ed.putString(SAVED_STARS_1, Integer.toString(2));
+        ed.apply();
+        **/
 
         createArray();
-        dialog = new Dialog();
+
         //List,Adapter,OnItemListener
+
         i = new Intent(getApplicationContext(),TaskActivity.class);
         CustomAdapter customAdapter = new CustomAdapter(this,imageID,IDs);
         list = (ListView)findViewById(R.id.list);
         list.setAdapter(customAdapter);
-
-     /** //Problem...
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            //Method,which contains resultCommunicator : onDialogMessage
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 //If stars != 0 then choice
-                if (IDs[position] != 0) {
-                    dialog.show(getFragmentManager(), "dialog");
-                    if (resultCommunicator){
-                        i.putExtra("Hardcore",true);
-                        startActivity(i);
-                    }else {
-                        i.putExtra("Hardcore",false);
-                        startActivity(i);
-                    }
+              //  if (IDs[position] != 0) {
+//
+                    i.putExtra("Hardcore", hardcore);
+                    startActivity(i);
 
-                } else {
-                    // normal mod only
-                    startLVL(position + 1);
-                }
-            }
-        });
-    **/
-    }
-
-    private void setOnItemListener(){
-
-        //Problem...
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            //Method,which contains resultCommunicator : onDialogMessage
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                //If stars != 0 then choice
-                if (IDs[position] != 0) {
-                    dialog.show(getFragmentManager(), "dialog");
-                    if (resultCommunicator){
-                        i.putExtra("Hardcore",true);
-                        startActivity(i);
-                    }else {
-                        i.putExtra("Hardcore",false);
-                        startActivity(i);
-                    }
-
-                } else {
-                    // normal mod only
-                    startLVL(position + 1);
-                }
-            }
+  //              } else {
+ //                   // normal mod only
+   //                 startLVL(position + 1);
+   //             }
+           }
         });
 
     }
+
+
 
     public void startLVL(int key) {
         Intent i = new Intent(this, TheoryActivity.class);
-        switch (key) {
-            case 1:
-                a = 1;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 2:
-                a = 2;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 3:
-                a = 3;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 4:
-                a = 4;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 5:
-                a = 5;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 6:
-                a = 6;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 7:
-                a = 7;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 8:
-                a = 8;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 9:
-                a = key;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 10:
-                a = key;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 11:
-                a = key;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-        }
+        a = key;
+        i.putExtra("lvl?", a);
+        startActivity(i);
+
     }
 
     //Saves
@@ -281,16 +195,112 @@ public class LevelActivity extends AppCompatActivity implements  Dialog.Communic
 
         for (int i = 0; i < IDs.length; i++){
             getStars(i+1);
-            IDs[i] = starsAmount;
-        }
+      //      if (hardcore && starsAmount != 0) {
+       //         IDs[i] = starsAmount;
+       //     }else {
+                IDs[i] = starsAmount;
+            }
+      //  }
 
         return IDs;
     }
 
+    /**
     // result of choice in dialog
     @Override
     public void onDialogMessage(Boolean hardcore) {
-        resultCommunicator = hardcore;
-        setOnItemListener();
+
     }
-}
+**/
+    }
+
+
+/**
+ private void setOnItemListener(){
+
+ //Problem...
+ list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+ //Method,which contains resultCommunicator : onDialogMessage
+ @Override
+ public void onItemClick(AdapterView<?> parent, View view,
+ int position, long id) {
+ //If stars != 0 then choice
+ if (IDs[position] != 0) {
+ dialog.show(getFragmentManager(), "dialog");
+ if (resultCommunicator){
+ i.putExtra("Hardcore",true);
+ startActivity(i);
+ }else {
+ i.putExtra("Hardcore",false);
+ startActivity(i);
+ }
+
+ } else {
+ // normal mod only
+ startLVL(position + 1);
+ }
+ }
+ });
+
+ }
+ **/
+
+/** switch (key) {
+ case 1:
+ a = 1;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 2:
+ a = 2;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 3:
+ a = 3;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 4:
+ a = 4;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 5:
+ a = 5;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 6:
+ a = 6;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 7:
+ a = 7;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 8:
+ a = 8;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 9:
+ a = key;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 10:
+ a = key;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 11:
+ a = key;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ }
+
+ **/

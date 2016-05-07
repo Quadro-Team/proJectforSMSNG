@@ -29,6 +29,16 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="Unlimited"
+        android:src="@drawable/unlim"
+        android:id="@+id/unlim"
+        android:background="#ffffe5"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="TheoryList"
         android:src="@drawable/theorybt"
         android:id="@+id/theory"

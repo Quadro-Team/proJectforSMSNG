@@ -57,7 +57,6 @@ public class MainMenuActivity extends AppCompatActivity  {
     }
     //Button in the Menu
     public void Unlimited (View v) {
-
         Intent i = new Intent(getApplicationContext(),LevelActivity.class);
         i.putExtra("Hardcore",true);
         startActivity(i);

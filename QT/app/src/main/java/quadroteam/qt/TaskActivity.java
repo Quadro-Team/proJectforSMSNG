@@ -71,6 +71,7 @@ public class TaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         exercise = (TextView)findViewById(R.id.textExercise);
         answer = (EditText)findViewById(R.id.textAnswer);  answer.setBackgroundColor(Color.TRANSPARENT);
         answerButton = (ImageButton)findViewById(R.id.check);
