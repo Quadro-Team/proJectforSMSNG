@@ -19,7 +19,6 @@ public class LevelActivity extends AppCompatActivity {
     int starsAmount,levelVariable;
     Boolean hardcore = false;
     SharedPreferences sPref;
-    Dialog dialog;
     Intent i;
     ListView list;
 
@@ -93,15 +92,14 @@ public class LevelActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 //If stars != 0 then choice
-              //  if (IDs[position] != 0) {
-//
+                if (IDs[position] != 0) {
                     i.putExtra("Hardcore", hardcore);
+                    i.putExtra("lvl?", position+1);
                     startActivity(i);
-
-  //              } else {
- //                   // normal mod only
-   //                 startLVL(position + 1);
-   //             }
+                } else {
+                // normal mod only
+             startLVL(position + 1);
+            }
            }
         });
 

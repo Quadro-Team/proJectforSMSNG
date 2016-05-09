@@ -122,8 +122,12 @@ public class TaskActivity extends AppCompatActivity {
             case 9:
                 level9Exercise();
                 break;
-            case 11: level10Exercise();
-
+            case 10:
+                level10Exercise();
+                break;
+            case 11:
+                tower();
+                break;
         }
 
 
@@ -589,8 +593,8 @@ public class TaskActivity extends AppCompatActivity {
     }
 
 
-//Level 9
-   public void level9Exercise(){
+    //Level 9
+    public void level9Exercise(){
         f = true;
         int n1 = rand.nextInt(29)+1;
         int n2 = rand.nextInt(24)+1;
@@ -680,22 +684,21 @@ public class TaskActivity extends AppCompatActivity {
                         answer.setBackgroundColor(Color.rgb(154, 252, 85)); //поле ввода изменяет цвет в случае правильного ответа
                         f = !f;
                         if (!hardcore) {
-                            //Нормальная работа при выключенном хардеор-режиме
+                            /** Нормальная работа при выключенном хардеор-режиме **/
                             localScore++; //увеличение счета на балл
-                            amountOfTries++;
                             setLocalScore(levelVariable);
                             setTries(levelVariable);
                         } else {
-                            //Увеличение только при включенном хардкор-режиме
+                            /** Увеличение только при включенном хардкор-режиме **/
                             unlimValue++;
                         }
                     } else {
-                        answer.setBackgroundColor(Color.rgb(211, 39, 63)); //поле ввода изменяет свой цвет в случае неправильного ответа
+                        /** изменение цвета поля при ответе (зеленый - "+" ; касный - "-") **/
+                        answer.setBackgroundColor(Color.rgb(211, 39, 63));
                         answer.setTextColor(Color.rgb(255, 255, 231));
                         answer.setText("Неправильно");
                         f=!f;
                         if (!hardcore) {
-                            amountOfTries++;
                             setTries(levelVariable);
                             if (hardcore) {
                                 nextUnlim = false;
@@ -740,16 +743,17 @@ public class TaskActivity extends AppCompatActivity {
         answerButton.setClickable(true);
 
         if (!hardcore) {
-            if (localScore >= 10) {
-                sPref = getPreferences(MODE_PRIVATE);
+            if (localScore >= 2) {
+               /** sPref = getPreferences(MODE_PRIVATE);
                 SharedPreferences.Editor ed = sPref.edit();
                 ed.putString(SAVED_VALUE, Integer.toString(levelVariable));
                 ed.apply();
+                **/
                 localScore = 0;
-                setLocalScore(levelVariable);
                 amountOfTries = 0;
+                setLocalScore(levelVariable);
                 setTries(levelVariable);
-                Intent level = new Intent(getApplicationContext(), LevelActivity.class);
+                Intent level = new Intent(getApplicationContext(), Congratulations.class);
                 startActivity(level);
             }
             if (localScore < 10) {
@@ -759,7 +763,8 @@ public class TaskActivity extends AppCompatActivity {
             if (nextUnlim) {
                 setMaxUnlimPoints(levelVariable);
                 nextTask(levelVariable);
-            } else {
+            }
+            if (!nextUnlim){
                 setMaxUnlimPoints(levelVariable);
                 Intent i = new Intent(this, UnlimitedActivity.class);
                 getMaxUnlimPoints(levelVariable);
@@ -794,7 +799,11 @@ public class TaskActivity extends AppCompatActivity {
                 case 8:
                     level8Exercise();
                     break;
-                case 9:tower();
+                case 9:level9Exercise();
+                    break;
+                case 10: level10Exercise();
+                    break;
+                case 11: tower();
                     break;
             }
         }
