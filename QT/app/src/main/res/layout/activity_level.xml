@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Выберите Уровень:"
+        android:text="Выберите уровень:"
         android:textSize="20sp"
         android:gravity="center"
         android:textColor="#7d2c41"

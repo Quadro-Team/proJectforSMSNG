@@ -62,16 +62,16 @@ public class MainMenuActivity extends AppCompatActivity  {
         startActivity(i);
     }
 
-    public void onShow() {
+    public void onShow(AlertDialog.Builder builder) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainMenuActivity.this);
         builder.setTitle("Важное сообщение!")
                 .setMessage("Добро пожаловать в Дзету\n" +
                         "Мы научим вас работать с разными системами счисления (дальше будем называть их сс для краткости)\n" +
                         "Для начала выберете уровень, прочитайте теорию и начните выполнять задания. Вы неограниченны во времени и в попытках, " +
                         "нужно лишь набрать 10 правильных ответов, и уровень пройден. Конечно, чтобы вам было интереснее, за каждый уровень начисляются" +
-                        " звезды. Чем меньшее число заданий вы решите, набрав 10 очков, тем больше звезды вы получите\n")
+                        " звезды. Чем меньшее число заданий вы решите, набрав 10 очков, тем больше звезд вы получите\n")
                 .setCancelable(false)
-                .setNegativeButton("Понял!",
+                .setNegativeButton("Понятно!",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
