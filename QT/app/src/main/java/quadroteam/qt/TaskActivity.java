@@ -66,6 +66,7 @@ public class TaskActivity extends AppCompatActivity {
     EditText answer;
     ImageButton answerButton;
     Handler h;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -743,18 +744,22 @@ public class TaskActivity extends AppCompatActivity {
         answerButton.setClickable(true);
 
         if (!hardcore) {
-            if (localScore >= 2) {
+            if (localScore >= 10) {
                /** sPref = getPreferences(MODE_PRIVATE);
                 SharedPreferences.Editor ed = sPref.edit();
                 ed.putString(SAVED_VALUE, Integer.toString(levelVariable));
                 ed.apply();
                 **/
-                localScore = 0;
-                amountOfTries = 0;
+
                 setLocalScore(levelVariable);
                 setTries(levelVariable);
                 Intent level = new Intent(getApplicationContext(), Congratulations.class);
+                level.putExtra("levelSTAR",levelVariable);
+                level.putExtra("Tries",amountOfTries);
                 startActivity(level);
+
+                localScore = 0;
+                amountOfTries = 0;
             }
             if (localScore < 10) {
                 nextTask(levelVariable);

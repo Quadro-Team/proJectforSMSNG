@@ -34,7 +34,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:singleLine="false"
-        android:phoneNumber="false"
         android:textStyle="bold" />
     <Button
         android:layout_width="match_parent"

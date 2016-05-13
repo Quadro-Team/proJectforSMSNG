@@ -62,7 +62,7 @@ public class MainMenuActivity extends AppCompatActivity  {
         startActivity(i);
     }
 
-    public void onShow(AlertDialog.Builder builder) {
+    public void onShow() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainMenuActivity.this);
         builder.setTitle("Важное сообщение!")
                 .setMessage("Добро пожаловать в Дзету\n" +
