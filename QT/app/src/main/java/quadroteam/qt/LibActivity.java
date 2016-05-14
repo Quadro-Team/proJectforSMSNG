@@ -1,5 +1,7 @@
 package quadroteam.qt;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
@@ -50,7 +52,7 @@ public class LibActivity extends AppCompatActivity {
 
 
     public void startThe(int key) {
-        Intent i = new Intent(this, TheoryActivity.class);
+        Intent i = new Intent(this, LibOfTheory.class);
         switch (key) {
             case 1:
                 a = 1;
@@ -94,4 +96,39 @@ public class LibActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    @Override
+    public void onBackPressed () {
+        //TODO Auto-generated method stub
+        quitMethod();
+    }
+
+    private void quitMethod () {
+
+        AlertDialog.Builder quitDialog = new AlertDialog.Builder(
+                LibActivity.this);
+        quitDialog.setTitle("Вернуться в меню уровней?");
+
+        quitDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                Intent level = new Intent(getApplicationContext(),LevelActivity.class);
+                startActivity(level);
+
+                finish();
+            }
+        });
+
+        quitDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        quitDialog.show();
+
+    }
+
 }

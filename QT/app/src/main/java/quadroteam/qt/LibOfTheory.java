@@ -1,5 +1,7 @@
 package quadroteam.qt;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
@@ -46,5 +48,37 @@ public class LibOfTheory extends AppCompatActivity {
                 break;
         }
     }
+    @Override
+    public void onBackPressed () {
+        //TODO Auto-generated method stub
+        quitMethod();
+    }
 
+    private void quitMethod () {
+
+        AlertDialog.Builder quitDialog = new AlertDialog.Builder(
+                LibOfTheory.this);
+        quitDialog.setTitle("Вернуться в Главное меню?");
+
+        quitDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                Intent level = new Intent(getApplicationContext(),LevelActivity.class);
+                startActivity(level);
+
+                finish();
+            }
+        });
+
+        quitDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        quitDialog.show();
+
+    }
 }

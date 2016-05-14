@@ -1,17 +1,20 @@
 package quadroteam.qt;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
 public class Congratulations extends AppCompatActivity {
-
+    Button toMainMenuB;
     TextView scores;
     ImageView stars;
     int  starsAmount;
@@ -22,6 +25,7 @@ public class Congratulations extends AppCompatActivity {
         setContentView(R.layout.congratulations_activity);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        toMainMenuB = (Button)findViewById(R.id.button);
 
         scores = (TextView)findViewById(R.id.scores);
         stars = (ImageView)findViewById(R.id.stars);
@@ -55,4 +59,13 @@ public class Congratulations extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed () {
+        //TODO Auto-generated method stub
+        quitMethod();
+    }
+
+    private void quitMethod () {
+        toMainMenu(toMainMenuB);
+    }
 }

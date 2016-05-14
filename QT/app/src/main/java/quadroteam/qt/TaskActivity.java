@@ -1,5 +1,7 @@
 package quadroteam.qt;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -778,7 +780,7 @@ public class TaskActivity extends AppCompatActivity {
             }
         }
     }
-        public void nextTask (int levelVariable){
+    public void nextTask (int levelVariable){
             switch (levelVariable) {
                 case 1:
                     level1Exercise();
@@ -812,6 +814,41 @@ public class TaskActivity extends AppCompatActivity {
                     break;
             }
         }
+
+    @Override
+    public void onBackPressed () {
+            //TODO Auto-generated method stub
+            quitMethod();
+    }
+
+    private void quitMethod () {
+
+        AlertDialog.Builder quitDialog = new AlertDialog.Builder(
+                TaskActivity.this);
+        quitDialog.setTitle("Вернуться в меню уровней?");
+
+        quitDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                Intent level = new Intent(getApplicationContext(),LevelActivity.class);
+                startActivity(level);
+
+                finish();
+            }
+        });
+
+        quitDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        quitDialog.show();
+
+    }
+
 }
 
 

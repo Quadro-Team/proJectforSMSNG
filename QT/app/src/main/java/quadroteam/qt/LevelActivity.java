@@ -1,5 +1,7 @@
 package quadroteam.qt;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -8,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import java.util.logging.Level;
 
 public class LevelActivity extends AppCompatActivity {
 
@@ -209,6 +213,40 @@ public class LevelActivity extends AppCompatActivity {
        }
 
         return IDs;
+    }
+
+    @Override
+    public void onBackPressed () {
+        //TODO Auto-generated method stub
+        quitMethod();
+    }
+
+    private void quitMethod () {
+
+        AlertDialog.Builder quitDialog = new AlertDialog.Builder(
+                LevelActivity.this);
+        quitDialog.setTitle("Вернуться в Главное меню?");
+
+        quitDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                Intent level = new Intent(getApplicationContext(),MainMenuActivity.class);
+                startActivity(level);
+
+                finish();
+            }
+        });
+
+        quitDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        quitDialog.show();
+
     }
 
 }
