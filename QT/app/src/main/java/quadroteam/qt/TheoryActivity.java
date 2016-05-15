@@ -39,7 +39,7 @@ public class TheoryActivity extends AppCompatActivity {
             break;
         case 9: t.setImageResource(R.drawable.the9);
             break;
-        case 10: t.setImageResource(R.drawable.labelveronepone);
+        case 10: t.setImageResource(R.drawable.the10);
             break;
         case 11: t.setImageResource(R.drawable.the11);
             break;

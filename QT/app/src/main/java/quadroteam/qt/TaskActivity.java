@@ -94,7 +94,8 @@ public class TaskActivity extends AppCompatActivity {
                     "\nОчков:" + localScore + "/10");
         }
         if (hardcore){
-            score.setText("Рекорд: "  + maxUnlimValue + " Очки: 0");
+           // score.setText("Рекорд: "  + maxUnlimValue + " Очки: 0");
+            score.setText("Очки: 0");
         }
         // setAllZero();
         switch(levelVariable){
@@ -717,7 +718,8 @@ public class TaskActivity extends AppCompatActivity {
                 score.setText("Попыток:" + amountOfTries +
                         "\nОчков:" + localScore + "/10"); //вывод текущего счета
             } else {
-                score.setText("Рекорд: " + maxUnlimValue + "  Очки: " + unlimValue);
+                //score.setText("Рекорд: " + maxUnlimValue + "  Очки: " + unlimValue);
+                score.setText("Очки "+unlimValue);
             }
         }
     };

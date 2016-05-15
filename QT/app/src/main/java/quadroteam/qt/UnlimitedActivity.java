@@ -32,12 +32,14 @@ TextView view;
             ed.apply();
         }
 
-        view.setText("Очков "+ scores + "\nРекорд: " + record);
+        //view.setText("Очков "+ scores + "\nРекорд: " + record);
+        view.setText("Очков "+scores);
     }
 
     public void toLevelMenu (View v)
     {
         Intent i = new Intent(getApplicationContext(),LevelActivity.class);
+        i.putExtra("Hardcore",true);
         startActivity(i);
     }
 

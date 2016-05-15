@@ -24,7 +24,11 @@ public class LibActivity extends AppCompatActivity {
             R.drawable.lvl5bt,
             R.drawable.lvl6bt,
             R.drawable.lvl7bt,
-            R.drawable.lvl8bt
+            R.drawable.lvl8bt,
+            R.drawable.lvl9bt,
+           // R.drawable.lvl10bt,
+           // R.drawable.lvl1bt,
+           // R.drawable.hanoy
 
     };
 
