@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 
 public class UnlimitedActivity extends AppCompatActivity {
-    static private String RECORD = "record";
     int record;
 TextView view;
     SharedPreferences sPref;
@@ -20,20 +19,14 @@ TextView view;
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
 
-        record = sPref.getInt(RECORD,0);
+        record = getIntent().getIntExtra("Max",0);
 
         view = (TextView) findViewById(R.id.scores);
 
         int scores = getIntent().getIntExtra("Scores",0);
 
-        if (record < scores ){
-            record = scores;
-            ed.putInt(RECORD,record);
-            ed.apply();
-        }
+        view.setText("Очков "+ scores + "\nРекорд: " + record);
 
-        //view.setText("Очков "+ scores + "\nРекорд: " + record);
-        view.setText("Очков "+scores);
     }
 
     public void toLevelMenu (View v)

@@ -53,6 +53,12 @@ public class LevelActivity extends AppCompatActivity {
 
     Integer IDs[] = new Integer[imageID.length];
 
+    //Dialog
+
+    private static String DIALOG_STATUS = "status";
+
+    String getDialogStatus = "appeare";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +66,24 @@ public class LevelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_level);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        hardcore = getIntent().getBooleanExtra("Hardcore",false);
+        //Dialog {
 
+        sPref = getPreferences(MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sPref.edit();
+
+        getDialogStatus = sPref.getString(DIALOG_STATUS,"appeare");
+
+        if (getDialogStatus.equals("appeare")){
+
+            editor.putString(DIALOG_STATUS,"disappeare");
+            editor.apply();
+
+            onShow();
+
+        }
+            // } Dialog
+        hardcore = getIntent().getBooleanExtra("Hardcore",false);
         //Stars
         starsAmount = getIntent().getIntExtra("Stars", 1);
         levelVariable = getIntent().getIntExtra("levelSTARS",0);
@@ -96,7 +118,7 @@ public class LevelActivity extends AppCompatActivity {
                 //If stars != 0 then choice
                 if (IDs[position] != 0) {
                     i.putExtra("Hardcore", hardcore);
-                    i.putExtra("lvl?", position+1);
+                    i.putExtra("lvl", position+1);
                     startActivity(i);
                 } else {
                 // normal mod only
@@ -249,4 +271,18 @@ public class LevelActivity extends AppCompatActivity {
 
     }
 
+    public void onShow() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(LevelActivity.this);
+        builder.setTitle("Важное сообщение!")
+                .setMessage("После получения минимум одной звезды откроется 'Бесконенчный режим'")
+                .setCancelable(false)
+                .setNegativeButton("Понятно!",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 }

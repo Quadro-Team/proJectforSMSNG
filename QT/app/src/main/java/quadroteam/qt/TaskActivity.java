@@ -87,15 +87,14 @@ public class TaskActivity extends AppCompatActivity {
 
         sPref = getPreferences(MODE_PRIVATE);
 
-        getLocalScore(levelVariable);getTries(levelVariable);
+        getLocalScore(levelVariable);getTries(levelVariable);getMaxUnlimPoints(levelVariable);
         score.setGravity(Gravity.CENTER);
         if (!hardcore) {
             score.setText("Попыток:" + amountOfTries + "" +
                     "\nОчков:" + localScore + "/10");
         }
         if (hardcore){
-           // score.setText("Рекорд: "  + maxUnlimValue + " Очки: 0");
-            score.setText("Очки: 0");
+            score.setText(" Очки: 0  " + "Рекорд: "  + maxUnlimValue );
         }
         // setAllZero();
         switch(levelVariable){
@@ -718,8 +717,7 @@ public class TaskActivity extends AppCompatActivity {
                 score.setText("Попыток:" + amountOfTries +
                         "\nОчков:" + localScore + "/10"); //вывод текущего счета
             } else {
-                //score.setText("Рекорд: " + maxUnlimValue + "  Очки: " + unlimValue);
-                score.setText("Очки "+unlimValue);
+                score.setText("Очки: " + unlimValue + "  Рекорд: " + maxUnlimValue);
             }
         }
     };
@@ -755,8 +753,7 @@ public class TaskActivity extends AppCompatActivity {
                 ed.apply();
                 **/
 
-                setLocalScore(levelVariable);
-                setTries(levelVariable);
+
                 Intent level = new Intent(getApplicationContext(), Congratulations.class);
                 level.putExtra("levelSTAR",levelVariable);
                 level.putExtra("Tries",amountOfTries);
@@ -764,6 +761,8 @@ public class TaskActivity extends AppCompatActivity {
 
                 localScore = 0;
                 amountOfTries = 0;
+                setLocalScore(levelVariable);
+                setTries(levelVariable);
             }
             if (localScore < 10) {
                 nextTask(levelVariable);
@@ -780,8 +779,9 @@ public class TaskActivity extends AppCompatActivity {
                      maxUnlimValue = unlimValue;
                      setMaxUnlimPoints(levelVariable);
                  }
+                getMaxUnlimPoints(levelVariable);
                 i.putExtra("Scores",unlimValue);
-
+                i.putExtra("Max",maxUnlimValue);
                 startActivity(i);
             }
         }
@@ -837,7 +837,7 @@ public class TaskActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
-                Intent level = new Intent(getApplicationContext(),LevelActivity.class);
+                Intent level = new Intent(getApplicationContext(),MainMenuActivity.class);
                 startActivity(level);
 
                 finish();

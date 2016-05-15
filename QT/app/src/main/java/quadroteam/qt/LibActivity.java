@@ -13,8 +13,6 @@ import android.widget.ListView;
 
 public class LibActivity extends AppCompatActivity {
 
-    int a;
-
     Integer [] imageID = {
 
             R.drawable.lvl1bt,
@@ -26,9 +24,9 @@ public class LibActivity extends AppCompatActivity {
             R.drawable.lvl7bt,
             R.drawable.lvl8bt,
             R.drawable.lvl9bt,
-           // R.drawable.lvl10bt,
-           // R.drawable.lvl1bt,
-           // R.drawable.hanoy
+            R.drawable.lvl10bt,
+            R.drawable.lvl1bt,
+            R.drawable.hanoy
 
     };
 
@@ -78,7 +76,7 @@ public class LibActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
-                Intent level = new Intent(getApplicationContext(),LevelActivity.class);
+                Intent level = new Intent(getApplicationContext(),MainMenuActivity.class);
                 startActivity(level);
 
                 finish();

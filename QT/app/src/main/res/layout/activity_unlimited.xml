@@ -25,7 +25,7 @@
         android:textSize="30sp"
         android:id="@+id/scores"
         android:text="wwwwwwww"
-        android:textColor="#000"
+        android:textColor="#7D2B41"
         android:layout_gravity="center"
         android:layout_weight="1"
         />
