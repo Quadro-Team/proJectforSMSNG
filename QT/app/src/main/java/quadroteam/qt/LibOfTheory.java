@@ -46,6 +46,18 @@ public class LibOfTheory extends AppCompatActivity {
             case 8:
                 t.setImageResource(R.drawable.the8);
                 break;
+            case 9:
+                t.setImageResource(R.drawable.the9);
+                break;
+            case 10:
+                t.setImageResource(R.drawable.labelveronepone);
+                break;
+            case 11:
+                t.setImageResource(R.drawable.the11);
+                break;
+
+            default: t.setImageResource(R.drawable.labelveronepone);
+                break;
         }
     }
     @Override
@@ -58,13 +70,13 @@ public class LibOfTheory extends AppCompatActivity {
 
         AlertDialog.Builder quitDialog = new AlertDialog.Builder(
                 LibOfTheory.this);
-        quitDialog.setTitle("Вернуться в Главное меню?");
+        quitDialog.setTitle("Вернуться в меню теории?");
 
         quitDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
-                Intent level = new Intent(getApplicationContext(),LevelActivity.class);
+                Intent level = new Intent(getApplicationContext(),LibActivity.class);
                 startActivity(level);
 
                 finish();

@@ -703,9 +703,9 @@ public class TaskActivity extends AppCompatActivity {
                         f=!f;
                         if (!hardcore) {
                             setTries(levelVariable);
-                            if (hardcore) {
-                                nextUnlim = false;
-                            }
+                        }
+                        if (hardcore) {
+                            nextUnlim = false;
                         }
 
 
@@ -717,7 +717,7 @@ public class TaskActivity extends AppCompatActivity {
                 score.setText("Попыток:" + amountOfTries +
                         "\nОчков:" + localScore + "/10"); //вывод текущего счета
             } else {
-                score.setText("Рекорд: " + maxUnlimValue + "  Очки: " + amountOfTries);
+                score.setText("Рекорд: " + maxUnlimValue + "  Очки: " + unlimValue);
             }
         }
     };
@@ -766,16 +766,20 @@ public class TaskActivity extends AppCompatActivity {
             if (localScore < 10) {
                 nextTask(levelVariable);
             }
-        } else {
+        }
+        if (hardcore){
             if (nextUnlim) {
                 setMaxUnlimPoints(levelVariable);
                 nextTask(levelVariable);
             }
             if (!nextUnlim){
-                setMaxUnlimPoints(levelVariable);
                 Intent i = new Intent(this, UnlimitedActivity.class);
-                getMaxUnlimPoints(levelVariable);
-                i.putExtra("Scores", maxUnlimValue);
+                 if (unlimValue > maxUnlimValue){
+                     maxUnlimValue = unlimValue;
+                     setMaxUnlimPoints(levelVariable);
+                 }
+                i.putExtra("Scores",unlimValue);
+
                 startActivity(i);
             }
         }

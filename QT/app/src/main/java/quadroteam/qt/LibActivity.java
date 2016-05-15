@@ -53,48 +53,9 @@ public class LibActivity extends AppCompatActivity {
 
     public void startThe(int key) {
         Intent i = new Intent(this, LibOfTheory.class);
-        switch (key) {
-            case 1:
-                a = 1;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 2:
-                a = 2;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 3:
-                a = 3;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 4:
-                a = 4;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 5:
-                a = 5;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 6:
-                a = 6;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 7:
-                a = 7;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-            case 8:
-                a = 8;
-                i.putExtra("lvl?", a);
-                startActivity(i);
-                break;
-        }
+        i.putExtra("lvl?", key);
+        startActivity(i);
+
     }
 
     @Override
@@ -132,3 +93,48 @@ public class LibActivity extends AppCompatActivity {
     }
 
 }
+
+
+/**
+ switch (key) {
+ case 1:
+ a = 1;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 2:
+ a = 2;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 3:
+ a = 3;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 4:
+ a = 4;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 5:
+ a = 5;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 6:
+ a = 6;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 7:
+ a = 7;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ case 8:
+ a = 8;
+ i.putExtra("lvl?", a);
+ startActivity(i);
+ break;
+ }  **/
